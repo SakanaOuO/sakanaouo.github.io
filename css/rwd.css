@@ -1,0 +1,327 @@
+@media (max-width: 576px) {
+    .sidebar a {
+        font-size: 15px;
+    }
+    .nav_logo {
+        width: 65px;
+        margin-left: 30%;
+    }
+    .active .navicon {
+        margin-left: 165px;
+        margin-top: 20px;
+    }
+    .active .nav_logo {
+        margin-left: 165px !important;
+    }
+    .active .li_logo h2 {
+        height: 0px;
+    }
+    .qp {
+        font-size: 450%;
+    }
+    .lll {
+        margin-left: 155px;
+    }
+    .sidebar h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+    .quote .up {
+        margin-left: -48%;
+    }
+    .quote .down {
+        text-align: center;
+        margin-left: -5%;
+    }
+    .About_R {
+        margin-left: 7% !important;
+    }
+    .mp_dow {
+        margin-left: 8% !important;
+    }
+}
+
+@media (min-width: 576px) {
+    .sidebar a {
+        font-size: 15px;
+    }
+    .nav_logo {
+        width: 65px;
+        margin-left: 30%;
+    }
+    .active .navicon {
+        margin-left: 130px;
+        margin-top: 20px;
+    }
+    .active .nav_logo {
+        margin-left: 165px !important;
+    }
+    .active .li_logo h2 {
+        height: 0px;
+    }
+    .qp {
+        font-size: 600%;
+    }
+    .quote {
+        width: 60% !important;
+    }
+    .sidebar h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+    .About_R {
+        margin-left: 5% !important;
+    }
+    .mp_dow {
+        margin-left: 8% !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 150px;
+    }
+    .active .nav_logo {
+        margin-left: 120px !important;
+    }
+    .active .li_logo h2 {
+        height: 0px;
+    }
+    .active {
+        margin-left: -100px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
+    .tab a {
+        width: 80%;
+    }
+    .active .navicon {
+        margin-left: 85px;
+        margin-top: 20px;
+    }
+    .navicon {
+        margin-left: -10%;
+    }
+    .nav_logo {
+        width: 65px;
+        margin-left: 30%;
+    }
+    .qp {
+        font-size: 650%;
+    }
+    .quote {
+        width: 60% !important;
+    }
+    .sidebar h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+    .tab ul li a {
+        line-height: 20px;
+        font-size: 16px !important;
+        margin-left: 5px;
+    }
+    .About_R {
+        margin-left: 0% !important;
+    }
+    .soft_all {
+        margin-left: 5% !important;
+    }
+    .exp_con {
+        margin-left: 10% !important;
+    }
+    .mp_o {
+        margin-left: 5% !important;
+    }
+    .mp_dow {
+        margin-left: 0% !important;
+    }
+    .cp_all {
+        margin-left: 5% !important;
+    }
+    .e_all {
+        margin-left: 5% !important;
+    }
+    .ani_all {
+        margin-left: 5% !important;
+    }
+    #Live2D {
+        margin-left: 5% !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .sidebar {
+        width: 150px;
+    }
+    .active {
+        margin-left: -100px;
+    }
+    .sidebar a {
+        font-size: 18px;
+    }
+    .tab a {
+        width: 80%;
+    }
+    .active .navicon {
+        margin-left: 85px;
+        margin-top: 20px;
+    }
+    .navicon {
+        margin-left: -10%;
+    }
+    .nav_logo {
+        width: 65px;
+        margin-left: 30%;
+    }
+    .active .nav_logo {
+        margin-left: 120px !important;
+    }
+    .active .li_logo h2 {
+        height: 0px;
+    }
+    .qp {
+        font-size: 800%;
+    }
+    .quote {
+        width: 50% !important;
+    }
+    .sidebar h2 {
+        text-align: center;
+        font-size: 30px;
+    }
+    .tab ul li a {
+        line-height: 20px;
+        font-size: 16px !important;
+        margin-left: 5px;
+    }
+    .soft_all {
+        margin-left: 3% !important;
+    }
+    .exp_con {
+        margin-left: 3% !important;
+    }
+    .mp_o {
+        margin-left: 3% !important;
+    }
+    .mp_dow {
+        margin-left: 3% !important;
+    }
+    .cp_all {
+        margin-left: 5% !important;
+    }
+    .e_all {
+        margin-left: 5% !important;
+    }
+    .ani_all {
+        margin-left: 5% !important;
+    }
+    #Live2D {
+        margin-left: 5% !important;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .sidebar {
+        width: 200px;
+    }
+    .active {
+        margin-left: -150px;
+    }
+    .sidebar a {
+        font-size: 20px;
+    }
+    .tab a {
+        width: 80%;
+    }
+    .active .navicon {
+        margin-left: 130px;
+    }
+    .navicon {
+        margin-left: 0%;
+    }
+    .nav_logo {
+        margin-left: 20%;
+    }
+    .active .nav_logo {
+        margin-left: 160px !important;
+    }
+    .qp {
+        font-size: 900%;
+    }
+    .sidebar h2 {
+        text-align: left;
+    }
+    .tab ul li a {
+        font-size: 16px !important;
+        margin-left: 30px;
+    }
+    .soft_all {
+        margin-left: 3% !important;
+    }
+    .exp_con {
+        margin-left: 3% !important;
+    }
+    .mp_o {
+        margin-left: 3% !important;
+    }
+    .mp_dow {
+        margin-left: 3% !important;
+    }
+    .cp_all {
+        margin-left: 5% !important;
+    }
+    .e_all {
+        margin-left: 5% !important;
+    }
+    .ani_all {
+        margin-left: 5% !important;
+    }
+    #Live2D {
+        margin-left: 5% !important;
+    }
+}
+
+@media (min-width: 1400px){
+    .sidebar a {
+        font-size: 20px;
+    }
+    .active .navicon {
+        margin-left: 130px;
+    }
+    .active .nav_logo {
+        margin-left: 170px !important;
+    }
+    .qp {
+        font-size: 1000%;
+    }
+    .sidebar h2 {
+        text-align: left;
+    }
+    .soft_all {
+        margin-left: 0% !important;
+    }
+    .exp_con {
+        margin-left: 0% !important;
+    }
+    .mp_o {
+        margin-left: 0% !important;
+    }
+    .mp_dow {
+        margin-left: 0% !important;
+    }
+    .cp_all {
+        margin-left: 0% !important;
+    }
+    .e_all {
+        margin-left: 0% !important;
+    }
+    .ani_all {
+        margin-left: 0% !important;
+    }
+    #Live2D {
+        margin-left: 0% !important;
+    }
+}
