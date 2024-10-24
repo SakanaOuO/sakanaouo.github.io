@@ -15,11 +15,11 @@ $(document).ready(function() {
     })
 })
 
-window.onload = function() {
-    if (window.innerWidth < 768) {
+document.addEventListener('DOMContentLoaded', function() {
+      if (window.innerWidth < 768) {
         document.querySelector('.sidebar').classList.add('active');
     }
-};
+});
 
 function checkWindowSize() {
     if (window.innerWidth < 768) {
