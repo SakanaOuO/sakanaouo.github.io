@@ -645,7 +645,7 @@ div h3 {
 }
 /* ---------------------------------------------- */
 
-#preloader {
+#Loading {
     position: fixed;
     top: 0;
     left: 0;
@@ -656,7 +656,7 @@ div h3 {
     background: #151515;
   }
   
-  #preloader:before {
+  #Loading:before {
     content: "";
     position: fixed;
     top: calc(50% - 0px);
@@ -667,11 +667,11 @@ div h3 {
     border-radius: 50%;
     width: 60px;
     height: 60px;
-    -webkit-animation: animate-preloader 1s linear infinite;
-    animation: animate-preloader 1s linear infinite;
+    -webkit-animation: animate-Loading 1s linear infinite;
+    animation: animate-Loading 1s linear infinite;
   }
   
-  @-webkit-keyframes animate-preloader {
+  @-webkit-keyframes animate-Loading {
     0% {
       transform: rotate(0deg);
     }
@@ -680,7 +680,7 @@ div h3 {
     }
   }
   
-  @keyframes animate-preloader {
+  @keyframes animate-Loading {
     0% {
       transform: rotate(0deg);
     }
