@@ -268,7 +268,7 @@ h2::after {
     line-height: 300%;
     font-size: 18px;
     text-indent: 2em;
-    margin-top: 4% !important;
+    margin-top: 0% !important;
 }
 
 /* <!---------------------------------------------------------> */
