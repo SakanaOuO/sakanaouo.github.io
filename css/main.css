@@ -755,6 +755,10 @@ h2::after {
     transform: translate(-20%, 10%);
 }
 
+.mod_2 {
+    margin-top: 1% !important;
+}
+
 /* <!------------------------Game---------------------------------> */
 
 .g_dow {
