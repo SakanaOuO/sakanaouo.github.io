@@ -256,7 +256,10 @@ h2::after {
 }
 
 .me img {
-    width: 100%;
+    width: 70%;
+    top: 50%;
+    left: 10%;
+    transform: translate(20%, 0%);
 }
 
 .abo_sst {
