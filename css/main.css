@@ -267,6 +267,22 @@ h2::after {
     margin-left: -11%;
 }
 
+.ski {
+    margin-left: 3% !important;
+}
+
+.ski::after {
+    content: "";
+    display: block;
+    width: 13%;
+    height: 2px;
+    background-color: #9fa0a0;
+    left: 0px;
+    bottom: 0px;
+    margin-top: 1%;
+    margin-left: -3%;
+}
+
 .vtbtitle {
     margin-left: 10% !important;
 }
@@ -295,6 +311,7 @@ h2::after {
 }
 
 .abo_sst {
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -304,6 +321,10 @@ h2::after {
     font-size: 18px;
     text-indent: 2em;
     margin-top: 0% !important;
+}
+
+.ski_con {
+    text-indent: 2em;
 }
 
 /* <!---------------------------------------------------------> */
