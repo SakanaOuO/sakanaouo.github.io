@@ -691,7 +691,6 @@ h2::after {
 
 .g_con {
     text-indent: 2em;
-    margin-top: 10%;
     line-height: 350%;
 }
 
@@ -717,10 +716,6 @@ h2::after {
 
 .case {
     margin-top: 10% !important;
-}
-
-.case_2 {
-    margin-top: 5% !important;
 }
 
 .g_Click {
@@ -757,7 +752,7 @@ h2::after {
 }
 
 .ss {
-    margin-top: 8% !important;
+    margin-top: 10% !important;
 }
 
 .ani_a {
