@@ -785,6 +785,11 @@ h2::after {
     margin-top: 10% !important;
 }
 
+.cat_vid {
+    margin-top: 3% !important;
+    margin-left: 5%;
+}
+
 /* <!------------------------3D-modeling---------------------------------> */
 
 .mod_h::after {
