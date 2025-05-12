@@ -727,6 +727,10 @@ h2::after {
     transition: all 0.2s linear;
 }
 
+.Movie {
+    margin-top: 5% !important;
+}
+
 /* <!------------------------animation---------------------------------> */
 
 .ani_h::after {
@@ -752,6 +756,10 @@ h2::after {
 }
 
 .ss {
+    margin-top: 10% !important;
+}
+
+.vl2D,.AItool {
     margin-top: 5% !important;
 }
 
