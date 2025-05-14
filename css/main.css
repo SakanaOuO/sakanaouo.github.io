@@ -313,13 +313,13 @@ h2::after {
 .abo_sst {
     font-size: 20px;
     font-weight: bold;
+    margin-top: 20%;
 }
 
 .introduce {
     display: block;
     line-height: 300%;
     font-size: 18px;
-    text-indent: 2em;
     margin-top: 0% !important;
 }
 
