@@ -24,6 +24,8 @@
         </script>
     </head>
     <body>
+        <div class="overlay" id="overlay" onclick="hideImage()"></div>
+        <img id="popup-image" class="popup-image">
         <nav id="header">
             <div class="row row-cols-2 header_content">
                 <div class="col-md-2 head_logo">
@@ -104,6 +106,37 @@
                         <iframe src="https://drive.google.com/file/d/1-YGK15CynhRQK7ZMUdbS4cT5Cc4BlGow/preview" width="640" height="700" allow="autoplay"></iframe>
                     </div>
                 </div>
+            </div>
+            <!--------------------------------------------------------->
+            <div class="row row-cols-2 e-book">
+                <div class="col-md-6 offset-md-2 st">
+                    <h1>攝影作品</h1>
+                    <h2 class="g_h">photography</h2>
+                </div>
+            </div>
+            <div class="row row-cols-2 photo_img">
+                <div class="col-md-3 offset-md-3">
+                    <img class="g_Click" src="img/portfolio/photography_1.jpg" width="100%" onclick="showImage(this.src)">
+                </div>
+                <div class="col-md-3">
+                    <img class="g_Click" src="img/portfolio/photography_3.jpg" width="56%" onclick="showImage(this.src)">
+                </div>
+            </div>
+            <div class="row row-cols-2 mod_2">
+                <div class="col-md-3 offset-md-3">
+                    <img class="g_Click" src="img/portfolio/photography_2.jpg" width="100%" onclick="showImage(this.src)">
+                </div>
+                <div class="col-md-3">
+                    <img class="g_Click" src="img/portfolio/photography_4.jpg" width="100%" onclick="showImage(this.src)">
+                </div>
+            </div>
+                        <div class="row row-cols-2 mod_2">
+                <div class="col-md-3 offset-md-3">
+                    <img class="g_Click" src="img/portfolio/photography_5.jpg" width="100%" onclick="showImage(this.src)">
+                </div>
+                <!-- <div class="col-md-3">
+                    <img class="g_Click" src="img/portfolio/photography_4.jpg" width="100%" onclick="showImage(this.src)">
+                </div> -->
             </div>
             <!---------------------------footer------------------------------>
             <div class="row row-cols-2 footer">

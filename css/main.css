@@ -32,7 +32,6 @@ p {
     max-width: 90%;
     max-height: 90%;
     z-index: 1000;
-    border: 2px solid #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 .overlay {
@@ -694,10 +693,14 @@ h2::after {
     line-height: 350%;
 }
 
-/* <!-------------e-book-------------> */
+/* <!------------------------Graphic Design---------------------------------> */
 
 .e-book {
     margin-top: 10% !important;
+}
+
+.photo_img {
+    margin-top: 5% !important;
 }
 
 /* <!------------------------Editor---------------------------------> */
