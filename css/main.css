@@ -703,6 +703,14 @@ h2::after {
     margin-top: 5% !important;
 }
 
+.ui_img {
+    margin-top: 5% !important;
+}
+
+.ui_con {
+    margin-left: 5%;
+}
+
 /* <!------------------------Editor---------------------------------> */
 
 .e_h::after {
