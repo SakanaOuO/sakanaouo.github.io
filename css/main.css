@@ -80,7 +80,7 @@ p {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    justify-content: flex-end;
+    juify-content: flex-end;
 }
 
 .navbar_con ul {
@@ -676,10 +676,6 @@ h2::after {
     transform: translate(-50%, -50%);
 }
 
-.mp {
-    margin-top: 5% !important;
-}
-
 .g_t {
     line-height: 300%;
 }
@@ -695,6 +691,10 @@ h2::after {
 
 /* <!------------------------Graphic Design---------------------------------> */
 
+.mp {
+    margin-top: 10% !important;
+}
+
 .e-book {
     margin-top: 10% !important;
 }
@@ -709,6 +709,14 @@ h2::after {
 
 .ui_con {
     margin-left: 5%;
+}
+
+.Portrait {
+    margin-top: 5% !important;
+}
+
+.Por {
+    margin-top: 10% !important;
 }
 
 /* <!------------------------Editor---------------------------------> */
