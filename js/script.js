@@ -1,74 +1,51 @@
-// 獲取元素
-const myDiv = document.getElementById('header');
+// 防抖函式 (debounce)
+const debounce = (func, delay = 100) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func.apply(this, args), delay);
+  };
+};
 
-// 設定滾輪事件監聽器
-window.addEventListener('wheel', function(event) {
-    // 檢查滾輪滾動方向
+// 監聽滾輪事件改變 header 背景 (加防抖)
+window.addEventListener('wheel', debounce(function(event) {
+  const header = document.getElementById('header');
+  if (!header.classList.contains('mobile-nav')) {
     if (event.deltaY > 0) {
-        // 如果滾輪向下滾動，添加新的class
-        myDiv.classList.add('header-scrolled');
+      header.classList.add('header-scrolled');
     } else if (event.deltaY < 0 && window.scrollY === 0) {
-        // 如果滾輪向上滾動並且滾動到最上方，移除新的class
-        myDiv.classList.remove('header-scrolled');
+      header.classList.remove('header-scrolled');
     }
-});
+  }
+}, 100));
 
-// -----------------------------------------------------
+// 根據視窗寬度加/移除 mobile-nav 類別
+function updateNavbarClass() {
+  const header = document.getElementById('header');
+  if (window.innerWidth <= 720) {
+    header.classList.add('mobile-nav');
+    // 漢堡列開啟時也強制背景存在，可根據需要再調整
+    header.classList.add('header-scrolled');
+  } else {
+    header.classList.remove('mobile-nav');
+    // 寬度大時，如果沒有滾動到下面可移除 scrolled 樣式
+    if (window.scrollY === 0) {
+      header.classList.remove('header-scrolled');
+    }
+  }
+}
+window.addEventListener('DOMContentLoaded', updateNavbarClass);
+window.addEventListener('resize', updateNavbarClass);
 
-document.addEventListener('DOMContentLoaded', () => {
-  // 定義 select 函數
+// DOMContentLoaded 裡統一處理其他事件
+document.addEventListener('DOMContentLoaded', function () {
+  // 簡單選取函式
   const select = (selector, all = false) => {
     selector = selector.trim();
     return all ? [...document.querySelectorAll(selector)] : document.querySelector(selector);
   };
 
-  // // 選取所有 .w_img 元素
-  // const wImgElements = document.querySelectorAll('.w_img');
-
-  // // 定義滑鼠懸停功能
-  // wImgElements.forEach((element, index) => {
-  //   element.addEventListener('mouseenter', () => {
-  //     wImgElements.forEach((otherElement, otherIndex) => {
-  //       if (index !== otherIndex) {
-  //         // 動態生成 class 名稱 (例如 effect_1, effect_2...)
-  //         const maskElem = otherElement.querySelector('.mask'); // 選取 mask
-  //         const wPElem = otherElement.querySelector('.w_p'); // 選取 w_p
-
-  //         // 在 mask 元素上新增效果
-  //         if (maskElem) {
-  //           maskElem.classList.add(`effect_${index + 1}`);
-  //         }
-
-  //         // 在 w_p 元素上新增效果
-  //         if (wPElem) {
-  //           wPElem.classList.add(`effect_${index + 1}`);
-  //         }
-  //       }
-  //     });
-  //   });
-
-  //   element.addEventListener('mouseleave', () => {
-  //     wImgElements.forEach((otherElement, otherIndex) => {
-  //       if (index !== otherIndex) {
-  //         // 移除動態生成的 class
-  //         const maskElem = otherElement.querySelector('.mask'); // 選取 mask
-  //         const wPElem = otherElement.querySelector('.w_p'); // 選取 w_p
-
-  //         // 從 mask 元素移除效果
-  //         if (maskElem) {
-  //           maskElem.classList.remove(`effect_${index + 1}`);
-  //         }
-
-  //         // 從 w_p 元素移除效果
-  //         if (wPElem) {
-  //           wPElem.classList.remove(`effect_${index + 1}`);
-  //         }
-  //       }
-  //     });
-  //   });
-  // });
-
-  // 保留滾動效果
+  // 導覽列滾動時的 active 狀態切換
   let navbarlinks = select('#navbarNavDropdown .scrollto', true);
   const navbarlinksActive = () => {
     let position = window.scrollY + 20;
@@ -88,22 +65,45 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-
-  // 優化滾動效果 (防抖功能)
-  const debounce = (func, delay = 100) => {
-    let timer;
-    return (...args) => {
-      clearTimeout(timer);
-      timer = setTimeout(() => func.apply(this, args), delay);
-    };
-  };
-
   window.addEventListener('load', navbarlinksActive);
   window.addEventListener('scroll', debounce(navbarlinksActive));
+
+  // 手機版作品 dropdown 點擊展開/收合功能
+  const dropdownToggle = document.querySelector('.dropdown > .nav-link');
+  const dropdownContent = document.querySelector('.dropdown-content');
+
+  if (dropdownToggle && dropdownContent) {
+    dropdownToggle.addEventListener('click', function (e) {
+      if (window.innerWidth <= 768) {
+        e.preventDefault(); // 防止點擊跳轉
+        dropdownContent.classList.toggle('show');
+      }
+    });
+  }
+
+  // 點擊頁面其他區域，關閉 dropdown (手機)
+  document.addEventListener('click', function (e) {
+    if (
+      window.innerWidth <= 768 &&
+      !e.target.closest('.dropdown')
+    ) {
+      if (dropdownContent) {
+        dropdownContent.classList.remove('show');
+      }
+    }
+  });
+
+  // 縮放視窗時重設 dropdown 狀態
+  window.addEventListener('resize', function () {
+    if (window.innerWidth > 768) {
+      if (dropdownContent) {
+        dropdownContent.classList.remove('show');
+      }
+    }
+  });
 });
 
-
-// 新增點擊放大功能
+// 點擊圖片放大功能
 function showImage(src) {
   const popupImage = document.getElementById('popup-image');
   const overlay = document.getElementById('overlay');

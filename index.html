@@ -7,11 +7,9 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link href="css/main.css" rel="stylesheet">
-        <link href="css/bootstrap-grid.css" rel="stylesheet">
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+        <link href="css/main.css" rel="stylesheet">
+        <link href="css/rwd.css" rel="stylesheet">
 
         <!-- Google tag (gtag.js) -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LPD5GLNXB"></script>
@@ -24,36 +22,51 @@
         </script>
     </head>
     <body>
-        <nav id="header">
-            <div class="row row-cols-2 header_content">
-                <div class="col-md-2 head_logo">
+        <nav id="header" class="navbar navbar-expand-md navbar-light fixed-top">
+            <div class="container-fluid header_content">
+                <!-- Logo -->
+                <div class="head_logo">
                     <a class="navbar-brand" href="index.html">
-                    <img src="img/fish_icon.png" alt="" width="20%">
+                    <img src="img/fish_icon.png" alt="" width="50%">
                     </a>
-                </div>  
-                <div class="col-md-5 offset-md-4">
-                    <div id="navbar" class="navbar_con">
-                        <ul>
-                            <li><a class="scrollto active" aria-current="page" href="#BG">Home</a></li>
-                            <li><a class="scrollto" href="#about">關於我</a></li>
-                            <li><a class="scrollto" href="#experience">經歷</a></li>
-                            <li><a class="scrollto" href="#Certification">證照</a></li>
-                            <li class="dropdown">
-                                <a href="#work" class="dropbtn">作品</a>
-                                <div class="dropdown-content">
-                                    <a href="Graphic_Designer.html">影像 / 平面設計</a>
-                                    <a href="Editor.html">剪輯</a>
-                                    <a href="animation.html">動畫</a>
-                                    <a href="3D-modeling.html">3D建模</a>
-                                    <a href="Game.html">遊戲</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                </div>
+
+                <!-- 漢堡選單按鈕 -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- 漢堡展開內容 -->
+                <div class="collapse navbar-collapse navbar_con" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link scrollto active" href="index.html#BG">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scrollto" href="index.html#about">關於我</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scrollto" href="index.html#experience">經歷</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link scrollto" href="index.html#Certification">證照</a>
+                        </li>
+                        <!-- 下拉選單 -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="index.html#work" id="navbarDropdown" role="button">作品</a>
+                            <ul class="dropdown-menu dropdown-content">
+                                <li><a class="dropdown-item" href="Graphic_Designer.html">影像 / 平面設計</a></li>
+                                <li><a class="dropdown-item" href="Editor.html">剪輯</a></li>
+                                <li><a class="dropdown-item" href="animation.html">動畫</a></li>
+                                <li><a class="dropdown-item" href="3D-modeling.html">3D建模</a></li>
+                                <li><a class="dropdown-item" href="Game.html">遊戲</a></li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>
-
         <!--------------------------------------------------------->
         <div class="con-all aall">
             <nav id="BG" class="col-12 all">
@@ -73,7 +86,7 @@
             </nav>
             <!--------------------------------------------------------->
             <div id="about" class="about">
-                <div class="col-md-6 offset-md-2 st">
+                <div class="col-12 col-md-6 offset-md-2 st">
                     <h1>關於我</h1>
                     <h2>About me</h2>
                 </div>
@@ -88,7 +101,7 @@
                             <p><i class="bi bi-phone"></i> Phone：0934042566</p>
                         </div>
                     </div>
-                    <div class="col-md-5 offset-md-1 introduce">
+                    <div class="col-12 col-md-5 offset-md-1 introduce">
                         <p style="text-indent: 2em;">我是郭乃瑜，2024 年畢業於嶺東科技大學數位多媒體設計系。從高中開始接觸數位媒體設計以來，我便對影像製作、動畫與各類視覺創作充滿熱情，也對新技術和工具充滿好奇。</p>
                         <p>我熟練操作 Adobe 系列軟體，包括 Photoshop、Illustrator、Premiere、After Effects、InDesign 等，並具備影像剪輯、動畫製作、平面設計與視覺排版的實務經驗。在大學期間，我也開始接觸更多元的工具與領域，例如 Unity、Maya、ZBrush、HTML、CSS，以及特效合成與後製技術，這些學習過程讓我發現自己對互動設計、3D製作、網頁設計也充滿興趣。</p>
                         <p>我曾在剪輯相關工作實習，負責影音後製、LOGO 動畫設計、直播技術支援與桌遊拍攝，並與團隊一同完成桌遊開發專案。</p>
@@ -98,12 +111,12 @@
             </div>
             <!--------------------------------------------------------->
             <div id="about" class="about">
-                <div class="col-md-6 offset-md-2 st">
+                <div class="col-12 col-md-6 offset-md-2 st">
                     <h1>技能</h1>
                     <h2 class="ski">Skills</h2>
                 </div>
                 <div class="row row-cols-2">
-                    <div class="offset-md-2 col-md-3">
+                    <div class="offset-md-2 col-12 col-md-3">
                         <p class="abo_sst">平面設計</p>
                         <div class="ski_con">
                             <p>- <img src="img/software/Photoshop.png" width="7%" title="Photoshop"> Photoshop</p>
@@ -111,7 +124,7 @@
                             <p>- <img src="img/software/indesign.png" width="7%" title="InDesign"> InDesign</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-12 col-md-3">
                         <p class="abo_sst">剪輯</p>
                         <div class="ski_con">
                             <p>- <img src="img/software/Premiere.png" width="7%" title="Premiere"> Premiere</p>
@@ -119,7 +132,7 @@
                             <p>- <img src="img/software/DaVinci.png" width="7%" title="DaVinci"> DaVinci</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-12 col-md-3">
                         <p class="abo_sst">動畫</p>
                         <div class="ski_con">
                             <p>- <img src="img/software/spine.png" width="7%" title="Spine" style="border: 1px solid #414141"> Spine</p>
@@ -128,7 +141,7 @@
                     </div>
                 </div>
                 <div class="row row-cols-2">
-                    <div class="offset-md-2 col-md-3">
+                    <div class="offset-md-2 col-12 col-md-3">
                         <p class="abo_sst">3D</p>
                         <div class="ski_con">
                             <p>- <img src="img/software/maya.png" width="7%" title="maya"> maya</p>
@@ -138,13 +151,13 @@
                             <p>- <img src="img/software/houdini.png" width="7%" title="houdini"> houdini</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-12 col-md-3">
                         <p class="abo_sst">遊戲</p>
                         <div class="ski_con">
                             <p>- <img src="img/software/unity.png" width="7%" title="Unity"> Unity</p>
                         </div>
                     </div>
-                    <div class="col-md-3">
+                    <div class="col-12 col-md-3">
                         <p class="abo_sst">網頁設計</p>
                         <div class="ski_con">
                             <p>- HTML / CSS</p>
@@ -156,35 +169,35 @@
             </div>
             <!--------------------------------------------------------->
             <div id="experience" class="experience">
-                <div class="col-md-6 offset-md-2 st">
+                <div class="col-12 col-md-6 offset-md-2 st">
                     <h1>經歷</h1>
                     <h2 class="exp_h">experience</h2>
                 </div>
                 <div class="row row-cols-3">
-                    <div class="col-md-2 offset-md-3">
+                    <div class="col-6 col-md-2 offset-md-3">
                         <div class="exp_years exp_yup">
                             <p>2020</p>
                         </div>
                     </div>
-                    <div class="col-md-5 exp_con">
+                    <div class="col-6 col-md-5 exp_con">
                         <h3>畢業於  大明高中潭子藝術分校 - 多媒體動畫科</h3>
                         <p>我是在高中時才開始接觸設計 ， 也是在這時為adobe系列的軟體打下了豐厚的基礎 。 </p>
                     </div>
-                    <div class="col-md-2 offset-md-3">
+                    <div class="col-6 col-md-2 offset-md-3">
                         <div class="exp_years exp_yc">
                             <p>2023 - 7～8月</p>
                         </div>
                     </div>
-                    <div class="col-md-5 exp_con">
+                    <div class="col-6 col-md-5 exp_con">
                         <h3>光言工作室 - 剪輯實習生</h3>
                         <p>大三時因為朋友介紹，進入了光言工作室擔任暑期實習生，負責剪輯客戶的影片、製作片頭LOGO、拍攝桌遊遊玩過程 等，我也是在這次的實習中第一次接觸到AI算圖，雖然只有兩的月的實習，但也學到了很多東西。</p>
                     </div>
-                    <div class="col-md-2 offset-md-3">
+                    <div class="col-6 col-md-2 offset-md-3">
                         <div class="exp_years exp_ydow">
                             <p>2024</p>
                         </div>
                     </div>
-                    <div class="col-md-5 exp_con">
+                    <div class="col-6 col-md-5 exp_con">
                         <h3>畢業於  嶺東科技大學 - 數位多媒體設計系</h3>
                         <p>就讀大學的四年間，學到了許多我一直想學的專業技術，例如3D建模、繪景、前端程式 等等，也是在這時讓我發現我對於3D場景打光、後製、特效、動畫 等方面很有興趣。希望未來能夠進入遊戲公司，與大家一起參與遊戲製作！</p>
                     </div>
@@ -192,16 +205,16 @@
             </div>
             <!--------------------------------------------------------->
             <div id="Certification" class="row row-cols-2 Certification">
-                <div class="col-md-4 offset-md-1 cer_img">
+                <div class="col-12 col-md-4 offset-md-1 cer_img">
                     <img src="img/h3.jpeg" width="100%">
                 </div>
                 <div class="row-col-md-6">
-                    <div class="col-md-6 st cer_st">
+                    <div class="col-12 col-md-6 st cer_st">
                         <h1>專業證照</h1>
                         <h2 class="cer_h">Certification</h2>
                     </div>
                     <div class="row row-cols-2">
-                        <div class="col-md-4 cer_con">
+                        <div class="col-12 col-xl-4 cer_con">
                             <ul>
                                 <li>印前製程 - 圖文組版PC (丙級)</li>
                                 <li>網頁設計 (丙級)</li>
@@ -209,7 +222,7 @@
                                 <li>TQC-OA 辦公軟體應用類</li>
                             </ul>
                         </div>
-                        <div class="col-md-6 cer_con">
+                        <div class="col-12 col-xl-6 cer_con">
                             <ul>
                                 <li>Adobe ACP _ Photoshop</li>
                                 <li>Adobe ACP _ illustrator</li>
@@ -279,9 +292,7 @@
         </div>
         <!--------------------------------------------------------->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="js/script.js"></script>
-        <script src="js/bootstrap.js"></script>
-        <script src="js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
     </body>
 </html>

@@ -1,0 +1,38 @@
+@media (max-width: 576px) {
+
+}
+
+@media (min-width: 769px) {
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-collapse {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: all 0.3s ease-in-out;
+        background-color: #ffffffd3;
+        margin-top: 3%;
+    }
+
+    .navbar-collapse.show {
+        opacity: 1;
+        transform: translateY(0);
+        width: 100%;
+    }
+
+    .navbar-nav .nav-link {
+        color: #000;
+        transition: color 0.3s ease-in-out;
+    }
+}
+
+@media (max-width: 992px) {
+}
+
+
+@media (max-width: 1200px) {
+}
+
