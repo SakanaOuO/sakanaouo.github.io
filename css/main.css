@@ -602,7 +602,7 @@ h2::after {
 }
 
 
-/* <!---------------------------------------------------------> */
+/* <!-------------------------footer--------------------------------> */
 
 .footer {
     height: 85vh;
@@ -615,8 +615,6 @@ h2::after {
     font-size: 20px;
     font-weight: bold;
     line-height: 200%;
-    display: flex;
-    align-items: flex-end;
     margin-bottom: 3%;  
 }
 
@@ -624,8 +622,6 @@ h2::after {
     font-size: 20px;
     font-weight: bold;
     line-height: 200%;
-    display: flex;
-    align-items: flex-end;
     margin-bottom: 3%;
 }
 
@@ -634,9 +630,12 @@ h2::after {
     color: #222222;
 }
 
+.footer_con , .footer_int {
+    margin-top: 500px;
+}
+
 .footer_vid {
-    display: flex;
-    align-items: flex-end;  
+    margin-top: 350px;
 }
 
 .footer_con a {
