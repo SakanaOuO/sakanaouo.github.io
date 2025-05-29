@@ -16,6 +16,30 @@
         margin-top: -100px;
         margin-left: 65%;
     }
+    .mp_vid video {
+        width: 150%;
+        margin-bottom: 10%;
+        margin-left: 50%;
+    }
+    .Ebook {
+        width: 100%;
+        margin-left: 50%;
+    }
+    .ui_img video {
+        width: 130% !important;
+        margin-left: 50%;
+    }
+    .ui_con {
+        width: 80%;
+    }
+    .photo {
+        width: 70%;
+        margin-bottom: 5%;
+    }
+    .reto_con , .mp_allcon {
+        width: 90%;
+        margin-left: 5%;
+    }
 }
 
 @media (min-width: 576px) {
@@ -35,6 +59,30 @@
     .footer_vid {
         margin-top: -150px;
         margin-left: 70%;
+    }
+    .mp_vid video {
+        width: 150%;
+        margin-bottom: 10%;
+        margin-left: 50%;
+    }
+    .Ebook {
+        width: 100%;
+        margin-left: 50%;
+    }
+    .ui_img video {
+        width: 130% !important;
+        margin-left: 50%;
+    }
+    .ui_con {
+        width: 90%;
+    }
+    .photo {
+        width: 70%;
+        margin-bottom: 5%;
+    }
+    .reto_con , .mp_allcon {
+        width: 90%;
+        margin-left: 5%;
     }
 }
 
@@ -57,6 +105,33 @@
     .footer_vid {
         margin-top: -250px;
         margin-left: 65%;
+    }
+    .navbar_con ul {
+        margin-right: 15%;
+    }
+    .mp_vid video {
+        width: 100%;
+        margin-bottom: 10%;
+        margin-left: 50%;
+    }
+    .Ebook {
+        width: 100%;
+        margin-left: 50%;
+    }
+    .ui_img video {
+        width: 130% !important;
+        margin-left: 0%;
+    }
+    .ui_con {
+        width: 80%;
+    }
+    .photo {
+        width: 50%;
+        margin-bottom: 5%;
+    }
+    .reto_con , .mp_allcon {
+        width: 100%;
+        margin-left: 5%;
     }
 }
 
@@ -97,6 +172,32 @@
         margin-top: 350px;
         margin-left: 0;
     }
+    .navbar_con ul {
+        margin-right: 10%;
+    }
+    .mp_vid video {
+        width: 100%;
+        margin-bottom: 0%;
+        margin-left: 0%;
+    }
+    .Ebook {
+        width: 100%;
+        margin-left: 0%;
+    }
+    .ui_img video {
+        width: 130% !important;
+    }
+    .ui_con {
+        width: 40%;
+    }
+    .photo {
+        width: 50%;
+        margin-bottom: 5%;
+    }
+    .reto_con , .mp_allcon {
+        width: 40%;
+        margin-left: 0%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -113,8 +214,35 @@
         width: 33%;
         margin-top: 350px;
     }
+    .navbar_con ul {
+        margin-right: 10%;
+    }
+    .mp_vid video {
+        width: 100%;
+    }
+    .Ebook {
+        width: 100%;
+    }
+    .ui_img video {
+        width: 100% !important;
+    }
+    .photo {
+        width: 30%;
+    }
+    .reto_con , .mp_allcon {
+        width: 50%;
+        margin-left: 0%;
+    }
 }
     
 @media (min-width: 1400px){
-
+    .navbar_con ul {
+        margin-right: 7%;
+    }
+    .mp_vid video {
+        width: 80%;
+    }
+    .Ebook {
+        width: 100%;
+    }
 }

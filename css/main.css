@@ -82,7 +82,7 @@ p {
 .navbar_con ul {
     margin: 0;
     padding: 0;
-    margin-right: 5%;
+    margin-right: 7%;
 }
 
 .navbar_con a {
@@ -137,6 +137,7 @@ p {
 }
 
 .dropdown-content a:hover {
+    border-radius: 10px;
     background-color: #ffffffd3;
 }
 
@@ -213,25 +214,6 @@ p {
 .me img {
     width: 30%;
 }
-
-.st {
-    margin-top: 8%;
-}
-
-.st h1 {
-    color: #ffffff;
-    font-weight: bold;
-    font-size: 200%;
-}
-
-.st h2 {
-    color: #b5b5b600;
-    font-weight: bold;
-    font-size: 200%;
-    text-shadow: 0 0 3px #b5b5b660;
-    margin-top: -3.5%;
-    margin-left: 5%;
-} 
 
 h2::after {
     content: "";
@@ -654,8 +636,23 @@ h2::after {
 }
 
 #ani .st {
-    margin-top: 5%;
+    margin-top: 100px;
 }
+
+.st h1 {
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 200%;
+}
+
+.st h2 {
+    color: #b5b5b600;
+    font-weight: bold;
+    font-size: 200%;
+    text-shadow: 0 0 3px #b5b5b660;
+    margin-top: -3.5%;
+    margin-left: 5%;
+} 
 
 #ani h3 {
     color: #fff;
