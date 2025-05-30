@@ -40,6 +40,12 @@
         width: 90%;
         margin-left: 5%;
     }
+    .tra_rwd {
+        width: 80%;
+    }
+    .case_rwd {
+        width: 80%;
+    }
 }
 
 @media (min-width: 576px) {
@@ -83,6 +89,12 @@
     .reto_con , .mp_allcon {
         width: 90%;
         margin-left: 5%;
+    }
+    .tra_rwd {
+        width: 80%;
+    }
+    .case_rwd {
+        width: 80%;
     }
 }
 
@@ -132,6 +144,12 @@
     .reto_con , .mp_allcon {
         width: 100%;
         margin-left: 5%;
+    }
+    .tra_rwd {
+        width: 50%;
+    }
+    .case_rwd {
+        width: 60%;
     }
 }
 
@@ -198,6 +216,12 @@
         width: 40%;
         margin-left: 0%;
     }
+    .tra_rwd {
+        width: 35%;
+    }
+    .case_rwd {
+        width: 25%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -232,6 +256,12 @@
     .reto_con , .mp_allcon {
         width: 50%;
         margin-left: 0%;
+    }
+    .tra_rwd {
+        width: 35%;
+    }
+    .case_rwd {
+        width: 25%;
     }
 }
     
