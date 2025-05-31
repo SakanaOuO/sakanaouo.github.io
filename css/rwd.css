@@ -40,11 +40,15 @@
         width: 90%;
         margin-left: 5%;
     }
-    .tra_rwd {
+    .tra_rwd , .case_rwd {
         width: 80%;
     }
-    .case_rwd {
-        width: 80%;
+    .ani_rwd_R , .Logo_rwd_R {
+        width: 50%;
+        margin-left: 20%;
+    }
+    .ani_rwd_L , .Featured_vid , .Logo_rwd , .live2D_rwd {
+        width: 50%;
     }
 }
 
@@ -90,11 +94,15 @@
         width: 90%;
         margin-left: 5%;
     }
-    .tra_rwd {
+    .tra_rwd , .case_rwd {
         width: 80%;
     }
-    .case_rwd {
-        width: 80%;
+    .ani_rwd_R , .Logo_rwd_R {
+        width: 50%;
+        margin-left: 20%;
+    }
+    .ani_rwd_L , .Featured_vid , .Logo_rwd , .live2D_rwd {
+        width: 50%;
     }
 }
 
@@ -150,6 +158,13 @@
     }
     .case_rwd {
         width: 60%;
+    }
+    .ani_rwd_R , .Logo_rwd_R {
+        width: 50%;
+        margin-left: 20%;
+    }
+    .ani_rwd_L , .Featured_vid , .Logo_rwd , .live2D_rwd {
+        width: 50%;
     }
 }
 
@@ -222,6 +237,20 @@
     .case_rwd {
         width: 25%;
     }
+    .ani_rwd_R {
+        width: 30%;
+        margin-left: 0%;
+    }
+    .ani_rwd_L {
+        width: 30%;
+    }
+    .Featured_vid , .Logo_rwd , .live2D_rwd {
+        width: 25%;
+    }
+    .Logo_rwd_R {
+        width: 25%;
+        margin-left: 0%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -261,6 +290,12 @@
         width: 35%;
     }
     .case_rwd {
+        width: 25%;
+    }
+    .ani_rwd_R , .ani_rwd_L {
+        width: 30%;
+    }
+    .Featured_vid , .Logo_rwd , .Logo_rwd_R , .live2D_rwd {
         width: 25%;
     }
 }
