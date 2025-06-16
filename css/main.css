@@ -709,6 +709,10 @@ h2::after {
     margin-top: 10% !important;
 }
 
+.AB {
+    margin-left: 5%;
+}
+
 /* <!------------------------Editor---------------------------------> */
 
 .e_h::after {
@@ -778,10 +782,6 @@ h2::after {
 
 .ani_a:hover {
     color: #8b8b8b;
-}
-
-.ani_a:visited {
-    color: #6b6b6b;
 }
 
 .ani_topics {
