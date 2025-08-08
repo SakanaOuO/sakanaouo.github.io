@@ -275,6 +275,10 @@ h2::after {
     margin-left: -11%;
 }
 
+.about {
+    margin-top: 5%;
+}
+
 .about_con {
     margin-top: 5% !important;
 }
