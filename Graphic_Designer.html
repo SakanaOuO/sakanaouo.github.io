@@ -1,236 +1,228 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Sakana Portfolio</title>
-        <link href="img/fish_icon_1.png" rel="icon">
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-        <link href="css/main.css" rel="stylesheet">
-        <link href="css/rwd.css" rel="stylesheet">
-
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-4LPD5GLNXB"></script>
-        <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-4LPD5GLNXB');
-        </script>
-    </head>
-    <body>
-        <div class="overlay" id="overlay" onclick="hideImage()"></div>
-        <img id="popup-image" class="popup-image">
-        <nav id="header" class="navbar navbar-expand-md navbar-light fixed-top">
-            <div class="container-fluid header_content">
-                <!-- Logo -->
-                <div class="head_logo">
-                    <a class="navbar-brand" href="index.html">
-                    <img src="img/fish_icon.png" alt="" width="50%">
-                    </a>
-                </div>
-
-                <!-- 漢堡選單按鈕 -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <!-- 漢堡展開內容 -->
-                <div class="collapse navbar-collapse navbar_con" id="navbarNavDropdown">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link scrollto active" href="index.html#BG">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto" href="index.html#about">關於我</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto" href="index.html#experience">經歷</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link scrollto" href="index.html#Certification">證照</a>
-                        </li>
-                        <!-- 下拉選單 -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link" href="index.html#work" id="navbarDropdown" role="button">作品</a>
-                            <ul class="dropdown-menu dropdown-content">
-                                <li><a class="dropdown-item" href="Graphic_Designer.html">影像 / 平面設計</a></li>
-                                <li><a class="dropdown-item" href="Editor.html">剪輯</a></li>
-                                <li><a class="dropdown-item" href="animation.html">動畫</a></li>
-                                <li><a class="dropdown-item" href="3D-modeling.html">3D建模</a></li>
-                                <li><a class="dropdown-item" href="Game.html">遊戲</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nai Yu_Portfolio</title>
+        <link href="assets/fish_icon_1.png" rel="icon">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="portfolio-GD">
+        <div class="vertical-line"></div>
+        <nav class="top-nav">
+            <input type="checkbox" id="menu-toggle" class="menu-toggle">
+            <label for="menu-toggle" class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#about-and-skills">關於我</a></li>
+                <li><a href="index.html#experience">經歷</a></li>
+                <li><a href="index.html#certifications">證照</a></li>
+                <li class="dropdown">
+                    <a href="index.html#portfolio" class="dropbtn">作品 ▼</a>
+                    <div class="dropdown-content">
+                        <a href="Graphic_Designer.html">影像 / 平面設計</a>
+                        <a href="Editor.html">剪輯</a>
+                        <a href="animation.html">2D動畫</a>
+                        <a href="3D-modeling.html">3D作品</a>
+                        <a href="Game.html">遊戲製作</a>
+                    </div>
+                </li>
+            </ul>
         </nav>
-        <!--------------------------------------------------------->
-        <div class="con-all aall">
-            <!--------------------------------------------------------->
-            <div id="ani" class="graphic">
-                <div class="col-md-6 offset-md-2 st GD_title">
-                    <h1>影像 / 平面設計</h1>
-                    <h2 class="g_h">Visual / Graphic Design</h2>
-                </div>
-                <div class="row row-cols-2 Portrait">
-                    <div class="col-12 col-lg-6">
-                        <div class="row row-cols-2 photo_img">
-                            <div class="col-md-4 offset-md-4">
-                                <img class="g_Click" src="img/portfolio/Portrait Retouch_1.jpg" width="80%" onclick="showImage(this.src)">
-                            </div>
-                            <div class="col-md-4">
-                                <img class="g_Click" src="img/portfolio/Portrait Retouch_2.jpg" width="80%" onclick="showImage(this.src)">
-                            </div>
-                        </div>
-                        <div class="row row-cols-2 mod_2">
-                            <div class="col-md-4 offset-md-4">
-                                <img class="g_Click" src="img/portfolio/Portrait Retouch_3.jpg" width="80%" onclick="showImage(this.src)">
-                            </div>
-                            <div class="col-md-4">
-                                <img class="g_Click" src="img/portfolio/Portrait Retouch_4.jpg" width="80%" onclick="showImage(this.src)">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-5 g_t Por reto_con">
-                        <div  class="row row-cols-2">
-                            <h3>人像修圖</h3>
-                        </div>
-                        <div class="col-md-8 g_soft">
-                            <p>使用軟體：<img src="img/software/Photoshop.png" width="5%" title="Photoshop"></p>
-                            <p>對比圖：<a class="ani_a" href="https://drive.google.com/drive/folders/1TZt1g3gIpOsA63tcZys-Nf874GbgEZNJ?usp=sharing" title="https://drive.google.com/drive/folders/1TZt1g3gIpOsA63tcZys-Nf874GbgEZNJ?usp=sharing">雲端連結</a></p>
-                        </div>
-                        <div class="col-md-10 g_con">
-                            <p>
-                                這是朋友的去外拍時所拍攝的照片，並非我所拍攝，我只負責修圖。但這也是我第一次精修照片，期間也學會了很多以前沒使用過的PS功能。
+        <div class="main-content">
+            <div class="avatar-group">
+            </div>
+        </div>
+        <div class="Connection"></div>
+    </header>
+    <div class="portfolio-title">
+        <div class="Connection_top"></div>
+        <div class="portfolio-title-line"></div>
+        <div class="book-container">
+            <div id="book">
+                <div class="st_page intro-page">
+                    <div class="intro-content">
+                        <h2>電子書排版</h2>
+                        <p>完成時間：2024年4月</p>
+                        <p class="software-info">
+                            使用軟體：<img src="assets/software/indesign.png" title="InDesign" class="software-icon"> InDesign
+                        </p>
+                        <div class="book_Contents">
+                            <p class="beginning_title">
+                            我大學製作畢業專題時，負責的其中一樣工作是編排企劃書，雖然以前高中時就有編排電子書的經驗，不過那時候並沒有這麼多頁，內容也沒有這麼完整。這次也是我第一次將自己排版的書本印製出來，拿到實體的時候也讓我非常的有成就感。
                             </p>
                         </div>
                     </div>
                 </div>
-                <!--------------------------------------------------------->
-                <div class="row row-cols-2 mp">
-                    <div class="col-lg-4 offset-lg-2 vid mp_vid">
-                        <video src="img/portfolio/MP_exp.mp4" controls muted preload="metadata" poster="img/h1.jpg"></video>
-                        <video src="img/portfolio/1022_exp.mp4" controls muted preload="metadata" poster="img/portfolio/1022.jpg" style="margin-top: 5%;"></video>
-                    </div>
-                    <div class="col-12 col-lg-4 g_t mp_allcon">
-                        <div  class="col-md-12">
-                            <h3>Matte Painting</h3>
-                        </div>
-                        <div class="col-md-8 g_soft">
-                            <p>完成時間：2020年11月</p>
-                            <p>使用軟體：<img src="img/software/Photoshop.png" width="5%" title="Photoshop"></p>
-                        </div>
-                        <div class="col-md-10 g_con">
-                            <p>
-                                大一時老師教到了繪景，是我第一次認識到這個技術。也讓我對PS的運用更上了一層樓，
-                                看著自己想像中的場景就這麼一點點的做出來，真的很有成就感也覺得很有趣。
-                                以前也總是很好奇電影裡那些奇幻的場景到底是怎麼來的，因為這堂課讓我了解到這些奇幻的場景也是可以自己製作出來的。
-                            </p>
-                        </div>
-                    </div>
+                <div class="page st_page"><img src="assets/book_pages/page1.jpg" alt="封面" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page2.jpg" alt="第2頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page3.jpg" alt="第3頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page4.jpg" alt="第4頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page5.jpg" alt="第5頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page6.jpg" alt="第6頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page7.jpg" alt="第7頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page8.jpg" alt="第8頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page9.jpg" alt="第9頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page10.jpg" alt="第10頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page11.jpg" alt="第11頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page12.jpg" alt="第12頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page13.jpg" alt="第13頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page14.jpg" alt="第14頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page15.jpg" alt="第15頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page16.jpg" alt="第16頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page17.jpg" alt="第17頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page18.jpg" alt="第18頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page19.jpg" alt="第19頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page20.jpg" alt="第20頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page21.jpg" alt="第21頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page22.jpg" alt="第22頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page23.jpg" alt="第23頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page24.jpg" alt="第24頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page25.jpg" alt="第25頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page26.jpg" alt="第26頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page27.jpg" alt="第27頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page28.jpg" alt="第28頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page29.jpg" alt="第29頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page30.jpg" alt="第30頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page31.jpg" alt="第31頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page32.jpg" alt="第32頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page33.jpg" alt="第33頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page34.jpg" alt="第34頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page35.jpg" alt="第35頁" class="page-img"></div>
+                <div class="page st_page"><img src="assets/book_pages/page36.jpg" alt="封底" class="page-img"></div>
+            </div>
+        </div>
+        <div class="book-nav">
+            <button id="prevBtn" class="nav-btn">上一頁</button>
+            <button id="nextBtn" class="nav-btn">下一頁</button>
+        </div>
+    </div>
+    <section class="web-design-section">
+        <div class="display-container">
+            <div class="scenery-bg"></div>
+            <img src="assets/portfolio/GD/UI.png" class="ui-mockup">
+        </div>
+        <div class="description-container">
+            <div class="text-wrapper">
+                <h2 class="title-with-line_ui">網頁設計</h2>
+                <div class="meta-info">
+                    <p>完成時間：2024年10月</p>
                 </div>
-                <!--------------------------------------------------------->
-                <div class="row row-cols-2 e-book">
-                    <div class="col-12 col-lg-4 offset-md-2 g_t Ebook_con">
-                        <div  class="row row-cols-2">
-                            <h3>電子書排版</h3>
-                        </div>
-                        <div class="g_soft">
-                            <p>完成時間：2024年4月</p>
-                            <p>使用軟體：<img src="img/software/indesign.png" width="5%" title="InDesign"></p>
-                        </div>
-                        <div class="g_con">
-                            <p style="font-weight: bold;">* 若內容沒跑出來，請點擊右上方箭頭可使用雲端開啟</p>
-                            <p>
-                                我大學製作畢業專題時，負責的其中一樣工作是編排企劃書，雖然以前高中時就有編排電子書的經驗，不過那時候並沒有這麼多頁，內容也沒有這麼完整。
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <iframe class="Ebook" src="https://drive.google.com/file/d/1-YGK15CynhRQK7ZMUdbS4cT5Cc4BlGow/preview" width="640" height="700" allow="autoplay"></iframe>
-                    </div>
-                </div>
-                <!--------------------------------------------------------->
-                <div class="row row-cols-2 mp">
-                    <div class="col-lg-4 offset-md-2 vid ui_img">
-                        <img class="g_Click ui1" src="img/portfolio/UI_1.png" width="20%" onclick="showImage(this.src)">
-                        <img class="g_Click ui2" src="img/portfolio/UI_2.png" width="20%" onclick="showImage(this.src)">
-                    </div>
-                    <div class="col-12 col-lg-4 g_t ui_con">
-                        <div  class="row row-cols-2">
-                            <h3>網頁設計</h3>
-                        </div>
-                        <div class="col-md-12 g_soft">
-                            <p>完成時間：2024年10月</p>
-                        </div>
-                        <div class="col-md-12 g_con">
-                            <p>
-                                這是我的上一個個人作品集，是使用一頁式的方法來呈現，也是我第一次從頭到尾自行設計與製作，也是在製作過程中發現很多好看的動態特效都需要使用JS來製作，也讓我對JS越來越有興趣。
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!--------------------------------------------------------->
-                <div class="row row-cols-2">
-                    <div class="col-md-6 offset-md-2 st GD_title">
-                        <h1>攝影作品</h1>
-                    </div>
-                </div>
-                <div class="row row-cols-2 photo_img">
-                    <div class="col-12 col-lg-3 offset-md-3 photo">
-                        <img class="g_Click" src="img/portfolio/photography_1.jpg" width="100%" onclick="showImage(this.src)">
-                    </div>
-                    <div class="col-12 col-lg-3 photo">
-                        <img class="g_Click" src="img/portfolio/photography_3.jpg" width="56%" onclick="showImage(this.src)">
-                    </div>
-                </div>
-                <div class="row row-cols-2 mod_2">
-                    <div class="col-12 col-lg-3 offset-md-3 photo">
-                        <img class="g_Click" src="img/portfolio/photography_2.jpg" width="100%" onclick="showImage(this.src)">
-                    </div>
-                    <div class="col-12 col-lg-3 photo">
-                        <img class="g_Click" src="img/portfolio/photography_4.jpg" width="100%" onclick="showImage(this.src)">
-                    </div>
-                </div>
-                <div class="row row-cols-2 mod_2">
-                    <div class="col-12 col-lg-3 offset-md-3 photo">
-                        <img class="g_Click" src="img/portfolio/photography_5.jpg" width="100%" onclick="showImage(this.src)">
-                    </div>
-                    <!-- <div class="col-md-3">
-                        <img class="g_Click" src="img/portfolio/photography_4.jpg" width="100%" onclick="showImage(this.src)">
-                    </div> -->
-                </div>
-            <!---------------------------footer------------------------------>
-            <div class="row row-cols-2 footer">
-                <div class="col-3 offset-md-1 footer_con">
-                    <ul>
-                        <li><a href="index.html #about">關於我</a></li>
-                        <li><a href="index.html #experience">經歷</a></li>
-                        <li><a href="index.html #Certification">證照</a></li>
-                        <li><a href="index.html #work">作品</a></li>
-                    </ul>
-                </div>
-                <div class="col-4 footer_int">
-                    <p>
-                        Name：郭乃瑜<br>
-                        <i class="bi bi-envelope"></i> Email：0614nancy@gmail.com<br>
-                        <i class="bi bi-phone"></i> Phone：0934042566<br>
+                <div class="content-body">
+                    <p class="beginning_title">
+                    這是我之前所設計的個人作品集網頁排版，是我第一次從頭到尾自行設計與製作出完整含RWD的網頁，也是在製作過程中發現很多好看的動態特效都需要使用JS來製作，也讓我對JS越來越有興趣。
                     </p>
-                </div>
-                <div class="col-lg-4 footer_vid">
-                    <img src="img/portfolio/240.gif" width="60%">
                 </div>
             </div>
         </div>
-        <!--------------------------------------------------------->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
-        <script src="js/script.js"></script>
-    </body>
+    </section> 
+    <section class="matte-painting-section">
+        <div class="matte-img-container top-clip" onclick="openLightbox('img1')">
+            <img src="assets/portfolio/GD/Matte Painting_1.jpg" alt="Matte Painting Top">
+        </div>
+        <div class="matte-info-container">
+            <h2 class="title-with-line">Matte Painting</h2>
+            <div class="meta-data">
+                <p>完成時間：2020年11月</p>
+                <p class="software-info">使用軟體：<img src="assets/software/Photoshop.png" title="Photoshop" class="software-icon">Photoshop</p>
+            </div>
+            <div class="description">
+                <p class="beginning_title">
+                    大一時老師教到了繪景，是我第一次認識到這個技術。也讓我對PS的運用更上了一層樓， 看著自己想像中的場景就這麼一點點的做出來，真的很有成就感也覺得很有趣。 以前也總是很好奇電影裡那些奇幻的場景到底是怎麼來的，因為這堂課讓我了解到這些奇幻的場景也是可以自己製作出來的。
+                </p>
+            </div>
+        </div>
+        <div class="matte-img-container bottom-clip" onclick="openLightbox('img2')">
+            <img src="assets/portfolio/GD/Matte Painting_2.jpg" alt="Matte Painting Bottom">
+        </div>
+    </section>
+    <div id="matteLightbox" class="modal">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <div class="modal-content">
+            <div id="standardLightboxContent" class="lightbox-flex-container">
+                <div class="media-box">
+                    <h4>作品原圖</h4>
+                    <div class="image-wrapper">
+                        <img id="fullImage" src="" alt="Full Artwork">
+                    </div>
+                </div>
+                <div id="videoBox" class="media-box">
+                    <h4>製作過程</h4>
+                    <div class="video-wrapper">
+                        <video id="fullVideo" autoplay loop controls preload="metadata">
+                            您的瀏覽器不支援影片播放。
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div id="multiMediaContent" class="multi-media-container" style="display: none;">
+            </div>
+        </div>
+    </div>
+    <section class="portrait-retouching-section">
+        <div class="retouching-header">
+            <div class="title-wrapper">
+                <h2 class="title-en">Portrait retouching</h2>
+                <h2 class="title-zh">人像修圖</h2>
+            </div>
+            <div class="retouching-text">
+                <p class="software-info">使用軟體：<img src="assets/software/Photoshop.png" title="Photoshop" class="software-icon">Photoshop</p>
+                <!-- <p style="font-weight: bold;">對比圖：<a href="https://drive.google.com/drive/folders/1TZt1g3gIpOsA63tcZys-Nf874GbgEZNJ?usp=sharing" target="_blank" class="cloud-link">雲端連結</a></p> -->
+                <p class="desc" style="text-indent: 2em;">
+                    這是朋友的去外拍時所拍攝的照片，並非我所拍攝，我只負責修圖。但這也是我第一次精修照片，期間也學會了很多以前沒使用過的PS功能。
+                </p>
+            </div>
+        </div>
+        <div class="retouching-gallery">
+            <div class="skew-item" onclick="openLightbox('portrait1')">
+                <img src="assets/portfolio/GD/Portrait Retouch_1.jpg" alt="人像修圖 1">
+            </div>
+            
+            <div class="skew-item" onclick="openLightbox('portrait2')">
+                <img src="assets/portfolio/GD/Portrait Retouch_2.jpg" alt="人像修圖 2">
+            </div>
+            
+            <div class="skew-item" onclick="openLightbox('portrait3')">
+                <img src="assets/portfolio/GD/Portrait Retouch_3.jpg" alt="人像修圖 3">
+            </div>
+            
+            <div class="skew-item" onclick="openLightbox('portrait4')">
+                <img src="assets/portfolio/GD/Portrait Retouch_4.jpg" alt="人像修圖 4">
+            </div>
+            
+            <div class="skew-item" onclick="openLightbox('portrait5')">
+                <img src="assets/portfolio/GD/Portrait Retouch_5.jpg" alt="人像修圖 5">
+            </div>
+        </div>
+        <div class="Connection"></div>
+    </section>
+    <footer class="site-footer">
+        <div class="Connection_top"></div>
+        <div class="footer-wrapper">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="index.html#about-and-skills">關於我</a></li>
+                    <li><a href="index.html#experience">經歷</a></li>
+                    <li><a href="index.html#certifications">證照</a></li>
+                    <li><a href="index.html#portfolio">作品</a></li>
+                </ul>
+            </div>
+            <div class="footer-info">
+                <p>Name : 郭乃瑜</p>
+                <p>Email : 0614nancy@gmail.com</p>
+                <p>Phone : 0934042566</p>
+            </div>
+            <div class="footer-character">
+                <img src="assets/240.gif" alt="Character" class="seated-gif">
+            </div>
+        </div>
+    </footer>
+    <script src="js/page-flip.browser.js"></script> 
+    <script src="js/script.js"></script>
+</body>
 </html>

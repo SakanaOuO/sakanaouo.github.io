@@ -1,0 +1,3261 @@
+/* 基礎設定 */
+:root {
+    --cyan-glow: #00ffff;
+    --text-color: rgba(255, 255, 255, 0.8);
+    --font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-shadow: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #000; /* 兜底背景色 */
+    overflow-x: hidden;
+    height: 100vh;
+}
+
+.beginning_title {
+    text-indent: 2em;
+}
+
+
+/* --- 下拉選單樣式 (桌面版) --- */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(20, 20, 20, 0.9); /* 深色半透明 */
+    min-width: 140px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+}
+
+.dropdown-content a:hover {
+    background-color: #CD99F7;
+    color: #000;
+}
+
+/* 懸浮顯示下拉 */
+.dropdown:hover .dropdown-content {
+    display: block;
+    animation: fadeInDown 0.3s ease;
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translate(-50%, -10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.portfolio-hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/BG_1.png');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.portfolio-GD {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/BG_GD.jpg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.portfolio-ani {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/BG_animation.jpg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.portfolio-Editor {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/BG_Editor.png');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.portfolio-3D {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/BG_3D.jpg');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+.portfolio-game {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../assets/BG_game.png');
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+}
+
+/* 導覽列 */
+.top-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 0;
+    z-index: 20;
+    text-align: center;
+}
+
+.nav-scrolled {
+    background: rgba(0, 0, 0, 0.85); /* 滾動後的背景色 */
+    padding: 15px 0;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.top-nav ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 40px;
+}
+
+.top-nav a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.top-nav a:hover {
+    color: #ffffff;
+    text-shadow: 0 0 8px #fff;
+}
+
+/* 主要內容佈局 */
+.main-content {
+    position: relative;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10%;
+    z-index: 5;
+}
+
+/* 中央圓形頭像組 */
+.avatar-group {
+    position: absolute;
+    left: 36%; /* 匹配圖片位置 */
+    top: 25vh; /* 匹配圖片高度 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar-circle-wrapper {
+    position: relative;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    /* 這裡增加背景色，作為頭像的白底 */
+    background-color: #fff; 
+    border: 2px solid #fff;
+    padding: 0; /* 讓圖片填滿白底 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible; /* 讓魚可以跑出來 */
+}
+
+/* 外層的細圈 */
+.avatar-circle-wrapper::after {
+    content: '';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    right: -15px;
+    bottom: -15px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    pointer-events: none;
+}
+
+/* 頭像圖片：確保它是圓形並蓋在白底上 */
+.avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* 改為 contain 避免裁切到魚 */
+    border-radius: 50%;
+    z-index: 2;
+}
+
+/* 銜接處的黑色漸層 (圖二效果) */
+.Connection::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh; /* 漸層高度 */
+    background: linear-gradient(to top, #121212, transparent); /* 漸層到下一個區塊的底色 */
+    z-index: 3;
+}
+
+.Connection_top::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10vh; /* 漸層高度 */
+    background: linear-gradient(to bottom, #121212, transparent); /* 漸層到下一個區塊的底色 */
+    z-index: 3;
+}
+
+/* -------------------關於我 / 技能-------------------- */
+
+#about-and-skills {
+    background-color: #121212; /* 深灰黑色背景 */
+    color: #fff;
+    min-height: 120vh; /* 增加高度確保內容完整顯示 */
+    position: relative; /* 作為右側圖片絕對定位的參考 */
+    overflow: visible; /* 允許內容（文字或圖片）超出容器界線 */
+    display: flex; /* 使用 flex 佈局 */
+    justify-content: flex-end; /* 將內容往右推，對齊圖片 */
+}
+
+.container {
+    display: flex;
+    max-width: 1600px; /* 限制最大寬度防止在大螢幕太散 */
+    margin: 0 auto;
+    padding-top: 100px;
+    width: 100%;
+    margin-left: auto; /* 靠右對齊 */
+}
+
+.section-box {
+    margin-bottom: 80px;
+    max-width: 600px;
+}
+
+/* 標題設計：實心中文 + 空心英文背景 */
+.title-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.content-left {
+    flex: 6; /* 左邊佔 60% */
+    padding: 100px 5% 50px 10%; /* 增加左邊距推向右側，同時留白避免貼邊 */
+    z-index: 5; /* 層級低於圖片 */
+    position: relative;
+}
+.bg-title {
+    position: absolute;
+    font-size: clamp(60px, 8vw, 100px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 1px #6A408A; /* 圖片中淡淡的空心感 */
+    top: -100%;
+    left: -10%;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-size: 500%;
+}
+
+.title-group h2 {
+    color: #fff;
+    font-size: 36px;
+    white-space: nowrap;
+    margin-right: 20px;
+    z-index: 1;
+}
+
+.title-line {
+    width: 30%;
+    height: 1px;
+    background: #fff;
+    z-index: 1;
+}
+
+/* 關於我內文 */
+.about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #ddd;
+    max-width: 600px;
+}
+
+/* 技能卡片網格 */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 20px;
+    backdrop-filter: blur(5px);
+}
+
+.skill-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 5px;
+}
+
+.skill-card ul {
+    list-style: none;
+    font-size: 16px;
+    color: #ccc;
+}
+
+.decoration-right {
+    position: absolute; /* 改為絕對定位 */
+    top: 0; /* 貼齊最上面 */
+    right: 0; /* 貼齊最右邊 */
+    width: 30%; /* 根據你的圖片比例調整寬度 */
+    display: flex;
+    justify-content: center; /* 讓圖片水平置中 */
+    align-items: center; /* 讓圖片垂直置中 */
+}
+
+/* --- 3. 修正右側圖片樣式 --- */
+.standing-character {
+    height: 230%; /* **讓圖片高度貼齊容器** */
+    width: auto; /* 寬度自動縮放 */
+    display: block;
+    object-fit: cover; /* **確保圖片撐滿容器而不變形** */
+    object-position: top center; /* 手機版可以微調圖片對齊位置，例如對齊人物頭部 */
+}
+
+/* -------------------經歷--------------------- */
+
+#experience {
+    background-color: #121212;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.exp-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    min-height: 800px;
+}
+
+/* --- 左側傾斜圖片 --- */
+.exp-decoration {
+    flex: 1;
+    z-index: 1;
+}
+
+.exp-image-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0; /* 確保貼齊最左側 */
+    width: 50%; /* 根據你的需求調整圖片佔據的寬度 */
+    height: 100%;
+    z-index: 1;
+    clip-path: polygon(0 0, 65% 0, 100% 100%, 0 100%);
+}
+
+.exp-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.7); /* 稍微調暗以匹配整體風格 */
+}
+
+/* --- 右側內容 --- */
+.exp-content {
+    flex: 1.2;
+    padding-left: 50px;
+    color: #fff;
+    z-index: 2;
+}
+
+/* 時間軸主體 */
+.timeline {
+    position: relative;
+    margin-top: 50px;
+    padding-left: 40px;
+}
+
+/* 時間軸垂直線 */
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 48px; /* 對齊圓點中心 */
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+/* 時間軸圓點 */
+.timeline-dot {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #fff;
+    z-index: 3;
+}
+
+.timeline-date {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.timeline-info h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.timeline-info p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #bbb;
+    max-width: 500px;
+}
+
+/* ----------------證照------------------- */
+
+#certifications {
+    background-color: #121212;
+    position: relative;
+    width: 100%;
+    min-height: 80vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.cert-container {
+    display: flex;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* --- 左側文字內容 --- */
+.cert-content {
+    flex: 1;
+    padding: 80px 5% 80px 10%;
+    z-index: 5; /* 確保文字在最上層 */
+}
+
+.cert-list {
+    list-style: none;
+    margin-top: 40px;
+}
+
+.cert-list li {
+    font-size: 16px;
+    color: #eee;
+    margin-bottom: 20px;
+    position: relative;
+    padding-left: 25px;
+    letter-spacing: 1px;
+}
+
+/* 列表點點裝飾 */
+.cert-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 8px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 255, 255,);
+}
+
+/* --- 右側圖片與遮罩 --- */
+.cert-decoration {
+    position: absolute;
+    top: 0;
+    right: 0; /* 確保背景貼齊右側 */
+    width: 45%; /*背景遮罩寬度 */
+    height: 100%;
+}
+
+.cert-image-mask {
+    width: 100%;
+    height: 100%;
+    /* 這裡的切角方向要與經歷區塊反向，形成交錯感 */
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+    overflow: hidden;
+}
+
+.cert-bg-img {
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6) saturate(0.8);
+}
+
+/* 橫跨切角的人物 */
+.seated-character {
+    position: absolute;
+    bottom: -10px; /* 微調人物底部位置 */
+    right: -10%; /* 根據你的圖片微調人物左右位置 */
+    height: 105%; /* 讓人物高出背景，產生立體感 */
+    z-index: 2; /* 最關鍵：層級高於背景遮罩，讓她「跨」過邊界 */
+    pointer-events: none; /* 避免擋住文字區塊的點擊事件 */
+    filter: drop-shadow(-15px 10px 20px rgba(0,0,0,0.5)); /* 加個陰影增加深度 */
+}
+
+/* ------------------作品---------------------- */
+
+#portfolio {
+    background-color: #121212;
+    padding: 100px 0;
+    position: relative;
+    color: #fff;
+    background-image: url('../assets/BG_6.jpg');
+    background-size: cover;
+    background-position: top;
+}
+
+.port-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+
+/* --- 作品風琴展示容器 --- */
+.port-accordion {
+    display: flex;
+    width: 100%;
+    height: 80vh;
+    gap: 0;
+    overflow: hidden;
+    margin-top: 5%;
+}
+
+/* --- 個別作品方塊 (預設狀態) --- */
+.port-item {
+    flex: 1; 
+    position: relative;
+    overflow: hidden;
+    height: 80vh;
+    transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    filter: brightness(0.8); /* 沒指到時稍微暗一點點 */
+}
+
+/* --- 💡 滑鼠懸停展開效果 --- */
+.port-accordion:hover .port-item {
+    flex: 0.5;
+    filter: brightness(0.5); /* 其餘縮小的部分變暗 */
+}
+
+.port-item:hover {
+    flex: 4 !important; 
+    filter: brightness(1) !important; /* 展開的變亮 */
+}
+
+/* --- 方塊內背景圖片 --- */
+.item-mask {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.item-bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    transition: filter 0.3s;}
+
+/* --- 1. 未展開時的垂直標題樣式 (圖一效果) --- */
+.item-content-small {
+    position: absolute;
+    top: 40px;
+    left: 20px;
+    z-index: 5;
+    writing-mode: vertical-rl; /* 垂直文字 */
+    transition: opacity 0.3s ease;
+    color: #ffffff;
+    font-size: 30px;
+    opacity: 1;
+    transition: opacity 0.3s;
+    pointer-events: none; /* 避免干擾點擊 */
+}
+
+/* 被 hover 時隱藏垂直標題 */
+.port-item:hover .item-content-small {
+    opacity: 0;
+}
+
+/* 展開後的詳細內容 (圖二狀態) */
+.item-content-expanded {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    padding: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    justify-content: center;
+    align-content: center;
+    opacity: 0;
+    visibility: hidden; 
+    transition: opacity 0.4s ease 0.2s, visibility 0.4s;
+    background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 80%);
+}
+
+/* 當 item 展開時，切換內容顯示 */
+.port-item:hover .item-content-small {
+    opacity: 0; /* 縮小時文字消失 */
+}
+
+.port-item:hover .item-content-expanded {
+    opacity: 1; /* 展開時內容浮現 */
+    visibility: visible;
+}
+
+.port-item:hover .item-bg {
+    filter: brightness(0.8); /* 展開時稍微亮一點 */
+}
+
+/* 展開內容的細節 */
+.expanded-title { font-size: 36px; margin-bottom: 20px; }
+.software-title { font-size: 20px; color: #ccc; margin-top: 10px; }
+.software-icons { display: flex; gap: 15px; margin-top: 10px; }
+.software-icons img { width: 35px; height: 35px; }
+.project-desc { font-size: 16px; color: #ddd; line-height: 3; max-width: 450px; margin-top: 10%; text-indent: 2em; }
+.more-btn { font-size: 30px; color: #fff; text-decoration: none; margin-top: auto; align-self: flex-end; }
+
+.more-btn:hover{
+    transition: color 0.3s ease;
+    text-shadow: 0 0 8px #fff;
+    color: #E3C9F7;
+}
+
+.item-content-expanded h3, 
+.item-content-expanded p, 
+.item-content-expanded span {
+    color: #ffffff !important;
+    text-align: left;
+}
+
+/* -------------------頁尾-------------------- */
+
+.site-footer {
+    position: relative;
+    width: 100%;
+    min-height: 350px;
+    padding-top: 10%;
+    padding-bottom: 3%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-image: url('../assets/tt.png');
+    background-size: cover;
+    background-position: left center;
+}
+
+.footer-wrapper {
+    position: relative;
+    z-index: 2;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* 分散排列 */
+    align-items: center; /* 垂直居中 */
+    padding: 0 10% 0 8%; /* 調整內距以與上一個區塊對齊 */
+}
+
+/* --- 2. 左側選單：英文大文字上方 --- */
+.footer-links {
+    flex: 1;
+    padding-left: 5%;
+    margin-top: 5%;
+}
+
+.footer-links ul {
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 25px; /* 增加間距 */
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #6A408A;
+    font-weight: bold;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: #6A408A;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #fff; /* 懸停時變白 */
+}
+
+/* --- 3. 中間聯絡資訊：深色區域 --- */
+.footer-info {
+    flex: 1.2;
+    color: #6A408A; 
+    font-size: 18px;
+    line-height: 2.2; /* 增加行高 */
+    font-weight: bold;
+    margin-top: 5%;
+}
+
+.footer-info p {
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+
+/* --- 4. 右側角色 GIF --- */
+.footer-character {
+    flex: 0 0 auto; /* 不縮放 */
+    margin-top: -50px;
+}
+
+.seated-gif {
+    display: block;
+    max-height: 500px; /* 調整高度 */
+    width: auto;
+    object-fit: contain;
+    /* 加個陰影深度，匹配Cyberpunk感 */
+    filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6)); 
+}
+
+/* ================== 平面設計分頁 ================= */
+/* ---------------------------------
+    核心設定：書本的容器
+    --------------------------------- */
+
+.book_Contents {
+    margin-top: 10%;
+}
+
+.portfolio-title {
+    width: 100%;
+    height: 100vh; /* 務必給一個足夠的高度 */
+    background-color: #0b0b0b; /* 比背景深一點的顏色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+    position: relative;
+    z-index: 5;
+}
+
+#book {
+    background-color: transparent;
+    width: 550px; 
+    height: 733px;
+}
+
+/* 個別頁面的基礎樣式 */
+.page {
+    width: 100%;
+    height: 100%;
+    background-color: #fff; /* 頁面背景 */
+    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* 頁面陰影 */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-page {
+    background-color: #ffffff !important; /* 強制白底 */
+    padding: 40px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    color: #333;
+}
+
+.intro-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #333333;
+    padding-bottom: 10px;
+}
+
+.intro-content p {
+    line-height: 2;
+    margin-bottom: 16px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* 用於展示圖片的頁面 */
+.page-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* 導覽按鈕 (上一頁/下一頁) */
+.book-nav {
+    position: absolute;
+    bottom: 80px;
+    display: flex;
+    gap: 20px;
+    z-index: 100;
+}
+
+.nav-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.nav-btn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.software-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+}
+
+.software-icon {
+    width: 30px;
+    display: inline-block;
+}
+
+/* --------------網頁設計-------------- */
+
+/* --- 1. 新增父層容器設定 --- */
+.web-design-section {
+    display: flex;
+    width: 100%;
+    min-height: 500px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+/* --- 2. 修正左側圖片區 --- */
+.display-container {
+    position: relative;
+    width: 100%;             /* 佔比 65% */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;       /* 裁切模糊溢出的邊緣 */
+}
+
+.scenery-bg {
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%;            /* 改為 100% 填滿左側區塊 */
+    height: 100%;
+    background-image: url('../assets/BG_4.jpeg');
+    background-size: cover;
+    background-position: center;
+    filter: blur(12px) brightness(0.6); /* 稍微加強模糊與壓暗 */
+    transform: scale(1.1); 
+    z-index: 1;
+}
+
+.ui-mockup {
+    position: relative;
+    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
+    left: 10%;
+    filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+}
+
+/* --- 3. 修正右側文字區 --- */
+.description-container {
+    width: 35%;
+    padding: 60px 60px;
+    background-color: #333; 
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.title-with-line_ui {
+    font-size: 32px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    margin-bottom: 30px;
+    color: #fff;
+}
+
+.title-with-line_ui::after {
+    content: "";
+    flex-grow: 1;
+    height: 2px;
+    background-color: #fff;
+    margin-left: 20px;
+}
+
+.meta-info p {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.content-body p {
+    line-height: 2;
+    letter-spacing: 1px;
+    text-align: justify;
+    margin-top: 10%;
+    size: 16px;
+    color: #fff;
+}
+
+/* ------------Matte Painting---------------- */
+
+.matte-painting-section {
+    background-color: #000;
+    color: #fff;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+/* 斜切圖片容器 */
+.matte-img-container {
+    width: 100%;
+    height: 350px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.matte-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.5s;
+}
+
+.matte-img-container:hover img {
+    transform: scale(1.05);
+}
+
+.top-clip img {
+    object-position: center 20%;
+}
+
+/* 上方圖片：由左低往右高切 */
+.top-clip {
+    clip-path: polygon(0 0%, -20% 110%, 300% -50%, 0% 25%);
+    margin-bottom: -120px; /* 讓圖片與文字產生重疊感 */
+    top: 0;
+}
+
+/* 下方圖片：由左低往右高切 */
+.bottom-clip {
+    clip-path: polygon(0 0%, -20% 110%, 300% -50%, 0% 25%);   
+    margin-top: -120px;
+}
+
+/* 文字區塊 */
+.matte-info-container {
+    width: 80%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 150px 20px;
+}
+
+.title-with-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    font-size: 32px;
+}
+
+.title-with-line::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background-color: #fff;
+}
+
+.meta-data { 
+    margin: 20px 0; color: #fff;
+    text-align: justify;
+    font-weight: bold;
+}
+
+.description { 
+    line-height: 2; 
+    color: #fff; 
+    text-align: justify; 
+    margin-top: 5%;
+}
+
+/* 燈箱樣式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    /* 關鍵：啟用垂直捲動，防止內容過長被切掉 */
+    overflow-y: auto; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+.modal-content {
+    margin: 60px auto;
+    width: 90%;
+    max-width: 1000px;
+    background: transparent;
+    padding: 20px;
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+}
+
+.image-wrapper img, 
+.video-wrapper video {
+    width: 100%;
+    height: auto;
+    max-height: 85vh; /* 限制高度不要超過螢幕太多 */
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0,0,0,1);
+}
+
+.close {
+    position: absolute;
+    right: 35px; top: 15px;
+    color: #f1f1f1; font-size: 40px; cursor: pointer;
+}
+
+/* 燈箱內部並列排版 */
+.lightbox-flex-container {
+    display: flex;
+    flex-direction: column; /* 核心：改為垂直上下堆疊 */
+    gap: 40px; /* 增加兩組媒體之間的間距，強調往下滾的感覺 */
+    width: 100%;
+}
+
+.media-box {
+    width: 100%; /* 確保垂直排列時填滿寬度 */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.media-box h4 {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+}
+
+/* ------------人像修圖-------------- */
+
+/* 針對人像修圖的高清原圖優化 */
+.image-wrapper img {
+    width: auto;      /* 不強制填滿寬度 */
+    max-width: 100%;  /* 但不超過容器 */
+    max-height: 80vh; /* 限制高度，確保不用捲動太久就能看到關閉按鈕 */
+    display: block;
+    margin: 0 auto;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.image-wrapper_Houdini img {
+    width: 100%;
+    height: auto;
+    max-height: 85vh; /* 限制高度不要超過螢幕太多 */
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 30px rgba(0,0,0,1);
+}
+
+/* 影片容器 ID (用於 JS 控制隱藏) */
+#videoBox {
+    margin-top: 30px;
+    width: 100%;
+}
+
+/* --- 整體區塊排版 --- */
+.portrait-retouching-section {
+    padding: 80px 10%; /* 控制整個區塊與螢幕邊緣的距離 */
+    background-color: transparent; 
+    color: #fff;
+    background-color: #1f1f1f;
+    position: relative;
+}
+
+/* --- 標題特效 (空心字與重疊) --- */
+.title-wrapper {
+    position: relative;
+    margin-bottom: 40px;
+    transform: rotate(-5deg); /* 讓整個標題群組微微向左上傾斜 */
+    display: inline-block;
+}
+
+.title-en {
+    font-size: 3.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    color: transparent; /* 文字設為透明 */
+    -webkit-text-stroke: 1px #777; /* 加上灰色描邊達成空心效果 */
+    letter-spacing: 2px;
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    z-index: 1;
+    white-space: nowrap;
+}
+
+.title-zh {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #fff; /* 中文實心白字 */
+    position: relative;
+    z-index: 2;
+    margin-left: 280px; /* 調整此數值讓中文剛好落在英文的右下方 */
+}
+
+/* --- 文字說明排版 --- */
+.retouching-text {
+    margin-bottom: 50px;
+    font-size: 0.95rem;
+    line-height: 1.8;
+    color: #ccc;
+    max-width: 600px;
+}
+
+.retouching-text p {
+    margin: 8px 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.cloud-link {
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    transition: color 0.3s;
+    font-weight: bold;
+}
+
+.cloud-link:hover {
+    color: #aaa;
+    border-bottom-color: #aaa;
+}
+
+.desc {
+    margin-top: 8% !important;
+    text-align: justify;
+    line-height: 2;
+}
+
+/* --- 平行四邊形畫廊排版 --- */
+.retouching-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 0%; /* 圖片之間的間隔 */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skew-item {
+    flex: 1; /* 讓5張圖平均分配寬度 */
+    height: 400px; /* 統一縮圖高度，可依你的喜好微調 */
+    cursor: pointer;
+    /* 核心：將矩形裁切成平行四邊形 (左上, 右上, 右下, 左下) */
+    clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* 滑鼠移上去時的小特效：稍微往上浮動並變亮 */
+.skew-item:hover {
+    transform: translateY(-8px);
+    filter: brightness(1.15);
+}
+
+.skew-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片填滿容器且不變形 */
+    object-position: center; /* 確保人物對齊中央 */
+}
+
+/* ================== 剪輯分頁 =============== */
+
+.Using_software {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+/* --- 1. 最外層容器 --- */
+.video-timeline-section {
+    position: relative;
+    width: 100%;
+    /* ⚠️ 注意：這層和它的父元素絕對不能有 overflow: hidden，否則吸附效果會失效 */
+}
+
+/* --- 2. 背景層 (核心魔法1) --- */
+.sticky-bg {
+    position: sticky; /* 黏滯定位 */
+    top: 0;           /* 當畫面滾到這裡時，緊緊黏在螢幕最上方 */
+    width: 100%;
+    height: 100vh;    /* 高度設定為滿版螢幕 */
+    background-image: url('../assets/BG_6.jpg'); /* 替換成你的圖片路徑 */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;       /* 放在底層 */
+}
+
+/* 背景的半透明遮罩，讓前面的影片和白字更清楚 */
+.sticky-bg .bg-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); 
+}
+
+/* --- 3. 內容層 (核心魔法2) --- */
+.scroll-content {
+    position: relative;
+    z-index: 2;         /* 確保內容浮在背景上面 */
+    margin-top: -100vh; /* 關鍵！把內容往上拉一個螢幕的高度，讓它從背景最頂端開始重疊 */
+    padding-top: 100px; /* 留出頂部呼吸空間，才不會一滾到就貼齊螢幕邊緣 */
+    padding-bottom: 10px; /* 底部留白，滾到底時會順暢過渡到下一個網頁區塊 */
+}
+
+/* --- 4. 時間軸原本的樣式 (維持不變) --- */
+.timeline-container {
+    position: relative;
+    max-width: 70%;
+    margin: 0 auto;
+    z-index: 2; /* 確保內容在遮罩之上 */
+}
+
+.timeline-line {
+    position: absolute;
+    left: 8px; /* 根據你的圓點位置調整，使其居中於圓點 */
+    top: 180px;    /* 起點：對齊第一個 .timeline-dot 的中心 */
+    bottom: 200px; /* 終點：對齊最後一個 .timeline-dot 的中心 */
+    width: 2px;
+    background-color: #fff;
+    z-index: 1;
+}
+
+/* 每個專案項目 */
+.timeline-item {
+    position: relative;
+    padding-left: 60px; /* 留出左側線條和圓點的空間 */
+    margin-bottom: 20%; /* 每個項目之間的間距 */
+}
+
+/* 圓點 */
+.timeline-dot_Editor {
+    position: absolute;
+    left: 0;
+    top: 50%; /* 對齊內容垂直居中 */
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    z-index: 3;
+}
+
+.item-content {
+    display: flex;
+    align-items: center; /* 讓左右兩塊垂直置中對齊 */
+    gap: 40px;
+    margin-top: 15%;
+}
+
+.montage {
+    display: flex;
+    align-items: center; /* 讓左右兩塊垂直置中對齊 */
+    gap: 40px;
+    margin-top: 5%;
+}
+
+/* 純 CSS 畫出的播放按鈕 */
+.play-btn {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    position: relative;
+}
+
+.play-btn::after {
+    content: '';
+    position: absolute;
+    left: 55%; top: 50%;
+    transform: translate(-50%, -50%);
+    border-style: solid;
+    border-width: 10px 0 10px 18px;
+    border-color: transparent transparent transparent #000;
+}
+
+/* 影片播放時隱藏遮罩 */
+.video-wrapper_Editor.playing .video-overlay {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 文字區域 */
+.text-content {
+    flex: 1;
+}
+
+.item-header h3 {
+    color: #fff;
+}
+
+.item-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.item-header .title {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.item-header .line {
+    flex: 1;
+    height: 1px;
+    background-color: #fff;
+    opacity: 0.6;
+}
+
+.meta {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #fff;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.meta_con {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #fff;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.meta a {
+    color: #E3C9F7;
+    transition: color 0.3s;
+}
+
+.meta a:hover {
+    color: #fff;
+    text-shadow: 0 0 8px #fff;
+}
+
+.short_film_con {
+    font-size: 16px;
+    line-height: 2;
+    color: #fff;
+    text-align: justify;
+    text-indent: 2em;
+    margin-top: 8% !important;
+}
+
+/* 影片外框 */
+.video-wrapper_Editor {
+    position: relative;
+    width: 50%;
+    aspect-ratio: 16 / 9;
+    background: #333;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 播放按鈕遮罩 */
+.video-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.2); /* 淡淡的黑影 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+.video-overlay_blemder {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s;
+}
+
+/* =======================動畫分頁=======================
+-------------角色動畫---------------- */
+
+/* 容器基本設定 */
+.anime-character-section {
+    position: relative; /* 為了 bg-overlay 定位 */
+    padding: 100px 5%;
+    color: #fff;
+    
+    /* 👇 核心功能：設定背景圖片並固定不動 */
+    background-image: url('../assets/BG_6.jpg'); /* 請替換成你的背景圖路徑 */
+    background-size: cover;
+    background-position: top;
+    background-attachment: scroll; /* 預設隨滾動條移動，可選用 fixed */
+    
+    font-family: "Microsoft JhengHei", sans-serif;
+    overflow: hidden; /* 防止內容溢出 */
+}
+
+/* 背景半透明遮罩，確保文字可讀性 */
+.anime-character-section .bg-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* 調整 rgba 的 0.7 數值來控制背景變暗的程度 */
+    z-index: 1;
+}
+
+.anime-container {
+    position: relative; /* 為了 z-index 浮在遮罩上 */
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    z-index: 2; /* 放在遮罩之上 */
+}
+
+/* 左側大影片 */
+.left-assets {
+    flex: 1.2;
+}
+.main-char-video {
+    width: 80%;
+    height: auto;
+    filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+}
+
+/* 右側內容 */
+.right-info {
+    flex: 1;
+}
+
+/* 標題裝飾：實心與空心重疊 */
+.title-group {
+    position: relative;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+.main-title {
+    font-size: 32px;
+    font-weight: bold;
+    z-index: 2;
+    margin: 0;
+}
+
+.hollow-text {
+    position: absolute;
+    top: -100%;
+    left: -30%;
+    font-size: 500%;
+    font-weight: bold;
+    color: transparent;
+    -webkit-text-stroke: 1px #6A408A;
+    font-size: clamp(60px, 8vw, 100px);
+    white-space: nowrap;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+}
+
+/* 文字細節 */
+.meta-data {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+.main-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+.spine-box {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+    margin-top: 15%;
+}
+.spine-video-container {
+    flex: 0 0 80%;
+    margin-left: -30%;
+}
+.spine-video-container video {
+    width: 100%;
+    display: block;
+    filter: drop-shadow(0 5px 15px rgba(0,0,0,0.5));
+}
+.spine-text {
+    flex: 1;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #fff;
+    margin-right: -40%;
+}
+.software-label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #fff;
+}
+
+/* ------------------專題動畫----------------- */
+
+.special-animation-section {
+    background-color: #333333;
+    padding: 80px 5%;
+    color: #fff;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+.animation-grid {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+/* 比例控制：左側較大 */
+.main-project { flex: 1.5; }
+.sub-project { flex: 1; }
+
+/* 影片包裝器 */
+.Special_Topic_vid {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000;
+    border-radius: 25px; /* 圓角效果 */
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.Special_Topic_vid video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 文字資訊排版 */
+.project-info h3 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.Video_Link_software {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.meta-flex {
+    display: flex;
+    gap: 40px;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.meta-right {
+    margin-left: 10%;
+}
+
+.description_Special_Topic {
+    line-height: 1.7;
+    color: #fff;
+    text-align: justify;
+    margin-top: 5%;
+}
+.software-meta {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+/* --------------LOGO------------------ */
+
+/* 區塊背景與間距 */
+.logo-animation-section {
+    background-color: #111; /* 深色背景 */
+    padding: 100px 5%;
+    color: #fff;
+    font-family: "Microsoft JhengHei", sans-serif;
+}
+
+.logo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 文字排版 */
+.logo-header {
+    margin-bottom: 50px;
+}
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+.logo-meta {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.logo-description {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #fff;
+    max-width: 800px;
+}
+
+/* 影片並排佈局 */
+.logo-video-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+}
+
+.logo-video-item {
+    flex: 1;
+    background: #000;
+    border-radius: 25px; /* 維持一致的圓角風格 */
+    overflow: hidden;
+    aspect-ratio: 16 / 9; /* 保持標準比例 */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.auto-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保影片填滿容器 */
+}
+
+/* ---------Live2D------------- */
+
+.live2d-section {
+    background-color: #333333; /* 參考 image_5e3929.png 的淺灰色背景 */
+    padding: 80px 5%;
+    font-family: "Microsoft JhengHei", sans-serif;
+    color: #fff;
+    position: relative;
+}
+
+.live2d-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    gap: 40px;
+}
+
+/* --- 左側主區塊 --- */
+.live2d-main {
+    flex: 1.5; /* 佔據較多空間 */
+}
+
+.main-video-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #fff;
+    border-radius: 40px; /* 較大的圓角 */
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+}
+
+.vtuber-title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.author-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 45px;          /* 根據截圖調整大小 */
+    height: 45px;
+    border-radius: 50%;   /* 關鍵：強制變圓形 */
+    object-fit: cover;    /* 關鍵：確保圖片比例正確，不縮放變形 */
+    display: block;
+    background-color: #eee; /* 圖片載入前的底色 */
+    border: 1px solid rgba(255, 255, 255, 0.05); /* 輕微描邊讓邊緣更清晰 */
+}
+
+.author-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.detail-meta {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.description_live2D {
+    line-height: 1.8;
+    color: #fff;
+}
+
+/* --- 右側側邊欄 --- */
+.live2d-sidebar {
+    flex: 1.3; /* 佔據較少空間 */
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-left: 5%;
+}
+
+.sidebar-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.side-video-box {
+    flex: 0 0 300px; /* 固定寬度縮圖 */
+    aspect-ratio: 16 / 9;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 10%;
+}
+
+.side-text {
+    flex: 1;
+}
+
+.side-meta {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.side-desc {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #fff;
+    margin-top: 5%;
+}
+
+.loop-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* --------------3D---------------- */
+/* --- Houdini 區塊整體設定 --- */
+.houdini-section {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 80px 5%;
+    position: relative;
+}
+
+.houdini-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 標題與底線 */
+.houdini-header {
+    margin-bottom: 50px;
+}
+
+.houdini-main-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.houdini-line {
+    border: 0;
+    height: 1px;
+    background-color: #ffffff;
+    margin-bottom: 40px;
+}
+
+/* 項目內容排版 */
+.houdini-item {
+    margin-bottom: 100px;
+}
+
+.houdini-sub-title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 25px;
+}
+
+.houdini-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 50px;
+}
+
+/* 控制左右交錯 */
+.flex-row { flex-direction: row; }
+
+/* 圖片/影片容器 */
+.houdini-media {
+    flex: 1;
+    max-width: 50%;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.houdini-media:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+}
+
+.media-element {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.houdini-text {
+    flex: 1;
+    padding-top: 10px;
+}
+
+.houdini-time {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.houdini-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #fff;
+    margin-top: 10%;
+}
+
+/* --- Lightbox 燈箱設定 --- */
+.houdini-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.hl-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.hl-content img,
+.hl-content video {
+    max-width: 100%;
+    max-height: 85vh;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.hl-close-btn {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+}
+
+.hl-close-btn:hover {
+    color: #bbb;
+}
+
+/* --- 燈箱多媒體垂直排版 --- */
+.multi-media-container {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* 每個段落之間的距離 */
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.multi-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* 標題與影音的距離 */
+}
+
+.multi-title {
+    color: #ffffff;
+    font-size: 22px;
+    font-weight: 800;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    margin: 0;
+    letter-spacing: 1px;
+}
+
+.multi-media-wrapper {
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #111;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+.multi-media-item {
+    width: 100%;
+    height: auto;
+    display: block; /* 去除圖片下方空白 */
+}
+
+.play-overlay {
+    position: absolute;
+    top: 0;
+    width: 140%;
+    height: 100%;
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center;    /* 垂直置中 */
+    background: rgba(0, 0, 0, 0.2); /* 淡淡的遮罩 */
+    cursor: pointer;
+    z-index: 10;
+    transition: opacity 0.3s;
+}
+
+.scene-media-wrapper.is-playing .play-overlay {
+    opacity: 0;
+    visibility: hidden; /* 徹底從畫面渲染中移除 */
+    pointer-events: none; /* 確保點擊會穿透到下方的影片 */
+}
+
+/* 當影片播放時，隱藏大按鈕 */
+.multi-media-wrapper.is-playing .playing {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* 讓影片在播放時顯示預設控制條(方便調整音量/進度) */
+.multi-media-wrapper.is-playing video {
+    pointer-events: auto;
+}
+
+.is-playing video, .playing video {
+    z-index: 5;
+}
+
+/* --------unreal--------- */
+
+.unreal_matte-painting-section {
+    background-color: #3a3a3a;
+    color: #fff;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.unreal_title-with-line {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    font-size: 32px;
+}
+
+.unreal_matte-info-container {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    padding: 150px 20px;
+}
+
+/* -----------Blender---------------- */
+#blender-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 80px 0;
+    color: #ffffff;
+    box-sizing: border-box;
+    background-color: #1a1a1a;
+    overflow-x: hidden;
+}
+
+.section-header {
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    padding: 3% 5% 0 5%;
+}
+
+.section-header h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.section-header_maya {
+    max-width: 1200px;
+}
+
+.section-header_maya h2 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.header-line {
+    border: none;
+    height: 1px;
+    background-color: #fff;
+    margin: 0;
+}
+
+/* --- 專案排版 (Flexbox) --- */
+.portfolio-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: none;
+    margin-bottom: 0; /* 滿版設計通常讓列與列相鄰，或自訂間距 */
+    gap: 0; /* 移除間距，讓圖文緊貼或靠邊 */
+}
+
+/* 將第二個專案反轉為左圖右文 */
+.portfolio-item.row-reverse {
+    flex-direction: row;
+}
+
+/* --- 文字區塊 --- */
+
+/* 讓文字在左邊時，右邊留白多一點；文字在右邊時，左邊留白多一點 */
+.text-left { order: 1; }
+.text-right { order: 2; }
+
+.item-text {
+    flex: 1;
+    width: 50%;
+    padding: 0 8%; /* 這裡控制文字離邊緣和圖片的距離 */
+    box-sizing: border-box;
+}
+
+.item-text h3 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.item-text .meta_blender {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+.item-text .description {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+/* --- 圖片/影片 媒體區塊 --- */
+.item-media {
+    flex: 1;
+    width: 50%;
+    height: 500px; /* 建議給定高度或使用 aspect-ratio */
+    overflow: hidden;
+    box-shadow: none; /* 滿版設計通常不加陰影 */
+}
+
+.media-right { order: 2; }
+.media-left { order: 1; }
+
+.item-media img,
+.video-wrapper_Blender,
+.video-wrapper_Blender video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保影片或圖片填滿區塊不變形 */
+    display: block;
+}
+
+/* 圖片可點擊的互動效果 */
+.lightbox-trigger {
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.lightbox-trigger:hover {
+    transform: scale(1.02); /* 滑鼠懸停微放大 */
+    filter: brightness(0.9);
+}
+
+/* 針對反轉佈局的處理 (portfolio-item.row-reverse) */
+.row-reverse {
+    flex-direction: row-reverse;
+}
+
+/* ----------場景建模------------- */
+
+/* 1. 修改主要內容區域容器 */
+#scene-lightbox-main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 60px auto;
+}
+
+/* 2. 修改單一媒體的包裹層：去除舊的媒體選取器樣式 */
+#scene-lightbox-main .scene-media-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto 20px;
+    background: transparent; /* 去除黑色背景，讓影片更自然 */
+}
+
+/* 3. 確保裡面的媒體 contain 而不拉伸 (去除寫死的寬高) */
+#scene-lightbox-main .scene-media-wrapper video,
+#scene-lightbox-main .scene-media-wrapper img {
+    max-width: 100%; /* 不要貼滿邊框 */
+    max-height: 100%; /* 不要貼滿高度 */
+    width: auto;
+    height: auto;
+    object-fit: contain; /* 確保內容不拉伸 */
+    border-radius: 4px;
+    /* 將黑色背景（黑色區塊）限制在媒體標籤本身，如果影片有透明度 */
+    background: rgba(15, 15, 15, 0.95); 
+}
+
+.Scene_modeling_Gui {
+    padding-bottom: 100px;
+}
+
+.scene-thumbnails-wrapper {
+    background: rgba(0, 0, 0, 0.8); /* 增加背景半透明黑，提升視覺層次 */
+    padding: 10px 0;
+    position: relative; /* 或者用 sticky */
+    z-index: 20;
+}
+
+.portfolio-section {
+    background-color: #1a1a1a;
+}
+
+.portfolio-section_maya {
+    background-color: #3a3a3a;
+    position: relative;
+}
+
+.scene-title {
+    font-size: 1.5rem; /* 字體大一點 */
+    font-weight: bold; /* 粗體 */
+    color: #ffffff; /* 根據你的背景調整顏色 */
+    margin-bottom: 8px; /* 和下方的完成時間拉開一點距離 */
+    letter-spacing: 1px; /* 增加一點字距看起來更精緻 */
+}
+
+/* --- 動態文字區塊 --- */
+.scene-text-container {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #fff;
+    min-height: 120px; /* 預留高度避免文字長短切換時畫面跳動 */
+}
+
+/* --- 輪播區塊 (Carousel) --- */
+.scene-carousel {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.scene-track {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scene-item {
+    position: absolute;
+    width: 50%; /* 中間影片的寬度 */
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #333; /* 預設背景色 */
+}
+
+.scene-item video, .scene-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none; /* 讓點擊事件落在外層 div 上 */
+}
+
+/* 輪播狀態控制 */
+.scene-item.active {
+    transform: translateX(0) scale(1);
+    z-index: 3;
+    filter: brightness(1);
+}
+
+.scene-item.prev {
+    transform: translateX(-60%) scale(0.8);
+    z-index: 2;
+    filter: brightness(0.4); /* 兩側變暗 */
+}
+
+.scene-item.next {
+    transform: translateX(60%) scale(0.8);
+    z-index: 2;
+    filter: brightness(0.4);
+}
+
+.scene-item.hidden {
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* --- 場景專用燈箱 --- */
+#scene-lightbox {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    overflow-y: auto;
+}
+
+.scene-lightbox-content {
+    width: 90%;
+    max-width: 1200px;
+    margin: 60px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+.close-btn {
+    position: fixed;
+    top: 20px;
+    right: 40px;
+    color: #fff;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10000;
+    transition: color 0.3s;
+}
+
+.close-btn:hover {
+    color: #aaa;
+}
+
+/* 燈箱內的影片/圖片容器 */
+.scene-media-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 800px; /* 依你需求調整 */
+    margin: 0 auto 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000;
+    margin-bottom: 40px;
+}
+
+.scene-media-wrapper video, .scene-media-wrapper img {
+    width: 140%;
+    display: block;
+}
+
+.scene-media-title {
+    color: #fff;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    margin-top: 30px;
+    font-size: 20px;
+    border-left: 4px solid #fff; /* 加個小裝飾讓它更像作品集標題 */
+    padding-left: 10px;
+}
+
+/* 底部縮圖導覽列 */
+.scene-lightbox-thumbnails {
+    position: fixed; /* 固定在螢幕上 */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(15, 15, 15, 80%); /* 給一點深色背景，才不會跟後面的圖片疊在一起 */
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 15px 0;
+    z-index: 10000;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5); /* 加上一點上方陰影增加立體感 */
+}
+
+.thumb-item {
+    width: 150px;
+    height: 85px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.3s;
+    opacity: 0.5;
+}
+
+.thumb-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.thumb-item:hover, .thumb-item.active-thumb {
+    opacity: 1;
+    border-color: #fff;
+}
+
+/* 場景輪播圖的專屬圖片容器 */
+.scene-img-container {
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 4px;
+    width: 50%; /* 中間影片的寬度 */
+    height: 100%;
+
+    
+    /* ⚠️ 注意：如果你原本的 .scene-item (舊的 img) 有設定 width, height, 或 margin，
+       請把那些尺寸設定轉移到這個 container 身上，例如：
+       width: 250px;
+       margin-right: 20px;
+       flex-shrink: 0; 
+    */
+}
+
+/* 確保裡面的圖片能填滿容器並帶有動畫過場 */
+.scene-img-container .scene-item-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* 懸停時圖片微放大 */
+.scene-img-container:hover .scene-item-img {
+    transform: scale(1.03);
+}
+
+/* 懸停時遮罩浮現 (這會直接吃到你剛剛寫好的 .hover-overlay 共用樣式) */
+.scene-img-container:hover .hover-overlay {
+    opacity: 1;
+}
+
+/* ----------服裝建模----------- */
+
+.section-main-title {
+    font-size: 32px;
+    color: #fff;
+    padding: 8% 0% 0% 0%;
+    margin-bottom: 12px;
+}
+
+.section-header_clothing {
+    max-width: 1400px;
+    margin: 0 auto 60px;
+}
+
+.Object_modeling {
+    padding: 5% 5% 0 5%;
+}
+
+.portfolio-section_clothing {
+    background-color: #1a1a1a;
+    margin: 0 auto;
+}
+
+.portfolio-item_clothing {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    max-width: none;
+    margin-bottom: 0;
+    gap: 0;
+}
+
+.portfolio-item_clothing.row-reverse {
+    flex-direction: row;
+    margin-top: 5%;
+}
+
+.item-text_clothing {
+    flex: 1;
+    width: 50%;
+    padding: 0 5% 0 15%;
+    box-sizing: border-box;
+}
+
+.item-text_clothing_bottom {
+    flex: 1;
+    width: 30%;
+    padding: 0 10% 0 5%;
+    box-sizing: border-box;
+}
+
+.item-text_clothing h3, .item-text_clothing_bottom h3 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.meta_blender {
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    font-weight: bold;
+}
+
+/* 確保圖片容器是相對定位，才能讓遮罩蓋在上面 */
+.clothing-img-container {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden; /* 防止圖片放大時超出邊界 */
+    border-radius: 4px; /* 讓邊角稍微圓潤一點，看你需求可刪 */
+}
+
+/* 圖片本身的過場動畫 */
+.clothing-img-container .preview-img {
+    width: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+/* 滑鼠移上去時，圖片微放大 */
+.clothing-img-container:hover .preview-img {
+    transform: scale(1.03); 
+}
+
+/* 提示遮罩層：預設透明度為 0 */
+.hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.65); /* 半透明黑底 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* 滑鼠移上去時，遮罩浮現 */
+.clothing-img-container:hover .hover-overlay {
+    opacity: 1;
+}
+
+/* 提示文字樣式 */
+.hover-overlay span {
+    color: #fff;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    border: 1px solid #fff;
+    padding: 10px 20px;
+    border-radius: 20px; /* 橢圓形外框 */
+}
+
+/* ------------物件建模(blender)-------------- */
+
+/* 上方佈局：Flexbox 左右分配 */
+.object-top-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 0 8% 0 15%;
+}
+
+.object-top-container_maya {
+    display: flex;
+    align-items: flex-start;
+    gap: 40px;
+    margin-bottom: 60px;
+    padding: 5% 8% 0 15%;
+}
+
+.object-text {
+    flex: 1; /* 左側文字佔比 */
+}
+
+/* 右側畫廊：CSS Grid 排版 */
+.object-gallery {
+    flex: 1.5; /* 右側圖片區塊佔比稍微大一點 */
+    display: grid;
+    grid-template-columns: 2.5fr 1fr; /* 切分成左右兩欄，左邊寬很多 */
+    grid-template-rows: 1fr 1fr;      /* 上下等高 */
+    gap: 15px;
+    height: 400px; /* 統一高度，你可以依據喜好調整 */
+}
+
+/* 共用圖片容器特效 (包含前面寫好的 Hover 遮罩邏輯) */
+.object-img-wrapper, .marquee-item {
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #1a1a1a;
+}
+
+.object-img-wrapper img, .marquee-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.object-img-wrapper:hover img, .marquee-item:hover img {
+    transform: scale(1.03);
+}
+
+.object-img-wrapper:hover .hover-overlay, .marquee-item:hover .hover-overlay {
+    opacity: 1;
+}
+
+/* 控制「一大兩小」的佔位 */
+.main-img {
+    grid-row: 1 / 3; /* 大圖跨越第一到第二列 */
+}
+
+/* 確保圖片或影片都能完美填滿且不變形 */
+.marquee-item img, 
+.marquee-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.marquee-item:hover img, 
+.marquee-item:hover video {
+    transform: scale(1.03);
+}
+
+/* --- 下方跑馬燈區塊 --- */
+.object-marquee-wrapper {
+    width: 100%;
+    overflow: hidden; /* 把超出的圖片藏起來 */
+    position: relative;
+    padding: 20px 0 5% 0;
+}
+
+.object-marquee-track {
+    display: flex;
+    gap: 0;
+    padding-right: 0; 
+    animation: marqueeScroll 25s linear infinite;
+}
+
+/* 滑鼠移上去時暫停滾動，讓觀看者好點擊 */
+.object-marquee-wrapper:hover .object-marquee-track {
+    animation-play-state: paused;
+}
+
+.marquee-item {
+    width: 350px; 
+    aspect-ratio: 16 / 9;
+    flex-shrink: 0;
+    margin-right: 20px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    border-radius: 6px;
+    background: #1a1a1a;
+}
+
+.marquee-item:hover img, 
+.marquee-item:hover video {
+    transform: scale(1.03);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* 跑馬燈位移動畫 */
+@keyframes marqueeScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-55%); } /* 往左移總長度的一半，達成無縫循環 */
+}
+
+.single-media-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* 移除強制的 height: 80vh，改用 min-height 確保點擊空間 */
+    min-height: 70vh; 
+    margin: 40px auto;
+}
+
+.single-media-item {
+    max-width: 85%;
+    max-height: 80vh; 
+    width: auto;
+    height: auto;
+    object-fit: contain; 
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #000; /* 給影片一個純黑底色 */
+}
+
+/* ----------- VR 遊戲區塊 -------------- */
+.vr-game-section {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 10% 10% 10%;
+    color: #fff;
+    box-sizing: border-box;
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.vr-game_size {
+    max-width: 1200px;
+}
+
+/* 文字介紹區塊 */
+.vr-game-info {
+    margin-bottom: 40px;
+}
+
+.vr-game-info h3 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+}
+
+.vr-game-meta {
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.8;
+    font-weight: bold;
+}
+
+.vr-game-desc {
+    line-height: 2;
+    font-size: 16px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.vr-game-desc p {
+    margin-bottom: 20px;
+}
+
+.vr-game-Contents {
+    line-height: 2;
+    font-size: 16px;
+    color: #fff;
+}
+
+/* === 媒體區塊 (左圖右影片) === */
+.vr-game-media {
+    display: flex;
+    gap: 20px; /* 圖片跟影片中間的縫隙 */
+    width: 100%;
+}
+
+.vr-media-wrapper {
+    flex: 1; /* 讓左右兩塊平分寬度 */
+    background: #1a1a1a; /* 載入前的底色 */
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+/* 強制統一比例，排版才會整齊 */
+.vr-media-wrapper img,
+.vr-media-wrapper video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; 
+    aspect-ratio: 16 / 9; 
+}
+
+/* =========================================
+   RWD (響應式設計)
+   ========================================= */
+
+   /* --- RWD 漢堡選單樣式 --- */
+.menu-toggle {
+    display: none; /* 平時隱藏 checkbox */
+}
+
+.hamburger {
+    display: none; /* 桌面版隱藏漢堡圖示 */
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1000;
+}
+
+@media (max-width: 1100px) {
+    .live2d-container {
+        flex-direction: column; /* 雙欄改為單欄 */
+    }
+    
+    .live2d-sidebar {
+        width: 100%;
+    }
+}
+
+/* 平板型 (Ipad) */
+@media (max-width: 1024px) {
+    .main-content {
+        padding: 0 5%;
+    }
+    .avatar-group {
+        left: 30%;
+        top: 30vh;
+    }
+    .avatar-circle-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+    .character-container {
+        width: 50%;
+        right: 2%;
+    }
+    .container { flex-direction: column; }
+    .decoration-right { width: 100%; height: 500px; overflow: hidden; }
+    .skills-grid { grid-template-columns: repeat(2, 1fr); }
+        .exp-container {
+        flex-direction: column;
+    }
+    .exp-image-wrapper {
+        width: 100%;
+        height: 300px;
+        clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        margin-bottom: 50px;
+    }
+    .exp-content {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+
+    .footer-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 50px 8%;
+    }
+    .footer-links {
+        padding: 0;
+        margin-top: 50px;
+        margin-bottom: 40px;
+    }
+    .footer-info {
+        padding: 0;
+        margin-top: 0;
+        margin-bottom: 40px;
+    }
+    .footer-character {
+        position: static;
+        margin-top: 0;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        padding: 0;
+    }
+    .seated-gif {
+        max-height: 250px;
+    }
+    /* 背景大文字在窄螢幕可能需要切換 */
+    .site-footer {
+        background-position: center center;
+    }
+    .spine-video-container {
+        flex: 0 1 150px;
+    }
+}
+
+@media (max-width: 992px) {
+    .lightbox-flex-container {
+        flex-direction: column;
+    }
+    .media-box {
+        width: 100%;
+    }
+    .retouching-gallery {
+        flex-wrap: wrap; /* 允許換行 */
+    }
+    .skew-item {
+        flex: 1 1 30%; /* 手機版一行顯示較少張數 */
+        height: 300px;
+        margin-bottom: 15px;
+    }
+    .title-zh {
+        margin-left: 150px;
+    }
+    .title-en {
+        font-size: 2.5rem;
+    }
+    .item-content {
+    flex-direction: column; /* 螢幕變小時，改為上下排列 */
+    align-items: flex-start;
+    }
+    .video-placeholder {
+        width: 100%;
+    }
+    .timeline-dot {
+        top: 20px; /* 手機版時，圓點改為靠上對齊 */
+        transform: none;
+    }
+    .anime-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+    }
+    .left-assets, .right-info {
+        width: 100%;
+    }
+    .main-char-video {
+        max-width: 400px; /* 手機版限制寬度 */
+        display: block;
+        margin: 0 auto;
+    }
+    .hollow-text {
+        font-size: 2.8rem;
+        left: 60px;
+    }
+    .main-description {
+        margin-bottom: 40px;
+    }
+    .spine-box {
+        flex-direction: row; /* 維持左右排列直到更小螢幕 */
+        align-items: center;
+        gap: 20px;
+    }
+    .animation-grid {
+    flex-direction: column;
+    }
+    .main-project, .sub-project {
+        width: 100%;
+    }
+    .meta-flex {
+        flex-direction: column;
+        gap: 0;
+    }
+    .houdini-row, 
+    .houdini-row.reverse {
+        flex-direction: column; /* 螢幕變小改成上下垂直排列 */
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .houdini-media, .houdini-text {
+        width: 100%;
+        flex: none; /* 取消 flex: 1 的均分特性 */
+    }
+    .portfolio-item,
+    .portfolio-item.row-reverse {
+        flex-direction: column; /* 改為上下排列 */
+        gap: 30px;
+        margin-bottom: 60px;
+    }
+    .item-text {
+        order: 2; /* 文字一律排在下方 */
+        width: 100%;
+    }
+    .item-media {
+        order: 1; /* 媒體一律排在上方 */
+        width: 100%;
+        flex: auto;
+    }
+}
+
+/* 手機型 */
+@media (max-width: 768px) {
+    /* 導覽列變為垂直堆疊或隱藏（這裡簡化為垂直） */
+    .top-nav {
+        padding: 20px 0;
+    }
+    .top-nav ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    /* 手機上重新排版：頭像和角色上下堆疊 */
+    .main-content {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-top: 150px; /* 給導覽列留空間 */
+    }
+
+    .portfolio-hero {
+        background-position: right center;
+    }
+
+    .avatar-group {
+        position: static;
+        margin-bottom: 50px;
+    }
+    .avatar-circle-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+
+    .character-container {
+        position: static;
+        width: 80%;
+        max-width: 400px;
+        margin-top: 20px;
+    }
+    .character-img {
+        /* 在手機上可以減小傾斜角度 */
+        transform: rotate(-5deg) scale(1);
+    }
+    .hamburger {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .hamburger span {
+        display: block;
+        width: 30px;
+        height: 3px;
+        background: #6A408A;
+        margin: 6px 0;
+        transition: 0.4s;
+        box-shadow: 0 0 8px #6A408A;
+    }
+
+    /* 選單本體變成全螢幕或側邊欄 */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* 平時藏在右邊 */
+        width: 70%;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        display: flex !important; /* 強制覆蓋桌面版 inline-flex */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: 0.5s;
+        gap: 30px !important;
+        backdrop-filter: blur(15px);
+    }
+
+    /* 當 Checkbox 被選取時，選單滑入 */
+    .menu-toggle:checked ~ .nav-links {
+        right: 0;
+    }
+
+    /* 漢堡轉叉叉動畫 */
+    .menu-toggle:checked ~ .hamburger span:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 7px);
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle:checked ~ .hamburger span:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -7px);
+    }
+
+    /* 手機版下拉選單調整 */
+    .dropdown-content {
+        position: static;
+        transform: none;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+    }
+    
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    /* ----頁尾--- */
+    .footer-wrapper {
+        align-items: center;
+        text-align: center;
+    }
+    .footer-links {
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .footer-info {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .footer-character {
+        justify-content: center;
+        margin-top: 0;
+    }
+    .seated-gif {
+        max-height: 200px;
+    }
+    /* 背景圖切換為只有斜切底色的圖 */
+    .site-footer {
+        background-image: url('../assets/tt_bg.png');
+        background-size: cover;
+        background-position: center center;
+    }
+
+    /* ------------Matte Painting---------------- */
+    .matte-img-container { height: 250px; }
+    .top-clip { clip-path: polygon(0 0, 100% 0, 100% 40%, 0 90%); margin-bottom: -60px; }
+    .bottom-clip { clip-path: polygon(0 10%, 100% 60%, 100% 100%, 0 100%); margin-top: -60px; }
+    .matte-info-container { padding: 100px 20px; }
+    .title-with-line { font-size: 1.8rem; }
+
+    /* ----LOGO---- */
+    .logo-video-grid {
+        flex-direction: column; /* 手機版改為垂直堆疊 */
+        gap: 20px;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    .vr-game-media {
+        flex-direction: column; /* 轉為直向排列 */
+    }
+    
+    .vr-game-section {
+        padding: 0 5%; /* 手機版時兩側留白縮小 */
+    }
+}
+
+@media (max-width: 600px) {
+    .sidebar-item {
+        flex-direction: column; /* 列表項目內部的影片與文字也改為垂直 */
+    }
+    
+    .side-video-box {
+        width: 100%;
+        flex: none;
+    }
+    
+    .vtuber-title {
+        font-size: 1.8rem;
+    }
+}
+
+
+@media (max-width: 576px) {
+    .skew-item {
+        flex: 1 1 100%; /* 極小螢幕時一張圖佔滿一行 */
+        /* 手機版可以考慮將裁切角度縮小，避免畫面吃掉太多 */
+        clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    }
+    .spine-box {
+        flex-direction: column; /* 更小螢幕換行排列 */
+        align-items: center;
+    }
+    .spine-video-container {
+        flex: none;
+        width: 100%;
+        max-width: 250px;
+        margin: 0 auto 15px;
+    }
+    .spine-text {
+        text-align: center;
+    }
+}
