@@ -622,6 +622,42 @@ function openSingleMediaLightbox(mediaSrc) {
     document.body.style.overflow = 'hidden'; 
 }
 
+function handleCopy(type, btnElement) {
+    let content = "";
+    let originalText = "";
+
+    // 拼接資訊，防止爬蟲直接偵測
+    if (type === 'email') {
+        const user = "0614nancy"; // 替換成你的 Email 前綴
+        const domain = "gmail.com";
+        content = user + "@" + domain;
+        originalText = "複製 Email";
+    } else if (type === 'phone') {
+        const part1 = "0934"; // 替換成你的手機前四碼
+        const part2 = "042";
+        const part3 = "566";
+        content = part1 + part2 + part3;
+        originalText = "複製手機號碼";
+    }
+
+    // 執行複製到剪貼簿
+    navigator.clipboard.writeText(content).then(() => {
+        // 切換成功狀態
+        const textElement = btnElement.querySelector('.btn-text');
+        btnElement.classList.add('success');
+        textElement.innerText = "已複製！";
+
+        // 2 秒後恢復原狀
+        setTimeout(() => {
+            btnElement.classList.remove('success');
+            textElement.innerText = originalText;
+        }, 2000);
+    }).catch(err => {
+        console.error('複製失敗: ', err);
+        alert("複製失敗，請手動輸入");
+    });
+}
+
 // --- 2. 優化點擊旁邊黑色區域關閉邏輯 ---
 window.addEventListener('load', function() {
     const modal = document.getElementById("matteLightbox");

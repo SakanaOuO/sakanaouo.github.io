@@ -22,7 +22,6 @@ body {
     text-indent: 2em;
 }
 
-
 /* --- 下拉選單樣式 (桌面版) --- */
 .dropdown {
     position: relative;
@@ -747,6 +746,46 @@ body {
     padding: 0 10% 0 8%; /* 調整內距以與上一個區塊對齊 */
 }
 
+.contact-section {
+    display: flex;
+    gap: 15px;
+    padding: 5px 0px;
+}
+
+.copy-btn {
+    display: flex;
+    align-items: center;
+    padding: -10px 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6A408A;
+}
+
+.btn-text {
+    font-size: 18px;
+    line-height: 2.2;
+    font-weight: bold;
+}
+
+.copy-btn:hover {
+    background-color: #CD99F7;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.copy-btn .btn-icon {
+    margin-right: 8px;
+}
+
+/* 點擊後的成功樣式 */
+.copy-btn.success {
+    background-color: #6A408A;
+    color: white;
+}
+
 /* --- 2. 左側選單：英文大文字上方 --- */
 .footer-links {
     flex: 1;
@@ -788,7 +827,6 @@ body {
 }
 
 .footer-info p {
-    margin-bottom: 15px;
     margin-top: 0;
 }
 
