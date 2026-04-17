@@ -22,6 +22,55 @@ body {
     text-indent: 2em;
 }
 
+/* --- Loading 畫面主體 --- */
+#loading-screen {
+    position: fixed; /* 固定在螢幕上 */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #1a1a1a; /* 深色背景，符合你作品集的暗色調 */
+    z-index: 9999; /* 確保它在整個網頁的最上層，蓋住所有東西 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.6s ease; /* 之後用 JS 讓它平滑淡出 */
+}
+
+/* --- 旋轉的圈圈動畫 --- */
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #333333; /* 底層暗灰色圈圈 */
+    border-top: 5px solid #e3d5e8; /* 頂部淺紫色圈圈 */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* 無限旋轉動畫 */
+    margin-bottom: 20px;
+}
+
+/* --- 載入文字 --- */
+.loading-text {
+    color: #e3d5e8;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    font-family: sans-serif;
+}
+
+/* --- 定義旋轉動畫 --- */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* --- 給 JS 用的淡出 Class --- */
+.fade-out {
+    opacity: 0;
+    pointer-events: none; /* 避免變成透明後還擋住滑鼠點擊 */
+}
+
+/* -------------------------------- */
+
 /* --- 下拉選單樣式 (桌面版) --- */
 .dropdown {
     position: relative;

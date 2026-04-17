@@ -10,6 +10,21 @@ window.onscroll = function() {
     }
 };
 
+// 監聽整個網頁(包含圖片、影片等資源)載入完成的事件
+window.addEventListener('load', function() {
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    if (loadingScreen) {
+        // 加上 fade-out class 觸發 CSS 的淡出動畫
+        loadingScreen.classList.add('fade-out');
+        
+        // 等待淡出動畫結束 (約 600 毫秒) 後，徹底將該元素隱藏，避免佔用效能
+        setTimeout(() => {
+            loadingScreen.style.display = 'none';
+        }, 600);
+    }
+});
+
 // 3. 作品資料庫
 const mpData = {
     img1: {
