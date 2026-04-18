@@ -115,7 +115,7 @@ const mpData = {
             {
                 title: "星空渲染圖",
                 type: "image",
-                url: "assets/portfolio/3D/staryng.jpg"
+                url: "assets/h4.jpg"
             },
             {
                 title: "製作過程",
@@ -692,12 +692,29 @@ window.addEventListener('load', function() {
     const pages = document.querySelectorAll('.st_page');
 
     if (bookElement && pages.length > 0) {
+        const screenWidth = window.innerWidth;
+            let bookWidth = 550;
+            let bookHeight = 733;
+            let useSinglePage = false;
+
+            // 3. 根據螢幕大小動態縮小書本尺寸 (維持原本約 3:4 的比例)
+            if (screenWidth < 768) {
+                // 手機版
+                bookWidth = 320;
+                bookHeight = 426;
+                useSinglePage = true; // 手機強制顯示單頁
+            } else if (screenWidth < 1200) {
+                // 平板版 (解決平板放不下 1100px 雙頁寬度，導致圖片消失或擠壓的問題)
+                bookWidth = 380;
+                bookHeight = 506;
+            }
+
          const pageFlip = new St.PageFlip(bookElement, {
-            width: 550,
-            height: 733,
+            width: bookWidth,
+            height: bookHeight,
             size: "fixed",
-            showCover: false,
-            usePortrait: false,
+            showCover: useSinglePage, // 手機版建議開啟封面
+            usePortrait: useSinglePage, // 手機版允許直向單頁
             startPage: 0,
             drawShadow: true,
             flippingTime: 1000,

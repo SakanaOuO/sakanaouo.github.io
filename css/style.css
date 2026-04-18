@@ -29,7 +29,7 @@ body {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #1a1a1a; /* 深色背景，符合你作品集的暗色調 */
+    background-color: #1a1a1a;
     z-index: 9999; /* 確保它在整個網頁的最上層，蓋住所有東西 */
     display: flex;
     flex-direction: column;
@@ -420,6 +420,7 @@ body {
     display: flex;
     justify-content: center; /* 讓圖片水平置中 */
     align-items: center; /* 讓圖片垂直置中 */
+    overflow: none;
 }
 
 /* --- 3. 修正右側圖片樣式 --- */
@@ -901,6 +902,11 @@ body {
 
 .book_Contents {
     margin-top: 10%;
+}
+
+.book-container {
+    display: flex;
+    justify-content: center;
 }
 
 .portfolio-title {
@@ -1887,7 +1893,7 @@ video {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #fff;
-    border-radius: 40px; /* 較大的圓角 */
+    border-radius: 40px;
     overflow: hidden;
     margin-bottom: 25px;
     box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
@@ -1907,13 +1913,13 @@ video {
 }
 
 .avatar {
-    width: 45px;          /* 根據截圖調整大小 */
+    width: 45px;
     height: 45px;
-    border-radius: 50%;   /* 關鍵：強制變圓形 */
-    object-fit: cover;    /* 關鍵：確保圖片比例正確，不縮放變形 */
+    border-radius: 50%;
+    object-fit: cover;
     display: block;
-    background-color: #eee; /* 圖片載入前的底色 */
-    border: 1px solid rgba(255, 255, 255, 0.05); /* 輕微描邊讓邊緣更清晰 */
+    background-color: #eee;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .author-name {
@@ -2594,17 +2600,8 @@ video {
     border-radius: 4px;
     width: 50%; /* 中間影片的寬度 */
     height: 100%;
-
-    
-    /* ⚠️ 注意：如果你原本的 .scene-item (舊的 img) 有設定 width, height, 或 margin，
-       請把那些尺寸設定轉移到這個 container 身上，例如：
-       width: 250px;
-       margin-right: 20px;
-       flex-shrink: 0; 
-    */
 }
 
-/* 確保裡面的圖片能填滿容器並帶有動畫過場 */
 .scene-img-container .scene-item-img {
     width: 100%;
     height: 100%;
@@ -2618,7 +2615,7 @@ video {
     transform: scale(1.03);
 }
 
-/* 懸停時遮罩浮現 (這會直接吃到你剛剛寫好的 .hover-overlay 共用樣式) */
+/* 懸停時遮罩浮現 */
 .scene-img-container:hover .hover-overlay {
     opacity: 1;
 }
@@ -2690,12 +2687,11 @@ video {
     font-weight: bold;
 }
 
-/* 確保圖片容器是相對定位，才能讓遮罩蓋在上面 */
 .clothing-img-container {
     position: relative;
     cursor: pointer;
-    overflow: hidden; /* 防止圖片放大時超出邊界 */
-    border-radius: 4px; /* 讓邊角稍微圓潤一點，看你需求可刪 */
+    overflow: hidden;
+    border-radius: 4px;
 }
 
 /* 圖片本身的過場動畫 */
@@ -2705,7 +2701,6 @@ video {
     transition: transform 0.3s ease;
 }
 
-/* 滑鼠移上去時，圖片微放大 */
 .clothing-img-container:hover .preview-img {
     transform: scale(1.03); 
 }
@@ -2717,7 +2712,7 @@ video {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.65); /* 半透明黑底 */
+    background: rgba(0, 0, 0, 0.65);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -2725,24 +2720,21 @@ video {
     transition: opacity 0.3s ease;
 }
 
-/* 滑鼠移上去時，遮罩浮現 */
 .clothing-img-container:hover .hover-overlay {
     opacity: 1;
 }
 
-/* 提示文字樣式 */
 .hover-overlay span {
     color: #fff;
     font-size: 1.1rem;
     letter-spacing: 2px;
     border: 1px solid #fff;
     padding: 10px 20px;
-    border-radius: 20px; /* 橢圓形外框 */
+    border-radius: 20px;
 }
 
 /* ------------物件建模(blender)-------------- */
 
-/* 上方佈局：Flexbox 左右分配 */
 .object-top-container {
     display: flex;
     align-items: flex-start;
@@ -2760,17 +2752,17 @@ video {
 }
 
 .object-text {
-    flex: 1; /* 左側文字佔比 */
+    flex: 1;
 }
 
 /* 右側畫廊：CSS Grid 排版 */
 .object-gallery {
-    flex: 1.5; /* 右側圖片區塊佔比稍微大一點 */
+    flex: 1.5;
     display: grid;
-    grid-template-columns: 2.5fr 1fr; /* 切分成左右兩欄，左邊寬很多 */
-    grid-template-rows: 1fr 1fr;      /* 上下等高 */
+    grid-template-columns: 2.5fr 1fr;
+    grid-template-rows: 1fr 1fr;
     gap: 15px;
-    height: 400px; /* 統一高度，你可以依據喜好調整 */
+    height: 400px;
 }
 
 /* 共用圖片容器特效 (包含前面寫好的 Hover 遮罩邏輯) */
@@ -2798,12 +2790,10 @@ video {
     opacity: 1;
 }
 
-/* 控制「一大兩小」的佔位 */
 .main-img {
-    grid-row: 1 / 3; /* 大圖跨越第一到第二列 */
+    grid-row: 1 / 3;
 }
 
-/* 確保圖片或影片都能完美填滿且不變形 */
 .marquee-item img, 
 .marquee-item video {
     width: 100%;
@@ -2821,15 +2811,15 @@ video {
 /* --- 下方跑馬燈區塊 --- */
 .object-marquee-wrapper {
     width: 100%;
-    overflow: hidden; /* 把超出的圖片藏起來 */
+    overflow: hidden;
     position: relative;
     padding: 20px 0 5% 0;
 }
 
 .object-marquee-track {
     display: flex;
-    gap: 0;
-    padding-right: 0; 
+    width: max-content;
+    flex-wrap: nowrap;
     animation: marqueeScroll 25s linear infinite;
 }
 
@@ -2862,7 +2852,7 @@ video {
 /* 跑馬燈位移動畫 */
 @keyframes marqueeScroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-55%); } /* 往左移總長度的一半，達成無縫循環 */
+    100% { transform: translateX(-25%); } /* 往左移總長度的一半，達成無縫循環 */
 }
 
 .single-media-container {
@@ -3008,7 +2998,6 @@ video {
         right: 2%;
     }
     .container { flex-direction: column; }
-    .decoration-right { width: 100%; height: 500px; overflow: hidden; }
     .skills-grid { grid-template-columns: repeat(2, 1fr); }
         .exp-container {
         flex-direction: column;
@@ -3025,24 +3014,20 @@ video {
     }
 
     .footer-wrapper {
-        flex-direction: column;
         align-items: flex-start;
         padding: 50px 8%;
     }
     .footer-links {
         padding: 0;
-        margin-top: 50px;
-        margin-bottom: 40px;
+        margin-top: 15%;
     }
     .footer-info {
         padding: 0;
-        margin-top: 0;
-        margin-bottom: 40px;
+        margin-top: 20%;
     }
     .footer-character {
         position: static;
         margin-top: 0;
-        width: 100%;
         display: flex;
         justify-content: flex-end;
         padding: 0;
@@ -3054,8 +3039,34 @@ video {
     .site-footer {
         background-position: center center;
     }
-    .spine-video-container {
-        flex: 0 1 150px;
+    .spine-text {
+        margin-right: 0%;
+    }
+    .video-wrapper_Editor {
+        width: 100%;
+    }
+    .montage {
+        display: grid;
+        margin-top: -30%;
+        margin-bottom: 40%;
+    }
+    .item-content {
+        margin-bottom: 40%;
+    }
+    .cert-content {
+        margin-top: -50%;
+    }
+    .seated-character {
+        right: -200%;
+    }
+    .standing-character {
+        margin-left: 300%;
+    }
+    .portfolio-title {
+        height: auto;
+    }
+    .decoration-right {
+        overflow: hidden;
     }
 }
 
@@ -3078,11 +3089,11 @@ video {
         margin-left: 150px;
     }
     .title-en {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
     .item-content {
-    flex-direction: column; /* 螢幕變小時，改為上下排列 */
-    align-items: flex-start;
+        flex-direction: column; /* 螢幕變小時，改為上下排列 */
+        align-items: flex-start;
     }
     .video-placeholder {
         width: 100%;
@@ -3134,7 +3145,6 @@ video {
     }
     .houdini-media, .houdini-text {
         width: 100%;
-        flex: none; /* 取消 flex: 1 的均分特性 */
     }
     .portfolio-item,
     .portfolio-item.row-reverse {
@@ -3149,7 +3159,9 @@ video {
     .item-media {
         order: 1; /* 媒體一律排在上方 */
         width: 100%;
-        flex: auto;
+    }
+    .unreal_matte-painting-section {
+        padding: 0px 0;
     }
 }
 
@@ -3157,7 +3169,7 @@ video {
 @media (max-width: 768px) {
     /* 導覽列變為垂直堆疊或隱藏（這裡簡化為垂直） */
     .top-nav {
-        padding: 20px 0;
+        padding: 0px 0;
     }
     .top-nav ul {
         flex-direction: column;
@@ -3171,8 +3183,96 @@ video {
         padding-top: 150px; /* 給導覽列留空間 */
     }
 
+    /* -----------首頁 - 關於我--------------- */
+    .bg-title {
+        font-size: 300%;
+        top: -50%;
+    }
+    
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: 30px;
+        padding: 0 5%;
+    }
+
+    .decoration-right {
+        width: 80%;
+        margin: 0 auto;
+        display: none;
+    }
+
+    .content-left {
+        width: 100%;
+        text-align: center; 
+    }
+    
+    .timeline::before {
+        left: 0;
+        top: 20px;
+    }
+
+    .timeline-dot {
+        left: -7%;
+    }
+
+    .seated-character {
+        display: none;
+    }
+    
+    .cert-decoration {
+        width: 25%;
+    }
+
+    /* 1. 外層容器改為垂直排列 */
+    .port-container {
+        display: flex;
+        flex-direction: column; /* 改成上下疊加 */
+        height: auto;
+        width: 100%;
+    }
+
+    /* 2. 每一個摺疊面板 */
+    .port-item {
+        width: 100%; /* 寬度佔滿手機螢幕 */
+        height: 110%; /* 預設只顯示 100px 的高度（只看得到圖或標題） */
+        margin-bottom: 10px; /* 面板之間的間距 */
+    }
+
+    /* 3. 當點擊或滑過時，面板「往下」長高 */
+    .port-item:hover, 
+    .port-item:active {
+        width: 100%; /* 保持寬度不變 */
+        height: 100%; /* 展開後的高度，讓文字有空間顯示 */
+    }
+
+    /* 4. 處理裡面的文字，避免擠壓破版 */
+    .item-content-expanded {
+        padding: 15px;
+        white-space: normal; /* 允許文字自動換行，取消 nowrap */
+        overflow-y: auto; /* 如果文字真的太多，允許內容區塊內滾動 */
+    }
+
+/* --------------------------------------------------- */
+
     .portfolio-hero {
         background-position: right center;
+    }
+    .portfolio-GD {
+        background-position: 65% center;
+    }
+    .portfolio-Editor {
+        background-position: 38% center;
+    }
+    .portfolio-ani {
+        background-position: 15% center;
+    }
+    .portfolio-3D {
+        background-position: 15% center;
+    }
+    .portfolio-game {
+        background-position: 35% center;
     }
 
     .avatar-group {
@@ -3257,32 +3357,107 @@ video {
         display: block;
     }
 
-    /* ----頁尾--- */
-    .footer-wrapper {
+    /* ------------電子書---------------- */
+    .book-container {
+        width: 100%;
+        padding: 0 5%;
+        display: flex;
+        flex-direction: column;
         align-items: center;
-        text-align: center;
     }
-    .footer-links {
-        text-align: center;
-        margin-top: 30px;
-        margin-bottom: 30px;
+
+    /* 2. 修復第一頁介紹文字超出白底的問題 */
+    .intro-page {
+        padding: 15px !important; /* 縮小手機版內距 */
+        box-sizing: border-box; /* 確保內距不會把寬度撐破 */
     }
-    .footer-info {
-        text-align: center;
-        margin-bottom: 30px;
+
+    .intro-content {
+        width: 100%;
     }
-    .footer-character {
+
+    .book_Contents .beginning_title {
+        line-height: 1.6;
+        word-wrap: break-word; /* 強制長單字換行 */
+        white-space: normal;
+    }
+
+    .book-nav {
+        display: flex;
+        flex-direction: row; /* 強制橫向排列 */
         justify-content: center;
-        margin-top: 0;
+        gap: 20px;
+        width: 100%;
+        bottom: 10%;
+        top: auto !important;
+        transform: none !important;
     }
-    .seated-gif {
-        max-height: 200px;
+
+    .nav-btn {
+        writing-mode: horizontal-tb !important; /* 強制文字橫排 */
+        white-space: nowrap; /* 不允許文字折行 */
+        min-width: 80px;
+        padding: 10px 15px;
+        text-align: center;
     }
-    /* 背景圖切換為只有斜切底色的圖 */
-    .site-footer {
-        background-image: url('../assets/tt_bg.png');
-        background-size: cover;
-        background-position: center center;
+
+    /* ------------網頁設計---------------- */
+    .web-design-section {
+        display: flex;
+        flex-direction: column; /* 強制改為上下排列 */
+        width: 100%;
+        padding: 0 0; /* 移除電腦版的誇張內外距 */
+        margin: 0;
+    }
+
+    /* 2. 上方圖片展示區塊 */
+    .display-container {
+        width: 100% !important; /* 佔滿手機寬度 */
+        height: auto; /* 取消固定高度 */
+        margin-bottom: 30px; /* 與下方文字拉開距離 */
+        position: relative;
+    }
+
+    /* 確保裡面的 Mockup 圖片不會撐破容器 */
+    .ui-mockup {
+        width: 100%;
+        height: auto;
+        max-width: 100%; /* 防止圖片過大 */
+        position: relative; /* 如果原本是 absolute，可以改回 relative */
+        left: 0; 
+        transform: none; /* 移除可能導致偏移的屬性 */
+    }
+
+    /* 如果背景色塊跑掉，也將其限制在容器內 */
+    .scenery-bg {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0; left: 0;
+    }
+
+    /* 3. 下方文字介紹區塊 */
+    .description-container {
+        width: 100% !important; /* 佔滿手機寬度 */
+        padding: 0 10px; /* 稍微留白 */
+    }
+
+    .text-wrapper {
+        width: 100%;
+    }
+
+    /* 解決文字變成一條線的問題 */
+    .content-body p {
+        word-break: break-all; /* 或 normal */
+        white-space: normal; /* 確保文字可以正常換行 */
+        line-height: 1.8;
+        font-size: 1rem;
+    }
+
+    /* 標題與線條置中或靠左對齊 */
+    .title-with-line_ui {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
     }
 
     /* ------------Matte Painting---------------- */
@@ -3307,6 +3482,268 @@ video {
     
     .vr-game-section {
         padding: 0 5%; /* 手機版時兩側留白縮小 */
+    }
+    
+    /* ------------剪輯---------------- */
+    .play-btn {
+        width: 30px;
+        height: 30px;
+    }
+
+    .play-btn::after {
+        border-width: 8px 0 8px 15px;
+    }
+
+    .timeline-container {
+        padding-left: 20px; /* 縮小左側空間 */
+        width: 100%;
+    }
+
+    /* 2. 讓影片與文字由左右改為上下堆疊 */
+    .item-content {
+        display: flex;
+        flex-direction: column !important; /* 強制上下排列 */
+        gap: 20px;
+        margin-top: 50%;
+    }
+
+    /* 3. 影片包裝容器調整 */
+    .video-wrapper_Editor {
+        width: 100% !important; /* 手機版佔滿寬度 */
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    /* 4. 強制影片標籤比例正確 */
+    .portfolio-video {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9; /* 強制維持 16:9 比例，避免變形 */
+        object-fit: cover;
+    }
+
+    /* 5. 重點修復：三連排影片 (Montage) */
+    .montage {
+        display: flex;
+        flex-direction: column !important; /* 從橫向三排改成直向一排 */
+        gap: 15px; /* 增加影片間的垂直距離 */
+        width: 100%;
+    }
+
+    .montage .video-wrapper_Editor {
+        width: 100% !important;
+    }
+
+    /* 6. 文字內容調整 */
+    .text-content {
+        width: 100% !important;
+        padding: 0 10px;
+    }
+
+    .text-content .title {
+        font-size: 1.2rem;
+    }
+
+    .short_film_con {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: justify; /* 讓文字兩端對齊看起來比較整齊 */
+    }
+
+    /* 7. 隱藏或縮小時間軸的裝飾線 (避免遮擋內容) */
+    .timeline-line {
+        left: 0px !important; /* 將線條移到最左邊 */
+    }
+
+    .timeline-dot_Editor {
+        left: -28px !important; /* 點點跟著線條移動 */
+    }
+
+    .timeline-item {
+        padding-left: 0px;
+    }
+
+    /* ----------動畫----------- */
+    .spine-text {
+        margin-right: auto;
+    }
+    .software-icon {
+        width: 20px;
+    }
+
+    /* ----------3D----------- */
+    .houdini-container {
+        padding: 20px 0px;
+        width: 100%;
+    }
+
+    /* 2. 重置標題邊距：解決手機上空隙過大的問題 */
+    .houdini-sub-title {
+        margin-top: 30px !important; /* 強制覆蓋內聯樣式的 10% 和 15% */
+        margin-bottom: 15px;
+        font-size: 1.3rem;
+        text-align: center; /* 手機版標題置中較美觀 */
+    }
+
+    /* 3. 強制內容改為上下堆疊 */
+    .houdini-content {
+        display: flex;
+        flex-direction: column !important; /* 強制垂直排列 */
+        gap: 20px;
+        align-items: center;
+    }
+
+    /* 4. 針對有 flex-row 類的標籤進行修正 */
+    .flex-row {
+        flex-direction: column !important;
+    }
+
+    /* 5. 影片與圖片媒體區塊調整 */
+    .houdini-media {
+        max-width: 80%;
+        width: 100vw !important; /* 強制佔滿整個手機螢幕寬度 */
+        margin-left: 0;
+        margin-right: 0;
+        order: -1; /* 讓影片/圖片在手機版優先顯示於文字上方 */
+    }
+
+    .media-element {
+        width: 100% !important;
+        height: auto !important;
+        display: block;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+    }
+
+    /* 6. 文字區塊調整 */
+    .houdini-text {
+        width: 100% !important;
+        padding: 0 5px;
+    }
+
+    .houdini-desc {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: justify;
+        margin-top: 10px;
+    }
+
+    /* 7. 修復體積雲區塊（文字原本在左，手機版要統一） */
+    .houdini-item:nth-child(even) .houdini-content {
+        flex-direction: column !important;
+    }
+
+    /* ---------場景建模--------- */
+    
+    #scene-section {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* 防止輪播圖左右兩邊超出的部分讓手機螢幕出現橫向卷軸 */
+    }
+
+    /* 2. 輪播圖容器設定 */
+    .scene-carousel {
+        position: relative;
+        width: 100%;
+        height: 300px; /* 給予明確高度 */
+        margin-top: 20px;
+    }
+
+    .scene-track {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        margin-top: -30%;
+    }
+
+    /* 3. 調整手機版輪播卡片大小 (假設你的卡片 class 包含 img，請依你實際的 JS 生成結構微調) */
+    .scene-track img, 
+    .scene-item { /* 若你有用特定的 class 包裝單個場景，請加在這裡 */
+        width: 100% !important; /* 在手機版不要佔滿 100%，留一點邊緣給上一張/下一張的視覺暗示 */
+        max-width: 300px;
+        height: auto !important;
+        margin: 0 auto;
+    }
+
+    .scene-text-container {
+        padding: 0 8%;
+    }
+
+    /* --------------服裝建模-------------- */
+    .item-text_clothing {
+        padding: 0 5% 0 5%;
+    }
+
+    .item-text_clothing_bottom {
+        padding: 0 5% 0 5%;
+    }
+    
+    /* --------------物件建模_Blender-------------- */
+    .Object_modeling {
+        padding: 30% 5% 0 5%;
+    }
+
+    .object-top-container {
+        display: flex;
+        flex-direction: column !important;
+        gap: 20px;
+        padding: 0 15px;
+    }
+
+    .object-text {
+        width: 100% !important;
+        margin-bottom: 10px;
+    }
+
+    /* 2. 調整掃帚圖庫：主圖放大，副圖併排或堆疊 */
+    .object-gallery {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100% !important;
+    }
+
+    .object-img-wrapper.main-img {
+        width: 100% !important;
+        height: auto;
+    }
+
+    /* 讓兩張細節副圖在手機上左右併排，節省空間 */
+    .object-gallery .sub-img {
+        width: 100% !important;
+        display: inline-block;
+    }
+
+    .object-img-wrapper img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+
+    /* 3. 跑馬燈區塊修復 (鍵盤、咕咕鐘、滑鼠) */
+    .object-marquee-wrapper {
+        margin-top: 30px;
+        height: 180px; /* 給予手機版固定的顯示高度 */
+        overflow: hidden;
+    }
+
+    .object-marquee-track {
+        display: flex;
+        gap: 15px;
+    }
+
+    .marquee-item {
+        min-width: 140px; /* 增加寬度讓縮圖大一點 */
+        height: 140px;
+    }
+
+    .marquee-item img, 
+    .marquee-item video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 確保內容不變形 */
+        border-radius: 6px;
     }
 }
 
@@ -3342,7 +3779,53 @@ video {
         max-width: 250px;
         margin: 0 auto 15px;
     }
-    .spine-text {
+    .footer-wrapper {
+        align-items: center;
         text-align: center;
+        margin-bottom: -150%;
+        flex-direction: column; /* 改成上下疊加 */
+    }
+    .footer-links {
+        text-align: center;
+    }
+    .footer-info {
+        text-align: center;
+        margin-bottom: 30px;
+        margin-top: 10%;
+    }
+    .footer-character {
+        justify-content: center;
+        margin-top: 0;
+    }
+    .seated-gif {
+        max-height: 200px;
+    }
+    .site-footer {
+        background-image: url('../assets/tt_bg.png');
+        background-size: cover;
+        background-position: center center;
+        margin-top: -135%;
+        height: 150%;
+    }
+    .Connection::after {
+        display: none;
+    }
+    .Connection_top::after {
+        display: none;
+    }
+    .title-en {
+        font-size: 1.8rem;
+    }
+    .title-zh {
+        margin-left: 100px;
+    }
+    .timeline::before {
+        left: 0;
+    }
+    .timeline-dot {
+        left: -21.5%;
+    }
+    .book-nav {
+        bottom: 15%;
     }
 }
