@@ -169,6 +169,21 @@ const mpData = {
         fullImg: "", 
         videoUrl: "assets/portfolio/game/game_1.mp4"
     },
+    modeling_3D_2: {
+        title: "角色建模_細節1",
+        fullImg: "assets/portfolio/interview/Wrinkled clothes.jpg", 
+        videoUrl: ""
+    },
+    modeling_3D_3: {
+        title: "角色建模_細節2",
+        fullImg: "assets/portfolio/interview/Wrinkled clothes_2_1.jpg", 
+        videoUrl: ""
+    },
+    modeling_3D_4: {
+        title: "角色建模_細節3",
+        fullImg: "assets/portfolio/interview/Wrinkled clothes_2_2.jpg", 
+        videoUrl: ""
+    },
 };
 
 // 2. 開啟燈箱
@@ -671,6 +686,48 @@ function handleCopy(type, btnElement) {
         console.error('複製失敗: ', err);
         alert("複製失敗，請手動輸入");
     });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const gateTrigger = document.getElementById('houdini-gate');
+    
+    if (gateTrigger) {
+        // 設定觸發方式：雙擊 (dblclick)
+        gateTrigger.addEventListener('dblclick', () => {
+            openGate();
+        });
+    }
+});
+
+// 開啟彈窗
+function openGate() {
+    document.getElementById('cyber-modal').style.display = 'flex';
+    document.getElementById('cyber-pass').value = ''; // 清空欄位
+    document.getElementById('cyber-pass').focus();   // 自動聚焦
+}
+
+// 關閉彈窗
+function closeGate() {
+    document.getElementById('cyber-modal').style.display = 'none';
+}
+
+// 驗證密碼
+function verifyAccess() {
+    const inputPass = document.getElementById('cyber-pass').value;
+    
+    // --- 密碼設定區 ---
+    const secretCode = "0614";
+    const hiddenPage = "access.html"; // 這裡改成你隱藏頁面的檔名
+    // ----------------
+
+    if (inputPass === secretCode) {
+        // 密碼正確，跳轉頁面
+        window.location.href = hiddenPage;
+    } else {
+        // 密碼錯誤，顯示警示
+        alert("密碼錯誤，請洽詢創作者。");
+        document.getElementById('cyber-pass').value = ''; // 清空輸入框
+    }
 }
 
 // --- 2. 優化點擊旁邊黑色區域關閉邏輯 ---

@@ -2954,6 +2954,158 @@ video {
     aspect-ratio: 16 / 9; 
 }
 
+/* ------------------------ */
+
+/* 彈窗遮罩 */
+.modal-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(255, 255, 255, 0.6); /* 淺色半透明 */
+    backdrop-filter: blur(5px); /* 毛玻璃感 */
+    z-index: 10000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+}
+
+/* 唯美卡片主體 */
+.aesthetic-card {
+    background: #fdfdfd;
+    padding: 50px 40px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    text-align: center;
+    width: 300px;
+    position: relative;
+}
+
+/* 裝飾細線 */
+.deco-line {
+    width: 40px;
+    height: 1px;
+    background: #ccc;
+    margin: 0 auto 20px auto;
+}
+.deco-line.bottom { margin: 20px auto 0 auto; }
+
+.aesthetic-title {
+    font-family: "Noto Serif TC", "serif"; /* 建議使用襯線體 */
+    color: #444;
+    font-weight: 400;
+    letter-spacing: 4px;
+    margin: 0;
+}
+
+.aesthetic-subtitle {
+    color: #999;
+    font-size: 0.75rem;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+/* 輸入框 */
+.input-wrapper input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #ddd;
+    background: transparent;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+    outline: none;
+    transition: border-bottom 0.3s;
+}
+
+.input-wrapper input:focus {
+    border-bottom: 2px solid #b8c6d9;
+}
+
+/* 按鈕 */
+.aesthetic-btn {
+    margin-top: 30px;
+    background: #E3C9F7;
+    color: #6A408A;
+    border: 1px solid #efe1f5;
+    padding: 8px 40px;
+    cursor: pointer;
+    letter-spacing: 2px;
+    transition: 0.3s;
+}
+
+.aesthetic-btn:hover {
+    background: #CD99F7;
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.close-btn {
+    position: absolute;
+    top: 15px; right: 15px;
+    color: #ccc;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.hide_title {
+    margin-top: 10%;
+}
+
+.hide_houdini_title {
+    display: flex;
+}
+
+.hide_houdini_title p {
+    font-size: 26px;
+    display: flex;
+    align-items: flex-end;
+    margin-left: 20px;
+}
+
+.Clothing_pleats {
+    display: flex;
+    margin-top: 5%;
+}
+
+.Clothing_pleats img {
+    margin-left: 5%;
+}
+
+.skew-item_houdini {
+    height: 500px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skew-item_houdini img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片填滿容器且不變形 */
+    object-position: center;
+}
+
+.skew-item_houdini:hover {
+    transform: translateY(-8px);
+    filter: brightness(1.15);
+}
+
+.hide_houdini-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #fff;
+    margin-top: 5%;
+}
+
+.hide_houdini-section {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 50px 5%;
+    position: relative;
+}
+
 /* =========================================
    RWD (響應式設計)
    ========================================= */
@@ -3081,6 +3233,11 @@ video {
         flex-wrap: wrap; /* 允許換行 */
     }
     .skew-item {
+        flex: 1 1 30%; /* 手機版一行顯示較少張數 */
+        height: 300px;
+        margin-bottom: 15px;
+    }
+    .skew-item_houdini {
         flex: 1 1 30%; /* 手機版一行顯示較少張數 */
         height: 300px;
         margin-bottom: 15px;
@@ -3767,6 +3924,10 @@ video {
     .skew-item {
         flex: 1 1 100%; /* 極小螢幕時一張圖佔滿一行 */
         /* 手機版可以考慮將裁切角度縮小，避免畫面吃掉太多 */
+        clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    }
+    .skew-item_houdini {
+        flex: 1 1 100%;
         clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
     }
     .spine-box {
