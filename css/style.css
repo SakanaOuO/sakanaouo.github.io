@@ -3106,6 +3106,25 @@ video {
     position: relative;
 }
 
+.skew-item_st {
+    height: 400px;
+    cursor: pointer;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.skew-item_st img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 確保圖片填滿容器且不變形 */
+    object-position: center;
+}
+
+.skew-item_st:hover {
+    transform: translateY(-8px);
+    filter: brightness(1.15);
+}
+
+
 /* =========================================
    RWD (響應式設計)
    ========================================= */
@@ -3220,6 +3239,9 @@ video {
     .decoration-right {
         overflow: hidden;
     }
+    .hide_houdini {
+        display: flow;
+    }
 }
 
 @media (max-width: 992px) {
@@ -3238,6 +3260,11 @@ video {
         margin-bottom: 15px;
     }
     .skew-item_houdini {
+        flex: 1 1 30%; /* 手機版一行顯示較少張數 */
+        height: 300px;
+        margin-bottom: 15px;
+    }
+    .skew-item_st {
         flex: 1 1 30%; /* 手機版一行顯示較少張數 */
         height: 300px;
         margin-bottom: 15px;
@@ -3930,6 +3957,10 @@ video {
         flex: 1 1 100%;
         clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
     }
+    .skew-item_st {
+        flex: 1 1 100%;
+        clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
+    }    
     .spine-box {
         flex-direction: column; /* 更小螢幕換行排列 */
         align-items: center;

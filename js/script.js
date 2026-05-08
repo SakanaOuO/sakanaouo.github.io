@@ -184,6 +184,43 @@ const mpData = {
         fullImg: "assets/portfolio/interview/Wrinkled clothes_2_2.jpg", 
         videoUrl: ""
     },
+    st_1: {
+            title: "st - 材質練習",
+            isMulti: true,
+            items: [
+            {
+                title: "",
+                type: "image",
+                url: "assets/portfolio/interview/st_1.jpg"
+            },
+            {
+                title: "正面",
+                type: "image",
+                url: "assets/portfolio/interview/st_2.jpg"
+            },
+            {
+                title: "背面",
+                type: "image",
+                url: "assets/portfolio/interview/st_3.jpg"
+            }
+        ]
+    },
+    maya_1: {
+            title: "maya_場景燈光",
+            isMulti: true,
+            items: [
+            {
+                title: "",
+                type: "image",
+                url: "assets/portfolio/interview/maya.jpg"
+            },
+            {
+                title: "製作過程",
+                type: "video",
+                url: "assets/portfolio/interview/maya.mp4"
+            },
+        ]
+    },
 };
 
 // 2. 開啟燈箱
