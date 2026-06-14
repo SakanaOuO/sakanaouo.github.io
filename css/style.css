@@ -13,7 +13,7 @@
 
 body {
     font-family: var(--font-family);
-    background-color: #000; /* 兜底背景色 */
+    background-color: #000;
     overflow-x: hidden;
     height: 100vh;
 }
@@ -22,34 +22,32 @@ body {
     text-indent: 2em;
 }
 
-/* --- Loading 畫面主體 --- */
+/* --- Loading 畫面 --- */
 #loading-screen {
-    position: fixed; /* 固定在螢幕上 */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background-color: #1a1a1a;
-    z-index: 9999; /* 確保它在整個網頁的最上層，蓋住所有東西 */
+    z-index: 9999;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.6s ease; /* 之後用 JS 讓它平滑淡出 */
+    transition: opacity 0.6s ease;
 }
 
-/* --- 旋轉的圈圈動畫 --- */
 .loader {
     width: 50px;
     height: 50px;
-    border: 5px solid #333333; /* 底層暗灰色圈圈 */
-    border-top: 5px solid #e3d5e8; /* 頂部淺紫色圈圈 */
+    border: 5px solid #333333;
+    border-top: 5px solid #e3d5e8;
     border-radius: 50%;
-    animation: spin 1s linear infinite; /* 無限旋轉動畫 */
+    animation: spin 1s linear infinite;
     margin-bottom: 20px;
 }
 
-/* --- 載入文字 --- */
 .loading-text {
     color: #e3d5e8;
     font-size: 1.2rem;
@@ -57,7 +55,6 @@ body {
     font-family: sans-serif;
 }
 
-/* --- 定義旋轉動畫 --- */
 @keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
@@ -66,12 +63,10 @@ body {
 /* --- 給 JS 用的淡出 Class --- */
 .fade-out {
     opacity: 0;
-    pointer-events: none; /* 避免變成透明後還擋住滑鼠點擊 */
+    pointer-events: none;
 }
 
 /* -------------------------------- */
-
-/* --- 下拉選單樣式 (桌面版) --- */
 .dropdown {
     position: relative;
     display: inline-block;
@@ -80,7 +75,7 @@ body {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: rgba(20, 20, 20, 0.9); /* 深色半透明 */
+    background-color: rgba(20, 20, 20, 0.9);
     min-width: 140px;
     box-shadow: 0px 8px 16px rgba(0,0,0,0.5);
     backdrop-filter: blur(10px);
@@ -200,7 +195,7 @@ body {
 }
 
 .nav-scrolled {
-    background: rgba(0, 0, 0, 0.85); /* 滾動後的背景色 */
+    background: rgba(0, 0, 0, 0.85);
     padding: 15px 0;
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -227,7 +222,6 @@ body {
     text-shadow: 0 0 8px #fff;
 }
 
-/* 主要內容佈局 */
 .main-content {
     position: relative;
     flex: 1;
@@ -238,11 +232,10 @@ body {
     z-index: 5;
 }
 
-/* 中央圓形頭像組 */
 .avatar-group {
     position: absolute;
-    left: 36%; /* 匹配圖片位置 */
-    top: 25vh; /* 匹配圖片高度 */
+    left: 36%;
+    top: 25vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -253,17 +246,15 @@ body {
     width: 320px;
     height: 320px;
     border-radius: 50%;
-    /* 這裡增加背景色，作為頭像的白底 */
     background-color: #fff; 
     border: 2px solid #fff;
-    padding: 0; /* 讓圖片填滿白底 */
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: visible; /* 讓魚可以跑出來 */
+    overflow: visible;
 }
 
-/* 外層的細圈 */
 .avatar-circle-wrapper::after {
     content: '';
     position: absolute;
@@ -276,24 +267,22 @@ body {
     pointer-events: none;
 }
 
-/* 頭像圖片：確保它是圓形並蓋在白底上 */
 .avatar-img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* 改為 contain 避免裁切到魚 */
+    object-fit: contain;
     border-radius: 50%;
     z-index: 2;
 }
 
-/* 銜接處的黑色漸層 (圖二效果) */
 .Connection::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 10vh; /* 漸層高度 */
-    background: linear-gradient(to top, #121212, transparent); /* 漸層到下一個區塊的底色 */
+    height: 10vh;
+    background: linear-gradient(to top, #121212, transparent);
     z-index: 3;
 }
 
@@ -303,30 +292,30 @@ body {
     top: 0;
     left: 0;
     width: 100%;
-    height: 10vh; /* 漸層高度 */
-    background: linear-gradient(to bottom, #121212, transparent); /* 漸層到下一個區塊的底色 */
+    height: 10vh;
+    background: linear-gradient(to bottom, #121212, transparent);
     z-index: 3;
 }
 
 /* -------------------關於我 / 技能-------------------- */
 
 #about-and-skills {
-    background-color: #121212; /* 深灰黑色背景 */
+    background-color: #121212;
     color: #fff;
-    min-height: 120vh; /* 增加高度確保內容完整顯示 */
-    position: relative; /* 作為右側圖片絕對定位的參考 */
-    overflow: visible; /* 允許內容（文字或圖片）超出容器界線 */
-    display: flex; /* 使用 flex 佈局 */
-    justify-content: flex-end; /* 將內容往右推，對齊圖片 */
+    min-height: 120vh;
+    position: relative;
+    overflow: visible;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .container {
     display: flex;
-    max-width: 1600px; /* 限制最大寬度防止在大螢幕太散 */
+    max-width: 1600px;
     margin: 0 auto;
     padding-top: 100px;
     width: 100%;
-    margin-left: auto; /* 靠右對齊 */
+    margin-left: auto;
 }
 
 .section-box {
@@ -334,7 +323,6 @@ body {
     max-width: 600px;
 }
 
-/* 標題設計：實心中文 + 空心英文背景 */
 .title-group {
     position: relative;
     display: flex;
@@ -343,9 +331,9 @@ body {
 }
 
 .content-left {
-    flex: 6; /* 左邊佔 60% */
-    padding: 100px 5% 50px 10%; /* 增加左邊距推向右側，同時留白避免貼邊 */
-    z-index: 5; /* 層級低於圖片 */
+    flex: 6;
+    padding: 100px 5% 50px 10%;
+    z-index: 5;
     position: relative;
 }
 .bg-title {
@@ -353,7 +341,7 @@ body {
     font-size: clamp(60px, 8vw, 100px);
     font-weight: 900;
     color: transparent;
-    -webkit-text-stroke: 1px #6A408A; /* 圖片中淡淡的空心感 */
+    -webkit-text-stroke: 1px #6A408A;
     top: -100%;
     left: -10%;
     text-transform: uppercase;
@@ -376,7 +364,6 @@ body {
     z-index: 1;
 }
 
-/* 關於我內文 */
 .about-text p {
     font-size: 18px;
     line-height: 1.8;
@@ -385,7 +372,6 @@ body {
     max-width: 600px;
 }
 
-/* 技能卡片網格 */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -413,23 +399,22 @@ body {
 }
 
 .decoration-right {
-    position: absolute; /* 改為絕對定位 */
-    top: 0; /* 貼齊最上面 */
-    right: 0; /* 貼齊最右邊 */
-    width: 30%; /* 根據你的圖片比例調整寬度 */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
     display: flex;
-    justify-content: center; /* 讓圖片水平置中 */
-    align-items: center; /* 讓圖片垂直置中 */
+    justify-content: center;
+    align-items: center;
     overflow: none;
 }
 
-/* --- 3. 修正右側圖片樣式 --- */
 .standing-character {
-    height: 230%; /* **讓圖片高度貼齊容器** */
-    width: auto; /* 寬度自動縮放 */
+    height: 230%;
+    width: auto;
     display: block;
-    object-fit: cover; /* **確保圖片撐滿容器而不變形** */
-    object-position: top center; /* 手機版可以微調圖片對齊位置，例如對齊人物頭部 */
+    object-fit: cover;
+    object-position: top center;
 }
 
 /* -------------------經歷--------------------- */
@@ -448,7 +433,6 @@ body {
     min-height: 800px;
 }
 
-/* --- 左側傾斜圖片 --- */
 .exp-decoration {
     flex: 1;
     z-index: 1;
@@ -457,8 +441,8 @@ body {
 .exp-image-wrapper {
     position: absolute;
     top: 0;
-    left: 0; /* 確保貼齊最左側 */
-    width: 50%; /* 根據你的需求調整圖片佔據的寬度 */
+    left: 0;
+    width: 50%;
     height: 100%;
     z-index: 1;
     clip-path: polygon(0 0, 65% 0, 100% 100%, 0 100%);
@@ -468,10 +452,9 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    filter: brightness(0.7); /* 稍微調暗以匹配整體風格 */
+    filter: brightness(0.7);
 }
 
-/* --- 右側內容 --- */
 .exp-content {
     flex: 1.2;
     padding-left: 50px;
@@ -479,18 +462,16 @@ body {
     z-index: 2;
 }
 
-/* 時間軸主體 */
 .timeline {
     position: relative;
     margin-top: 50px;
     padding-left: 40px;
 }
 
-/* 時間軸垂直線 */
 .timeline::before {
     content: '';
     position: absolute;
-    left: 48px; /* 對齊圓點中心 */
+    left: 48px;
     top: 10px;
     bottom: 10px;
     width: 2px;
@@ -502,7 +483,6 @@ body {
     margin-bottom: 60px;
 }
 
-/* 時間軸圓點 */
 .timeline-dot {
     position: absolute;
     left: 0px;
@@ -554,11 +534,10 @@ body {
     margin: 0 auto;
 }
 
-/* --- 左側文字內容 --- */
 .cert-content {
     flex: 1;
     padding: 80px 5% 80px 10%;
-    z-index: 5; /* 確保文字在最上層 */
+    z-index: 5;
 }
 
 .cert-list {
@@ -575,7 +554,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* 列表點點裝飾 */
 .cert-list li::before {
     content: '';
     position: absolute;
@@ -593,15 +571,14 @@ body {
 .cert-decoration {
     position: absolute;
     top: 0;
-    right: 0; /* 確保背景貼齊右側 */
-    width: 45%; /*背景遮罩寬度 */
+    right: 0;
+    width: 45%;
     height: 100%;
 }
 
 .cert-image-mask {
     width: 100%;
     height: 100%;
-    /* 這裡的切角方向要與經歷區塊反向，形成交錯感 */
     clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
     overflow: hidden;
 }
@@ -614,15 +591,14 @@ body {
     filter: brightness(0.6) saturate(0.8);
 }
 
-/* 橫跨切角的人物 */
 .seated-character {
     position: absolute;
-    bottom: -10px; /* 微調人物底部位置 */
-    right: -10%; /* 根據你的圖片微調人物左右位置 */
-    height: 105%; /* 讓人物高出背景，產生立體感 */
-    z-index: 2; /* 最關鍵：層級高於背景遮罩，讓她「跨」過邊界 */
-    pointer-events: none; /* 避免擋住文字區塊的點擊事件 */
-    filter: drop-shadow(-15px 10px 20px rgba(0,0,0,0.5)); /* 加個陰影增加深度 */
+    bottom: -10px;
+    right: -10%;
+    height: 105%;
+    z-index: 2;
+    pointer-events: none;
+    filter: drop-shadow(-15px 10px 20px rgba(0,0,0,0.5));
 }
 
 /* ------------------作品---------------------- */
@@ -653,7 +629,6 @@ body {
     margin-top: 5%;
 }
 
-/* --- 個別作品方塊 (預設狀態) --- */
 .port-item {
     flex: 1; 
     position: relative;
@@ -661,21 +636,19 @@ body {
     height: 80vh;
     transition: flex 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     cursor: pointer;
-    filter: brightness(0.8); /* 沒指到時稍微暗一點點 */
+    filter: brightness(0.8);
 }
 
-/* --- 💡 滑鼠懸停展開效果 --- */
 .port-accordion:hover .port-item {
     flex: 0.5;
-    filter: brightness(0.5); /* 其餘縮小的部分變暗 */
+    filter: brightness(0.5);
 }
 
 .port-item:hover {
     flex: 4 !important; 
-    filter: brightness(1) !important; /* 展開的變亮 */
+    filter: brightness(1) !important;
 }
 
-/* --- 方塊內背景圖片 --- */
 .item-mask {
     position: absolute;
     top: 0;
@@ -692,27 +665,24 @@ body {
     filter: brightness(0.6);
     transition: filter 0.3s;}
 
-/* --- 1. 未展開時的垂直標題樣式 (圖一效果) --- */
 .item-content-small {
     position: absolute;
     top: 40px;
     left: 20px;
     z-index: 5;
-    writing-mode: vertical-rl; /* 垂直文字 */
+    writing-mode: vertical-rl;
     transition: opacity 0.3s ease;
     color: #ffffff;
     font-size: 30px;
     opacity: 1;
     transition: opacity 0.3s;
-    pointer-events: none; /* 避免干擾點擊 */
+    pointer-events: none;
 }
 
-/* 被 hover 時隱藏垂直標題 */
 .port-item:hover .item-content-small {
     opacity: 0;
 }
 
-/* 展開後的詳細內容 (圖二狀態) */
 .item-content-expanded {
     position: absolute;
     top: 0;
@@ -733,21 +703,19 @@ body {
     background: linear-gradient(to right, rgba(0,0,0,0.8) 0%, transparent 80%);
 }
 
-/* 當 item 展開時，切換內容顯示 */
 .port-item:hover .item-content-small {
-    opacity: 0; /* 縮小時文字消失 */
+    opacity: 0;
 }
 
 .port-item:hover .item-content-expanded {
-    opacity: 1; /* 展開時內容浮現 */
+    opacity: 1;
     visibility: visible;
 }
 
 .port-item:hover .item-bg {
-    filter: brightness(0.8); /* 展開時稍微亮一點 */
+    filter: brightness(0.8);
 }
 
-/* 展開內容的細節 */
 .expanded-title { font-size: 36px; margin-bottom: 20px; }
 .software-title { font-size: 20px; color: #ccc; margin-top: 10px; }
 .software-icons { display: flex; gap: 15px; margin-top: 10px; }
@@ -791,9 +759,9 @@ body {
     margin: 0 auto;
     width: 100%;
     display: flex;
-    justify-content: space-between; /* 分散排列 */
-    align-items: center; /* 垂直居中 */
-    padding: 0 10% 0 8%; /* 調整內距以與上一個區塊對齊 */
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10% 0 8%;
 }
 
 .contact-section {
@@ -830,13 +798,12 @@ body {
     margin-right: 8px;
 }
 
-/* 點擊後的成功樣式 */
 .copy-btn.success {
     background-color: #6A408A;
     color: white;
 }
 
-/* --- 2. 左側選單：英文大文字上方 --- */
+/* --- 左側選單 --- */
 .footer-links {
     flex: 1;
     padding-left: 5%;
@@ -849,7 +816,7 @@ body {
 }
 
 .footer-links li {
-    margin-bottom: 25px; /* 增加間距 */
+    margin-bottom: 25px;
     font-size: 18px;
     letter-spacing: 1px;
     color: #6A408A;
@@ -863,15 +830,15 @@ body {
 }
 
 .footer-links a:hover {
-    color: #fff; /* 懸停時變白 */
+    color: #fff;
 }
 
-/* --- 3. 中間聯絡資訊：深色區域 --- */
+/* --- 中間聯絡資訊：深色區域 --- */
 .footer-info {
     flex: 1.2;
     color: #6A408A; 
     font-size: 18px;
-    line-height: 2.2; /* 增加行高 */
+    line-height: 2.2;
     font-weight: bold;
     margin-top: 5%;
 }
@@ -882,22 +849,21 @@ body {
 
 /* --- 4. 右側角色 GIF --- */
 .footer-character {
-    flex: 0 0 auto; /* 不縮放 */
+    flex: 0 0 auto;
     margin-top: -50px;
 }
 
 .seated-gif {
     display: block;
-    max-height: 500px; /* 調整高度 */
+    max-height: 500px;
     width: auto;
     object-fit: contain;
-    /* 加個陰影深度，匹配Cyberpunk感 */
     filter: drop-shadow(0 15px 25px rgba(0,0,0,0.6)); 
 }
 
 /* ================== 平面設計分頁 ================= */
 /* ---------------------------------
-    核心設定：書本的容器
+    書本的容器
     --------------------------------- */
 
 .book_Contents {
@@ -911,8 +877,8 @@ body {
 
 .portfolio-title {
     width: 100%;
-    height: 105vh; /* 務必給一個足夠的高度 */
-    background-color: #0b0b0b; /* 比背景深一點的顏色 */
+    height: 105vh;
+    background-color: #0b0b0b;
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -927,12 +893,11 @@ body {
     height: 733px;
 }
 
-/* 個別頁面的基礎樣式 */
 .page {
     width: 100%;
     height: 100%;
-    background-color: #fff; /* 頁面背景 */
-    box-shadow: 0 0 10px rgba(0,0,0,0.5); /* 頁面陰影 */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -940,7 +905,7 @@ body {
 }
 
 .intro-page {
-    background-color: #ffffff !important; /* 強制白底 */
+    background-color: #ffffff !important;
     padding: 40px;
     box-sizing: border-box;
     display: flex;
@@ -963,7 +928,6 @@ body {
     color: #333;
 }
 
-/* 用於展示圖片的頁面 */
 .page-img {
     width: 100%;
     height: 100%;
@@ -971,7 +935,6 @@ body {
     display: block;
 }
 
-/* 導覽按鈕 (上一頁/下一頁) */
 .book-nav {
     position: absolute;
     bottom: 80px;
@@ -1007,8 +970,6 @@ body {
 }
 
 /* --------------網頁設計-------------- */
-
-/* --- 1. 新增父層容器設定 --- */
 .web-design-section {
     display: flex;
     width: 100%;
@@ -1017,26 +978,25 @@ body {
     overflow: hidden;
 }
 
-/* --- 2. 修正左側圖片區 --- */
 .display-container {
     position: relative;
-    width: 100%;             /* 佔比 65% */
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;       /* 裁切模糊溢出的邊緣 */
+    overflow: hidden;
 }
 
 .scenery-bg {
     position: absolute;
     top: 0; 
     left: 0;
-    width: 100%;            /* 改為 100% 填滿左側區塊 */
+    width: 100%;
     height: 100%;
     background-image: url('../assets/BG_4.jpeg');
     background-size: cover;
     background-position: center;
-    filter: blur(12px) brightness(0.6); /* 稍微加強模糊與壓暗 */
+    filter: blur(12px) brightness(0.6);
     transform: scale(1.1); 
     z-index: 1;
 }
@@ -1050,7 +1010,6 @@ body {
     filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
 }
 
-/* --- 3. 修正右側文字區 --- */
 .description-container {
     width: 35%;
     padding: 60px 60px;
@@ -1103,7 +1062,6 @@ body {
     overflow: hidden;
 }
 
-/* 斜切圖片容器 */
 .matte-img-container {
     width: 100%;
     height: 350px;
@@ -1127,20 +1085,17 @@ body {
     object-position: center 20%;
 }
 
-/* 上方圖片：由左低往右高切 */
 .top-clip {
     clip-path: polygon(0 0%, -20% 110%, 300% -50%, 0% 25%);
-    margin-bottom: -120px; /* 讓圖片與文字產生重疊感 */
+    margin-bottom: -120px;
     top: 0;
 }
 
-/* 下方圖片：由左低往右高切 */
 .bottom-clip {
     clip-path: polygon(0 0%, -20% 110%, 300% -50%, 0% 25%);   
     margin-top: -120px;
 }
 
-/* 文字區塊 */
 .matte-info-container {
     width: 80%;
     max-width: 800px;
@@ -1179,7 +1134,6 @@ body {
     margin-top: 5%;
 }
 
-/* 燈箱樣式 */
 .modal {
     display: none;
     position: fixed;
@@ -1187,7 +1141,6 @@ body {
     left: 0; top: 0;
     width: 100%; height: 100%;
     background-color: rgba(0,0,0,0.9);
-    /* 關鍵：啟用垂直捲動，防止內容過長被切掉 */
     overflow-y: auto; 
     flex-direction: column; 
     align-items: center;
@@ -1216,7 +1169,7 @@ body {
 .video-wrapper video {
     width: 100%;
     height: auto;
-    max-height: 85vh; /* 限制高度不要超過螢幕太多 */
+    max-height: 85vh;
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0,0,0,1);
@@ -1228,16 +1181,15 @@ body {
     color: #f1f1f1; font-size: 40px; cursor: pointer;
 }
 
-/* 燈箱內部並列排版 */
 .lightbox-flex-container {
     display: flex;
-    flex-direction: column; /* 核心：改為垂直上下堆疊 */
-    gap: 40px; /* 增加兩組媒體之間的間距，強調往下滾的感覺 */
+    flex-direction: column;
+    gap: 40px;
     width: 100%;
 }
 
 .media-box {
-    width: 100%; /* 確保垂直排列時填滿寬度 */
+    width: 100%;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -1251,11 +1203,10 @@ body {
 
 /* ------------人像修圖-------------- */
 
-/* 針對人像修圖的高清原圖優化 */
 .image-wrapper img {
-    width: auto;      /* 不強制填滿寬度 */
-    max-width: 100%;  /* 但不超過容器 */
-    max-height: 80vh; /* 限制高度，確保不用捲動太久就能看到關閉按鈕 */
+    width: auto;
+    max-width: 100%;
+    max-height: 80vh;
     display: block;
     margin: 0 auto;
     border: 2px solid rgba(255, 255, 255, 0.1);
@@ -1264,40 +1215,37 @@ body {
 .image-wrapper_Houdini img {
     width: 100%;
     height: auto;
-    max-height: 85vh; /* 限制高度不要超過螢幕太多 */
+    max-height: 85vh;
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 0 30px rgba(0,0,0,1);
 }
 
-/* 影片容器 ID (用於 JS 控制隱藏) */
 #videoBox {
     margin-top: 30px;
     width: 100%;
 }
 
-/* --- 整體區塊排版 --- */
 .portrait-retouching-section {
-    padding: 80px 10%; /* 控制整個區塊與螢幕邊緣的距離 */
+    padding: 80px 10%;
     background-color: transparent; 
     color: #fff;
     background-color: #1f1f1f;
     position: relative;
 }
 
-/* --- 標題特效 (空心字與重疊) --- */
 .title-wrapper {
     position: relative;
     margin-bottom: 40px;
-    transform: rotate(-5deg); /* 讓整個標題群組微微向左上傾斜 */
+    transform: rotate(-5deg);
     display: inline-block;
 }
 
 .title-en {
     font-size: 3.5rem;
     font-family: Arial, Helvetica, sans-serif;
-    color: transparent; /* 文字設為透明 */
-    -webkit-text-stroke: 1px #777; /* 加上灰色描邊達成空心效果 */
+    color: transparent;
+    -webkit-text-stroke: 1px #777;
     letter-spacing: 2px;
     position: absolute;
     top: -20px;
@@ -1309,10 +1257,10 @@ body {
 .title-zh {
     font-size: 2.2rem;
     font-weight: bold;
-    color: #fff; /* 中文實心白字 */
+    color: #fff;
     position: relative;
     z-index: 2;
-    margin-left: 280px; /* 調整此數值讓中文剛好落在英文的右下方 */
+    margin-left: 280px;
 }
 
 /* --- 文字說明排版 --- */
@@ -1353,22 +1301,20 @@ body {
 .retouching-gallery {
     display: flex;
     justify-content: center;
-    gap: 0%; /* 圖片之間的間隔 */
+    gap: 0%;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .skew-item {
-    flex: 1; /* 讓5張圖平均分配寬度 */
-    height: 400px; /* 統一縮圖高度，可依你的喜好微調 */
+    flex: 1;
+    height: 400px;
     cursor: pointer;
-    /* 核心：將矩形裁切成平行四邊形 (左上, 右上, 右下, 左下) */
     clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/* 滑鼠移上去時的小特效：稍微往上浮動並變亮 */
 .skew-item:hover {
     transform: translateY(-8px);
     filter: brightness(1.15);
@@ -1377,8 +1323,8 @@ body {
 .skew-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保圖片填滿容器且不變形 */
-    object-position: center; /* 確保人物對齊中央 */
+    object-fit: cover;
+    object-position: center;
 }
 
 /* ================== 剪輯分頁 =============== */
@@ -1392,71 +1338,63 @@ body {
     margin-bottom: 15px;
 }
 
-/* --- 1. 最外層容器 --- */
 .video-timeline-section {
     position: relative;
     width: 100%;
-    /* ⚠️ 注意：這層和它的父元素絕對不能有 overflow: hidden，否則吸附效果會失效 */
 }
 
-/* --- 2. 背景層 (核心魔法1) --- */
 .sticky-bg {
-    position: sticky; /* 黏滯定位 */
-    top: 0;           /* 當畫面滾到這裡時，緊緊黏在螢幕最上方 */
+    position: sticky;
+    top: 0;
     width: 100%;
-    height: 100vh;    /* 高度設定為滿版螢幕 */
-    background-image: url('../assets/BG_6.jpg'); /* 替換成你的圖片路徑 */
+    height: 100vh;
+    background-image: url('../assets/BG_6.jpg');
     background-size: cover;
     background-position: center;
-    z-index: 1;       /* 放在底層 */
+    z-index: 1;
 }
 
-/* 背景的半透明遮罩，讓前面的影片和白字更清楚 */
 .sticky-bg .bg-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background-color: rgba(0, 0, 0, 0.6); 
 }
 
-/* --- 3. 內容層 (核心魔法2) --- */
 .scroll-content {
     position: relative;
-    z-index: 2;         /* 確保內容浮在背景上面 */
-    margin-top: -100vh; /* 關鍵！把內容往上拉一個螢幕的高度，讓它從背景最頂端開始重疊 */
-    padding-top: 100px; /* 留出頂部呼吸空間，才不會一滾到就貼齊螢幕邊緣 */
-    padding-bottom: 10px; /* 底部留白，滾到底時會順暢過渡到下一個網頁區塊 */
+    z-index: 2;
+    margin-top: -100vh;
+    padding-top: 100px;
+    padding-bottom: 10px;
 }
 
-/* --- 4. 時間軸原本的樣式 (維持不變) --- */
 .timeline-container {
     position: relative;
     max-width: 70%;
     margin: 0 auto;
-    z-index: 2; /* 確保內容在遮罩之上 */
+    z-index: 2;
 }
 
 .timeline-line {
     position: absolute;
-    left: 8px; /* 根據你的圓點位置調整，使其居中於圓點 */
-    top: 180px;    /* 起點：對齊第一個 .timeline-dot 的中心 */
-    bottom: 200px; /* 終點：對齊最後一個 .timeline-dot 的中心 */
+    left: 8px;
+    top: 180px;
+    bottom: 200px;
     width: 2px;
     background-color: #fff;
     z-index: 1;
 }
 
-/* 每個專案項目 */
 .timeline-item {
     position: relative;
-    padding-left: 60px; /* 留出左側線條和圓點的空間 */
-    margin-bottom: 20%; /* 每個項目之間的間距 */
+    padding-left: 60px;
+    margin-bottom: 20%;
 }
 
-/* 圓點 */
 .timeline-dot_Editor {
     position: absolute;
     left: 0;
-    top: 50%; /* 對齊內容垂直居中 */
+    top: 50%;
     transform: translateY(-50%);
     width: 18px;
     height: 18px;
@@ -1467,19 +1405,18 @@ body {
 
 .item-content {
     display: flex;
-    align-items: center; /* 讓左右兩塊垂直置中對齊 */
+    align-items: center;
     gap: 40px;
     margin-top: 15%;
 }
 
 .montage {
     display: flex;
-    align-items: center; /* 讓左右兩塊垂直置中對齊 */
+    align-items: center;
     gap: 40px;
     margin-top: 5%;
 }
 
-/* 純 CSS 畫出的播放按鈕 */
 .play-btn {
     width: 60px;
     height: 60px;
@@ -1498,13 +1435,11 @@ body {
     border-color: transparent transparent transparent #000;
 }
 
-/* 影片播放時隱藏遮罩 */
 .video-wrapper_Editor.playing .video-overlay {
     opacity: 0;
     pointer-events: none;
 }
 
-/* 文字區域 */
 .text-content {
     flex: 1;
 }
@@ -1569,7 +1504,6 @@ body {
     margin-top: 8% !important;
 }
 
-/* 影片外框 */
 .video-wrapper_Editor {
     position: relative;
     width: 50%;
@@ -1585,11 +1519,10 @@ video {
     object-fit: cover;
 }
 
-/* 播放按鈕遮罩 */
 .video-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.2); /* 淡淡的黑影 */
+    background: rgba(0,0,0,0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -1609,42 +1542,36 @@ video {
 
 /* =======================動畫分頁=======================
 -------------角色動畫---------------- */
-
-/* 容器基本設定 */
 .anime-character-section {
-    position: relative; /* 為了 bg-overlay 定位 */
+    position: relative;
     padding: 100px 5%;
     color: #fff;
-    
-    /* 👇 核心功能：設定背景圖片並固定不動 */
-    background-image: url('../assets/BG_6.jpg'); /* 請替換成你的背景圖路徑 */
+    background-image: url('../assets/BG_6.jpg');
     background-size: cover;
     background-position: top;
-    background-attachment: scroll; /* 預設隨滾動條移動，可選用 fixed */
+    background-attachment: scroll;
     
     font-family: "Microsoft JhengHei", sans-serif;
-    overflow: hidden; /* 防止內容溢出 */
+    overflow: hidden;
 }
 
-/* 背景半透明遮罩，確保文字可讀性 */
 .anime-character-section .bg-overlay {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7); /* 調整 rgba 的 0.7 數值來控制背景變暗的程度 */
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 1;
 }
 
 .anime-container {
-    position: relative; /* 為了 z-index 浮在遮罩上 */
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
     display: flex;
     gap: 40px;
     align-items: flex-start;
-    z-index: 2; /* 放在遮罩之上 */
+    z-index: 2;
 }
 
-/* 左側大影片 */
 .left-assets {
     flex: 1.2;
 }
@@ -1654,12 +1581,10 @@ video {
     filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
 }
 
-/* 右側內容 */
 .right-info {
     flex: 1;
 }
 
-/* 標題裝飾：實心與空心重疊 */
 .title-group {
     position: relative;
     margin-bottom: 30px;
@@ -1687,7 +1612,6 @@ video {
     font-family: Arial, sans-serif;
 }
 
-/* 文字細節 */
 .meta-data {
     color: #fff;
     font-size: 16px;
@@ -1746,7 +1670,6 @@ video {
     align-items: flex-start;
 }
 
-/* 比例控制：左側較大 */
 .main-project { flex: 1.5; }
 .sub-project { flex: 1; }
 
@@ -1756,7 +1679,7 @@ video {
     width: 100%;
     aspect-ratio: 16 / 9;
     background: #000;
-    border-radius: 25px; /* 圓角效果 */
+    border-radius: 25px;
     overflow: hidden;
     margin-bottom: 25px;
     border: 1px solid rgba(255,255,255,0.2);
@@ -1807,10 +1730,8 @@ video {
 }
 
 /* --------------LOGO------------------ */
-
-/* 區塊背景與間距 */
 .logo-animation-section {
-    background-color: #111; /* 深色背景 */
+    background-color: #111;
     padding: 100px 5%;
     color: #fff;
     font-family: "Microsoft JhengHei", sans-serif;
@@ -1821,7 +1742,6 @@ video {
     margin: 0 auto;
 }
 
-/* 文字排版 */
 .logo-header {
     margin-bottom: 50px;
 }
@@ -1845,7 +1765,6 @@ video {
     max-width: 800px;
 }
 
-/* 影片並排佈局 */
 .logo-video-grid {
     display: flex;
     gap: 30px;
@@ -1855,22 +1774,22 @@ video {
 .logo-video-item {
     flex: 1;
     background: #000;
-    border-radius: 25px; /* 維持一致的圓角風格 */
+    border-radius: 25px;
     overflow: hidden;
-    aspect-ratio: 16 / 9; /* 保持標準比例 */
+    aspect-ratio: 16 / 9;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .auto-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保影片填滿容器 */
+    object-fit: cover;
 }
 
 /* ---------Live2D------------- */
 
 .live2d-section {
-    background-color: #333333; /* 參考 image_5e3929.png 的淺灰色背景 */
+    background-color: #333333;
     padding: 80px 5%;
     font-family: "Microsoft JhengHei", sans-serif;
     color: #fff;
@@ -1886,7 +1805,7 @@ video {
 
 /* --- 左側主區塊 --- */
 .live2d-main {
-    flex: 1.5; /* 佔據較多空間 */
+    flex: 1.5;
 }
 
 .main-video-wrapper {
@@ -1942,7 +1861,7 @@ video {
 
 /* --- 右側側邊欄 --- */
 .live2d-sidebar {
-    flex: 1.3; /* 佔據較少空間 */
+    flex: 1.3;
     display: flex;
     flex-direction: column;
     gap: 25px;
@@ -1956,7 +1875,7 @@ video {
 }
 
 .side-video-box {
-    flex: 0 0 300px; /* 固定寬度縮圖 */
+    flex: 0 0 300px;
     aspect-ratio: 16 / 9;
     border-radius: 15px;
     overflow: hidden;
@@ -2000,7 +1919,6 @@ video {
     margin: 0 auto;
 }
 
-/* 標題與底線 */
 .houdini-header {
     margin-bottom: 50px;
 }
@@ -2018,7 +1936,6 @@ video {
     margin-bottom: 40px;
 }
 
-/* 項目內容排版 */
 .houdini-item {
     margin-bottom: 100px;
 }
@@ -2035,10 +1952,8 @@ video {
     gap: 50px;
 }
 
-/* 控制左右交錯 */
 .flex-row { flex-direction: row; }
 
-/* 圖片/影片容器 */
 .houdini-media {
     flex: 1;
     max-width: 50%;
@@ -2128,7 +2043,7 @@ video {
 .multi-media-container {
     display: flex;
     flex-direction: column;
-    gap: 60px; /* 每個段落之間的距離 */
+    gap: 60px;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -2138,7 +2053,7 @@ video {
 .multi-section {
     display: flex;
     flex-direction: column;
-    gap: 15px; /* 標題與影音的距離 */
+    gap: 15px;
 }
 
 .multi-title {
@@ -2162,7 +2077,7 @@ video {
 .multi-media-item {
     width: 100%;
     height: auto;
-    display: block; /* 去除圖片下方空白 */
+    display: block;
 }
 
 .play-overlay {
@@ -2171,9 +2086,9 @@ video {
     width: 140%;
     height: 100%;
     display: flex;
-    justify-content: center; /* 水平置中 */
-    align-items: center;    /* 垂直置中 */
-    background: rgba(0, 0, 0, 0.2); /* 淡淡的遮罩 */
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.2);
     cursor: pointer;
     z-index: 10;
     transition: opacity 0.3s;
@@ -2181,17 +2096,15 @@ video {
 
 .scene-media-wrapper.is-playing .play-overlay {
     opacity: 0;
-    visibility: hidden; /* 徹底從畫面渲染中移除 */
-    pointer-events: none; /* 確保點擊會穿透到下方的影片 */
+    visibility: hidden;
+    pointer-events: none;
 }
 
-/* 當影片播放時，隱藏大按鈕 */
 .multi-media-wrapper.is-playing .playing {
     opacity: 0;
     pointer-events: none;
 }
 
-/* 讓影片在播放時顯示預設控制條(方便調整音量/進度) */
 .multi-media-wrapper.is-playing video {
     pointer-events: auto;
 }
@@ -2277,25 +2190,22 @@ video {
     align-items: center;
     width: 100%;
     max-width: none;
-    margin-bottom: 0; /* 滿版設計通常讓列與列相鄰，或自訂間距 */
-    gap: 0; /* 移除間距，讓圖文緊貼或靠邊 */
+    margin-bottom: 0;
+    gap: 0;
 }
 
-/* 將第二個專案反轉為左圖右文 */
 .portfolio-item.row-reverse {
     flex-direction: row;
 }
 
 /* --- 文字區塊 --- */
-
-/* 讓文字在左邊時，右邊留白多一點；文字在右邊時，左邊留白多一點 */
 .text-left { order: 1; }
 .text-right { order: 2; }
 
 .item-text {
     flex: 1;
     width: 50%;
-    padding: 0 8%; /* 這裡控制文字離邊緣和圖片的距離 */
+    padding: 0 8%;
     box-sizing: border-box;
 }
 
@@ -2326,9 +2236,9 @@ video {
 .item-media {
     flex: 1;
     width: 50%;
-    height: 500px; /* 建議給定高度或使用 aspect-ratio */
+    height: 500px;
     overflow: hidden;
-    box-shadow: none; /* 滿版設計通常不加陰影 */
+    box-shadow: none;
 }
 
 .media-right { order: 2; }
@@ -2339,29 +2249,26 @@ video {
 .video-wrapper_Blender video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保影片或圖片填滿區塊不變形 */
+    object-fit: cover;
     display: block;
 }
 
-/* 圖片可點擊的互動效果 */
 .lightbox-trigger {
     cursor: pointer;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .lightbox-trigger:hover {
-    transform: scale(1.02); /* 滑鼠懸停微放大 */
+    transform: scale(1.02);
     filter: brightness(0.9);
 }
 
-/* 針對反轉佈局的處理 (portfolio-item.row-reverse) */
 .row-reverse {
     flex-direction: row-reverse;
 }
 
 /* ----------場景建模------------- */
 
-/* 1. 修改主要內容區域容器 */
 #scene-lightbox-main {
     display: flex;
     flex-direction: column;
@@ -2371,26 +2278,23 @@ video {
     margin: 60px auto;
 }
 
-/* 2. 修改單一媒體的包裹層：去除舊的媒體選取器樣式 */
 #scene-lightbox-main .scene-media-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     margin: 0 auto 20px;
-    background: transparent; /* 去除黑色背景，讓影片更自然 */
+    background: transparent;
 }
 
-/* 3. 確保裡面的媒體 contain 而不拉伸 (去除寫死的寬高) */
 #scene-lightbox-main .scene-media-wrapper video,
 #scene-lightbox-main .scene-media-wrapper img {
-    max-width: 100%; /* 不要貼滿邊框 */
-    max-height: 100%; /* 不要貼滿高度 */
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
     height: auto;
-    object-fit: contain; /* 確保內容不拉伸 */
+    object-fit: contain;
     border-radius: 4px;
-    /* 將黑色背景（黑色區塊）限制在媒體標籤本身，如果影片有透明度 */
     background: rgba(15, 15, 15, 0.95); 
 }
 
@@ -2399,9 +2303,9 @@ video {
 }
 
 .scene-thumbnails-wrapper {
-    background: rgba(0, 0, 0, 0.8); /* 增加背景半透明黑，提升視覺層次 */
+    background: rgba(0, 0, 0, 0.8);
     padding: 10px 0;
-    position: relative; /* 或者用 sticky */
+    position: relative;
     z-index: 20;
 }
 
@@ -2415,11 +2319,11 @@ video {
 }
 
 .scene-title {
-    font-size: 1.5rem; /* 字體大一點 */
-    font-weight: bold; /* 粗體 */
-    color: #ffffff; /* 根據你的背景調整顏色 */
-    margin-bottom: 8px; /* 和下方的完成時間拉開一點距離 */
-    letter-spacing: 1px; /* 增加一點字距看起來更精緻 */
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
 }
 
 /* --- 動態文字區塊 --- */
@@ -2427,7 +2331,7 @@ video {
     max-width: 800px;
     margin: 0 auto 40px;
     color: #fff;
-    min-height: 120px; /* 預留高度避免文字長短切換時畫面跳動 */
+    min-height: 120px;
 }
 
 /* --- 輪播區塊 (Carousel) --- */
@@ -2453,22 +2357,21 @@ video {
 
 .scene-item {
     position: absolute;
-    width: 50%; /* 中間影片的寬度 */
+    width: 50%;
     height: 100%;
     transition: all 0.5s ease-in-out;
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    background: #333; /* 預設背景色 */
+    background: #333;
 }
 
 .scene-item video, .scene-item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    pointer-events: none; /* 讓點擊事件落在外層 div 上 */
+    pointer-events: none;
 }
 
-/* 輪播狀態控制 */
 .scene-item.active {
     transform: translateX(0) scale(1);
     z-index: 3;
@@ -2478,7 +2381,7 @@ video {
 .scene-item.prev {
     transform: translateX(-60%) scale(0.8);
     z-index: 2;
-    filter: brightness(0.4); /* 兩側變暗 */
+    filter: brightness(0.4);
 }
 
 .scene-item.next {
@@ -2529,11 +2432,10 @@ video {
     color: #aaa;
 }
 
-/* 燈箱內的影片/圖片容器 */
 .scene-media-wrapper {
     position: relative;
     width: 100%;
-    max-width: 800px; /* 依你需求調整 */
+    max-width: 800px;
     margin: 0 auto 20px;
     display: flex;
     justify-content: center;
@@ -2554,23 +2456,22 @@ video {
     font-weight: bold;
     margin-top: 30px;
     font-size: 20px;
-    border-left: 4px solid #fff; /* 加個小裝飾讓它更像作品集標題 */
+    border-left: 4px solid #fff;
     padding-left: 10px;
 }
 
-/* 底部縮圖導覽列 */
 .scene-lightbox-thumbnails {
-    position: fixed; /* 固定在螢幕上 */
+    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(15, 15, 15, 80%); /* 給一點深色背景，才不會跟後面的圖片疊在一起 */
+    background: rgba(15, 15, 15, 80%);
     display: flex;
     justify-content: center;
     gap: 20px;
     padding: 15px 0;
     z-index: 10000;
-    box-shadow: 0 -5px 20px rgba(0,0,0,0.5); /* 加上一點上方陰影增加立體感 */
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.5);
 }
 
 .thumb-item {
@@ -2593,12 +2494,11 @@ video {
     border-color: #fff;
 }
 
-/* 場景輪播圖的專屬圖片容器 */
 .scene-img-container {
     cursor: pointer;
     overflow: hidden;
     border-radius: 4px;
-    width: 50%; /* 中間影片的寬度 */
+    width: 50%;
     height: 100%;
 }
 
@@ -2610,12 +2510,10 @@ video {
     transition: transform 0.3s ease;
 }
 
-/* 懸停時圖片微放大 */
 .scene-img-container:hover .scene-item-img {
     transform: scale(1.03);
 }
 
-/* 懸停時遮罩浮現 */
 .scene-img-container:hover .hover-overlay {
     opacity: 1;
 }
@@ -2694,7 +2592,6 @@ video {
     border-radius: 4px;
 }
 
-/* 圖片本身的過場動畫 */
 .clothing-img-container .preview-img {
     width: 100%;
     display: block;
@@ -2705,7 +2602,6 @@ video {
     transform: scale(1.03); 
 }
 
-/* 提示遮罩層：預設透明度為 0 */
 .hover-overlay {
     position: absolute;
     top: 0;
@@ -2755,7 +2651,6 @@ video {
     flex: 1;
 }
 
-/* 右側畫廊：CSS Grid 排版 */
 .object-gallery {
     flex: 1.5;
     display: grid;
@@ -2765,7 +2660,6 @@ video {
     height: 400px;
 }
 
-/* 共用圖片容器特效 (包含前面寫好的 Hover 遮罩邏輯) */
 .object-img-wrapper, .marquee-item {
     position: relative;
     cursor: pointer;
@@ -2823,7 +2717,6 @@ video {
     animation: marqueeScroll 25s linear infinite;
 }
 
-/* 滑鼠移上去時暫停滾動，讓觀看者好點擊 */
 .object-marquee-wrapper:hover .object-marquee-track {
     animation-play-state: paused;
 }
@@ -2849,10 +2742,9 @@ video {
     box-sizing: border-box;
 }
 
-/* 跑馬燈位移動畫 */
 @keyframes marqueeScroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-25%); } /* 往左移總長度的一半，達成無縫循環 */
+    100% { transform: translateX(-25%); }
 }
 
 .single-media-container {
@@ -2860,7 +2752,6 @@ video {
     justify-content: center;
     align-items: center;
     width: 100%;
-    /* 移除強制的 height: 80vh，改用 min-height 確保點擊空間 */
     min-height: 70vh; 
     margin: 40px auto;
 }
@@ -2873,7 +2764,7 @@ video {
     object-fit: contain; 
     border-radius: 8px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    background: #000; /* 給影片一個純黑底色 */
+    background: #000;
 }
 
 /* ----------- VR 遊戲區塊 -------------- */
@@ -2894,7 +2785,6 @@ video {
     max-width: 1200px;
 }
 
-/* 文字介紹區塊 */
 .vr-game-info {
     margin-bottom: 40px;
 }
@@ -2930,21 +2820,19 @@ video {
     color: #fff;
 }
 
-/* === 媒體區塊 (左圖右影片) === */
 .vr-game-media {
     display: flex;
-    gap: 20px; /* 圖片跟影片中間的縫隙 */
+    gap: 20px;
     width: 100%;
 }
 
 .vr-media-wrapper {
-    flex: 1; /* 讓左右兩塊平分寬度 */
-    background: #1a1a1a; /* 載入前的底色 */
+    flex: 1;
+    background: #1a1a1a;
     border-radius: 4px;
     overflow: hidden;
 }
 
-/* 強制統一比例，排版才會整齊 */
 .vr-media-wrapper img,
 .vr-media-wrapper video {
     width: 100%;
@@ -2956,13 +2844,12 @@ video {
 
 /* ------------------------ */
 
-/* 彈窗遮罩 */
 .modal-overlay {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: rgba(255, 255, 255, 0.6); /* 淺色半透明 */
-    backdrop-filter: blur(5px); /* 毛玻璃感 */
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(5px);
     z-index: 10000;
     display: none;
     justify-content: center;
@@ -2970,7 +2857,6 @@ video {
     transition: all 0.5s ease;
 }
 
-/* 唯美卡片主體 */
 .aesthetic-card {
     background: #fdfdfd;
     padding: 50px 40px;
@@ -2982,7 +2868,6 @@ video {
     position: relative;
 }
 
-/* 裝飾細線 */
 .deco-line {
     width: 40px;
     height: 1px;
@@ -2992,7 +2877,7 @@ video {
 .deco-line.bottom { margin: 20px auto 0 auto; }
 
 .aesthetic-title {
-    font-family: "Noto Serif TC", "serif"; /* 建議使用襯線體 */
+    font-family: "Noto Serif TC", "serif";
     color: #444;
     font-weight: 400;
     letter-spacing: 4px;
@@ -3006,7 +2891,6 @@ video {
     letter-spacing: 1px;
 }
 
-/* 輸入框 */
 .input-wrapper input {
     width: 100%;
     border: none;
@@ -3024,7 +2908,6 @@ video {
     border-bottom: 2px solid #b8c6d9;
 }
 
-/* 按鈕 */
 .aesthetic-btn {
     margin-top: 30px;
     background: #E3C9F7;
@@ -3083,7 +2966,7 @@ video {
 .skew-item_houdini img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保圖片填滿容器且不變形 */
+    object-fit: cover;
     object-position: center;
 }
 
@@ -3115,7 +2998,7 @@ video {
 .skew-item_st img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* 確保圖片填滿容器且不變形 */
+    object-fit: cover;
     object-position: center;
 }
 
@@ -3128,14 +3011,12 @@ video {
 /* =========================================
    RWD (響應式設計)
    ========================================= */
-
-   /* --- RWD 漢堡選單樣式 --- */
 .menu-toggle {
-    display: none; /* 平時隱藏 checkbox */
+    display: none;
 }
 
 .hamburger {
-    display: none; /* 桌面版隱藏漢堡圖示 */
+    display: none;
     cursor: pointer;
     padding: 10px;
     z-index: 1000;
@@ -3143,7 +3024,7 @@ video {
 
 @media (max-width: 1100px) {
     .live2d-container {
-        flex-direction: column; /* 雙欄改為單欄 */
+        flex-direction: column;
     }
     
     .live2d-sidebar {
@@ -3151,7 +3032,6 @@ video {
     }
 }
 
-/* 平板型 (Ipad) */
 @media (max-width: 1024px) {
     .main-content {
         padding: 0 5%;
@@ -3206,7 +3086,6 @@ video {
     .seated-gif {
         max-height: 250px;
     }
-    /* 背景大文字在窄螢幕可能需要切換 */
     .site-footer {
         background-position: center center;
     }
@@ -3252,20 +3131,20 @@ video {
         width: 100%;
     }
     .retouching-gallery {
-        flex-wrap: wrap; /* 允許換行 */
+        flex-wrap: wrap;
     }
     .skew-item {
-        flex: 1 1 30%; /* 手機版一行顯示較少張數 */
+        flex: 1 1 30%;
         height: 300px;
         margin-bottom: 15px;
     }
     .skew-item_houdini {
-        flex: 1 1 30%; /* 手機版一行顯示較少張數 */
+        flex: 1 1 30%;
         height: 300px;
         margin-bottom: 15px;
     }
     .skew-item_st {
-        flex: 1 1 30%; /* 手機版一行顯示較少張數 */
+        flex: 1 1 30%;
         height: 300px;
         margin-bottom: 15px;
     }
@@ -3276,14 +3155,14 @@ video {
         font-size: 2rem;
     }
     .item-content {
-        flex-direction: column; /* 螢幕變小時，改為上下排列 */
+        flex-direction: column;
         align-items: flex-start;
     }
     .video-placeholder {
         width: 100%;
     }
     .timeline-dot {
-        top: 20px; /* 手機版時，圓點改為靠上對齊 */
+        top: 20px;
         transform: none;
     }
     .anime-container {
@@ -3295,7 +3174,7 @@ video {
         width: 100%;
     }
     .main-char-video {
-        max-width: 400px; /* 手機版限制寬度 */
+        max-width: 400px;
         display: block;
         margin: 0 auto;
     }
@@ -3307,7 +3186,7 @@ video {
         margin-bottom: 40px;
     }
     .spine-box {
-        flex-direction: row; /* 維持左右排列直到更小螢幕 */
+        flex-direction: row;
         align-items: center;
         gap: 20px;
     }
@@ -3323,7 +3202,7 @@ video {
     }
     .houdini-row, 
     .houdini-row.reverse {
-        flex-direction: column; /* 螢幕變小改成上下垂直排列 */
+        flex-direction: column;
         gap: 30px;
         margin-bottom: 60px;
     }
@@ -3332,16 +3211,16 @@ video {
     }
     .portfolio-item,
     .portfolio-item.row-reverse {
-        flex-direction: column; /* 改為上下排列 */
+        flex-direction: column;
         gap: 30px;
         margin-bottom: 60px;
     }
     .item-text {
-        order: 2; /* 文字一律排在下方 */
+        order: 2;
         width: 100%;
     }
     .item-media {
-        order: 1; /* 媒體一律排在上方 */
+        order: 1;
         width: 100%;
     }
     .unreal_matte-painting-section {
@@ -3349,9 +3228,7 @@ video {
     }
 }
 
-/* 手機型 */
 @media (max-width: 768px) {
-    /* 導覽列變為垂直堆疊或隱藏（這裡簡化為垂直） */
     .top-nav {
         padding: 0px 0;
     }
@@ -3359,12 +3236,10 @@ video {
         flex-direction: column;
         gap: 15px;
     }
-
-    /* 手機上重新排版：頭像和角色上下堆疊 */
     .main-content {
         flex-direction: column;
         justify-content: flex-start;
-        padding-top: 150px; /* 給導覽列留空間 */
+        padding-top: 150px;
     }
 
     /* -----------首頁 - 關於我--------------- */
@@ -3409,33 +3284,29 @@ video {
         width: 25%;
     }
 
-    /* 1. 外層容器改為垂直排列 */
     .port-container {
         display: flex;
-        flex-direction: column; /* 改成上下疊加 */
+        flex-direction: column;
         height: auto;
         width: 100%;
     }
 
-    /* 2. 每一個摺疊面板 */
     .port-item {
-        width: 100%; /* 寬度佔滿手機螢幕 */
-        height: 110%; /* 預設只顯示 100px 的高度（只看得到圖或標題） */
-        margin-bottom: 10px; /* 面板之間的間距 */
+        width: 100%;
+        height: 110%;
+        margin-bottom: 10px;
     }
 
-    /* 3. 當點擊或滑過時，面板「往下」長高 */
     .port-item:hover, 
     .port-item:active {
-        width: 100%; /* 保持寬度不變 */
-        height: 100%; /* 展開後的高度，讓文字有空間顯示 */
+        width: 100%;
+        height: 100%;
     }
 
-    /* 4. 處理裡面的文字，避免擠壓破版 */
     .item-content-expanded {
         padding: 15px;
-        white-space: normal; /* 允許文字自動換行，取消 nowrap */
-        overflow-y: auto; /* 如果文字真的太多，允許內容區塊內滾動 */
+        white-space: normal;
+        overflow-y: auto;
     }
 
 /* --------------------------------------------------- */
@@ -3475,7 +3346,6 @@ video {
         margin-top: 20px;
     }
     .character-img {
-        /* 在手機上可以減小傾斜角度 */
         transform: rotate(-5deg) scale(1);
     }
     .hamburger {
@@ -3495,15 +3365,14 @@ video {
         box-shadow: 0 0 8px #6A408A;
     }
 
-    /* 選單本體變成全螢幕或側邊欄 */
     .nav-links {
         position: fixed;
         top: 0;
-        right: -100%; /* 平時藏在右邊 */
+        right: -100%;
         width: 70%;
         height: 100vh;
         background: rgba(0, 0, 0, 0.95);
-        display: flex !important; /* 強制覆蓋桌面版 inline-flex */
+        display: flex !important;
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -3512,12 +3381,10 @@ video {
         backdrop-filter: blur(15px);
     }
 
-    /* 當 Checkbox 被選取時，選單滑入 */
     .menu-toggle:checked ~ .nav-links {
         right: 0;
     }
 
-    /* 漢堡轉叉叉動畫 */
     .menu-toggle:checked ~ .hamburger span:nth-child(1) {
         transform: rotate(-45deg) translate(-6px, 7px);
     }
@@ -3528,7 +3395,6 @@ video {
         transform: rotate(45deg) translate(-6px, -7px);
     }
 
-    /* 手機版下拉選單調整 */
     .dropdown-content {
         position: static;
         transform: none;
@@ -3550,10 +3416,9 @@ video {
         align-items: center;
     }
 
-    /* 2. 修復第一頁介紹文字超出白底的問題 */
     .intro-page {
-        padding: 15px !important; /* 縮小手機版內距 */
-        box-sizing: border-box; /* 確保內距不會把寬度撐破 */
+        padding: 15px !important;
+        box-sizing: border-box;
     }
 
     .intro-content {
@@ -3562,13 +3427,13 @@ video {
 
     .book_Contents .beginning_title {
         line-height: 1.6;
-        word-wrap: break-word; /* 強制長單字換行 */
+        word-wrap: break-word;
         white-space: normal;
     }
 
     .book-nav {
         display: flex;
-        flex-direction: row; /* 強制橫向排列 */
+        flex-direction: row;
         justify-content: center;
         gap: 20px;
         width: 100%;
@@ -3578,8 +3443,8 @@ video {
     }
 
     .nav-btn {
-        writing-mode: horizontal-tb !important; /* 強制文字橫排 */
-        white-space: nowrap; /* 不允許文字折行 */
+        writing-mode: horizontal-tb !important;
+        white-space: nowrap;
         min-width: 80px;
         padding: 10px 15px;
         text-align: center;
@@ -3588,31 +3453,26 @@ video {
     /* ------------網頁設計---------------- */
     .web-design-section {
         display: flex;
-        flex-direction: column; /* 強制改為上下排列 */
+        flex-direction: column;
         width: 100%;
-        padding: 0 0; /* 移除電腦版的誇張內外距 */
+        padding: 0 0;
         margin: 0;
     }
-
-    /* 2. 上方圖片展示區塊 */
     .display-container {
-        width: 100% !important; /* 佔滿手機寬度 */
-        height: auto; /* 取消固定高度 */
-        margin-bottom: 30px; /* 與下方文字拉開距離 */
+        width: 100% !important;
+        height: auto;
+        margin-bottom: 30px;
         position: relative;
     }
-
-    /* 確保裡面的 Mockup 圖片不會撐破容器 */
     .ui-mockup {
         width: 100%;
         height: auto;
-        max-width: 100%; /* 防止圖片過大 */
-        position: relative; /* 如果原本是 absolute，可以改回 relative */
+        max-width: 100%;
+        position: relative;
         left: 0; 
-        transform: none; /* 移除可能導致偏移的屬性 */
+        transform: none;
     }
 
-    /* 如果背景色塊跑掉，也將其限制在容器內 */
     .scenery-bg {
         width: 100%;
         height: 100%;
@@ -3620,25 +3480,22 @@ video {
         top: 0; left: 0;
     }
 
-    /* 3. 下方文字介紹區塊 */
     .description-container {
-        width: 100% !important; /* 佔滿手機寬度 */
-        padding: 0 10px; /* 稍微留白 */
+        width: 100% !important;
+        padding: 0 10px;
     }
 
     .text-wrapper {
         width: 100%;
     }
 
-    /* 解決文字變成一條線的問題 */
     .content-body p {
-        word-break: break-all; /* 或 normal */
-        white-space: normal; /* 確保文字可以正常換行 */
+        word-break: break-all;
+        white-space: normal;
         line-height: 1.8;
         font-size: 1rem;
     }
 
-    /* 標題與線條置中或靠左對齊 */
     .title-with-line_ui {
         font-size: 1.8rem;
         margin-bottom: 15px;
@@ -3653,7 +3510,7 @@ video {
 
     /* ----LOGO---- */
     .logo-video-grid {
-        flex-direction: column; /* 手機版改為垂直堆疊 */
+        flex-direction: column;
         gap: 20px;
     }
     
@@ -3661,11 +3518,11 @@ video {
         font-size: 2rem;
     }
     .vr-game-media {
-        flex-direction: column; /* 轉為直向排列 */
+        flex-direction: column;
     }
     
     .vr-game-section {
-        padding: 0 5%; /* 手機版時兩側留白縮小 */
+        padding: 0 5%;
     }
     
     /* ------------剪輯---------------- */
@@ -3679,38 +3536,33 @@ video {
     }
 
     .timeline-container {
-        padding-left: 20px; /* 縮小左側空間 */
+        padding-left: 20px;
         width: 100%;
     }
 
-    /* 2. 讓影片與文字由左右改為上下堆疊 */
     .item-content {
         display: flex;
-        flex-direction: column !important; /* 強制上下排列 */
+        flex-direction: column !important;
         gap: 20px;
         margin-top: 50%;
     }
 
-    /* 3. 影片包裝容器調整 */
     .video-wrapper_Editor {
-        width: 100% !important; /* 手機版佔滿寬度 */
+        width: 100% !important;
         max-width: 100%;
         margin: 0 auto;
     }
-
-    /* 4. 強制影片標籤比例正確 */
     .portfolio-video {
         width: 100% !important;
         height: auto !important;
-        aspect-ratio: 16 / 9; /* 強制維持 16:9 比例，避免變形 */
+        aspect-ratio: 16 / 9;
         object-fit: cover;
     }
 
-    /* 5. 重點修復：三連排影片 (Montage) */
     .montage {
         display: flex;
-        flex-direction: column !important; /* 從橫向三排改成直向一排 */
-        gap: 15px; /* 增加影片間的垂直距離 */
+        flex-direction: column !important;
+        gap: 15px;
         width: 100%;
     }
 
@@ -3718,7 +3570,6 @@ video {
         width: 100% !important;
     }
 
-    /* 6. 文字內容調整 */
     .text-content {
         width: 100% !important;
         padding: 0 10px;
@@ -3731,16 +3582,14 @@ video {
     .short_film_con {
         font-size: 0.95rem;
         line-height: 1.6;
-        text-align: justify; /* 讓文字兩端對齊看起來比較整齊 */
+        text-align: justify;
     }
-
-    /* 7. 隱藏或縮小時間軸的裝飾線 (避免遮擋內容) */
     .timeline-line {
-        left: 0px !important; /* 將線條移到最左邊 */
+        left: 0px !important;
     }
 
     .timeline-dot_Editor {
-        left: -28px !important; /* 點點跟著線條移動 */
+        left: -28px !important;
     }
 
     .timeline-item {
@@ -3761,34 +3610,30 @@ video {
         width: 100%;
     }
 
-    /* 2. 重置標題邊距：解決手機上空隙過大的問題 */
     .houdini-sub-title {
-        margin-top: 30px !important; /* 強制覆蓋內聯樣式的 10% 和 15% */
+        margin-top: 30px !important;
         margin-bottom: 15px;
         font-size: 1.3rem;
-        text-align: center; /* 手機版標題置中較美觀 */
+        text-align: center;
     }
 
-    /* 3. 強制內容改為上下堆疊 */
     .houdini-content {
         display: flex;
-        flex-direction: column !important; /* 強制垂直排列 */
+        flex-direction: column !important;
         gap: 20px;
         align-items: center;
     }
 
-    /* 4. 針對有 flex-row 類的標籤進行修正 */
     .flex-row {
         flex-direction: column !important;
     }
 
-    /* 5. 影片與圖片媒體區塊調整 */
     .houdini-media {
         max-width: 80%;
-        width: 100vw !important; /* 強制佔滿整個手機螢幕寬度 */
+        width: 100vw !important;
         margin-left: 0;
         margin-right: 0;
-        order: -1; /* 讓影片/圖片在手機版優先顯示於文字上方 */
+        order: -1;
     }
 
     .media-element {
@@ -3798,7 +3643,6 @@ video {
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
-    /* 6. 文字區塊調整 */
     .houdini-text {
         width: 100% !important;
         padding: 0 5px;
@@ -3811,7 +3655,6 @@ video {
         margin-top: 10px;
     }
 
-    /* 7. 修復體積雲區塊（文字原本在左，手機版要統一） */
     .houdini-item:nth-child(even) .houdini-content {
         flex-direction: column !important;
     }
@@ -3822,14 +3665,13 @@ video {
         position: relative;
         display: flex;
         flex-direction: column;
-        overflow: hidden; /* 防止輪播圖左右兩邊超出的部分讓手機螢幕出現橫向卷軸 */
+        overflow: hidden;
     }
 
-    /* 2. 輪播圖容器設定 */
     .scene-carousel {
         position: relative;
         width: 100%;
-        height: 300px; /* 給予明確高度 */
+        height: 300px;
         margin-top: 20px;
     }
 
@@ -3840,10 +3682,9 @@ video {
         margin-top: -30%;
     }
 
-    /* 3. 調整手機版輪播卡片大小 (假設你的卡片 class 包含 img，請依你實際的 JS 生成結構微調) */
     .scene-track img, 
-    .scene-item { /* 若你有用特定的 class 包裝單個場景，請加在這裡 */
-        width: 100% !important; /* 在手機版不要佔滿 100%，留一點邊緣給上一張/下一張的視覺暗示 */
+    .scene-item { 
+        width: 100% !important;
         max-width: 300px;
         height: auto !important;
         margin: 0 auto;
@@ -3878,8 +3719,6 @@ video {
         width: 100% !important;
         margin-bottom: 10px;
     }
-
-    /* 2. 調整掃帚圖庫：主圖放大，副圖併排或堆疊 */
     .object-gallery {
         display: flex;
         flex-direction: column;
@@ -3892,7 +3731,6 @@ video {
         height: auto;
     }
 
-    /* 讓兩張細節副圖在手機上左右併排，節省空間 */
     .object-gallery .sub-img {
         width: 100% !important;
         display: inline-block;
@@ -3905,10 +3743,9 @@ video {
         border-radius: 8px;
     }
 
-    /* 3. 跑馬燈區塊修復 (鍵盤、咕咕鐘、滑鼠) */
     .object-marquee-wrapper {
         margin-top: 30px;
-        height: 180px; /* 給予手機版固定的顯示高度 */
+        height: 180px;
         overflow: hidden;
     }
 
@@ -3918,7 +3755,7 @@ video {
     }
 
     .marquee-item {
-        min-width: 140px; /* 增加寬度讓縮圖大一點 */
+        min-width: 140px;
         height: 140px;
     }
 
@@ -3926,14 +3763,14 @@ video {
     .marquee-item video {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* 確保內容不變形 */
+        object-fit: cover;
         border-radius: 6px;
     }
 }
 
 @media (max-width: 600px) {
     .sidebar-item {
-        flex-direction: column; /* 列表項目內部的影片與文字也改為垂直 */
+        flex-direction: column;
     }
     
     .side-video-box {
@@ -3949,8 +3786,7 @@ video {
 
 @media (max-width: 576px) {
     .skew-item {
-        flex: 1 1 100%; /* 極小螢幕時一張圖佔滿一行 */
-        /* 手機版可以考慮將裁切角度縮小，避免畫面吃掉太多 */
+        flex: 1 1 100%;
         clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
     }
     .skew-item_houdini {
@@ -3962,7 +3798,7 @@ video {
         clip-path: polygon(10% 0, 100% 0, 90% 100%, 0% 100%);
     }    
     .spine-box {
-        flex-direction: column; /* 更小螢幕換行排列 */
+        flex-direction: column;
         align-items: center;
     }
     .spine-video-container {
@@ -3975,7 +3811,7 @@ video {
         align-items: center;
         text-align: center;
         margin-bottom: -150%;
-        flex-direction: column; /* 改成上下疊加 */
+        flex-direction: column;
     }
     .footer-links {
         text-align: center;

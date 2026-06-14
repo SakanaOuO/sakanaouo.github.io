@@ -1,4 +1,4 @@
-// 1. 導覽列滾動效果 (保持不變)
+// 1. 導覽列滾動效果
 window.onscroll = function() {
     const nav = document.querySelector('.top-nav');
     if (nav) {
@@ -10,15 +10,13 @@ window.onscroll = function() {
     }
 };
 
-// 監聽整個網頁(包含圖片、影片等資源)載入完成的事件
+// 監聽整個網頁載入完成的事件
 window.addEventListener('load', function() {
     const loadingScreen = document.getElementById('loading-screen');
     
     if (loadingScreen) {
-        // 加上 fade-out class 觸發 CSS 的淡出動畫
         loadingScreen.classList.add('fade-out');
         
-        // 等待淡出動畫結束 (約 600 毫秒) 後，徹底將該元素隱藏，避免佔用效能
         setTimeout(() => {
             loadingScreen.style.display = 'none';
         }, 600);
@@ -89,7 +87,7 @@ const mpData = {
     },
     blender_SeaOfClouds: {
             title: "Blender- 雲海",
-            isMulti: true, // ★ 告訴系統這是一個多段落組合
+            isMulti: true,
             items: [
             {
                 title: "3D動畫",
@@ -243,13 +241,11 @@ function openLightbox(workId) {
         
         multiContent.innerHTML = "";
         
-        // 加上 index 參數來判斷是第幾部影片
         data.items.forEach((item, index) => {
             let mediaHtml = "";
             
             if (item.type === 'video') {
                 if (index === 0) {
-                    // 第一部影片：自動播放、靜音、循環、顯示控制條
                     mediaHtml = `
                         <video src="${item.url}" 
                             class="multi-media-item" 
@@ -257,7 +253,6 @@ function openLightbox(workId) {
                             preload="metadata">
                         </video>`;
                 } else {
-                    // 製作過程（第二部之後）：不自動播放、顯示控制條（即播放按鈕）
                     mediaHtml = `
                         <video src="${item.url}" 
                             class="multi-media-item" 
@@ -266,7 +261,6 @@ function openLightbox(workId) {
                         </video>`;
                 }
             } else {
-                // 圖片處理
                 mediaHtml = `<img src="${item.url}" alt="${item.title}" class="multi-media-item">`;
             }
 
@@ -277,16 +271,15 @@ function openLightbox(workId) {
                 </div>`;
         });
     } else {
-        // --- 啟用原本的單一圖文模式 (舊作品用) ---
+        // --- 啟用原本的單一圖文模式 ---
         standardContent.style.display = "flex"; 
         multiContent.style.display = "none";
-        multiContent.innerHTML = ""; // 清空避免背景干擾
+        multiContent.innerHTML = "";
 
-        // 檢查 workId 是否以 'portrait' 開頭
         if (workId.startsWith('portrait')) {
-            titles.forEach(h4 => h4.style.display = 'none'); // 隱藏標題
+            titles.forEach(h4 => h4.style.display = 'none');
         } else {
-            titles.forEach(h4 => h4.style.display = 'block'); // 顯示標題
+            titles.forEach(h4 => h4.style.display = 'block');
         }
 
         if (data.fullImg && data.fullImg !== "") {
@@ -323,14 +316,12 @@ function closeLightbox() {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
 
-        // 關閉標準影片
         if (videoElement) {
             videoElement.pause();
             videoElement.src = "";
             videoElement.load();
         }
 
-        // 關閉並清空多媒體垂直區塊（強制停止裡面的所有製作過程影片）
         if (multiContent) {
             multiContent.innerHTML = "";
         }
@@ -347,27 +338,22 @@ function toggleVideo(overlay) {
     }
 }
 
-// 自動偵測影片狀態：如果使用者用影片控制列暫停，播放鈕要跑出來
 document.querySelectorAll('.video-wrapper_Editor video').forEach(video => {
     const wrapper = video.parentElement;
 
-    // 監聽暫停事件
     video.addEventListener('pause', () => {
         wrapper.classList.remove('playing');
     });
 
-    // 監聽播放事件 (處理直接點擊影片控制列播放的情況)
     video.addEventListener('play', () => {
         wrapper.classList.add('playing');
     });
 });
 
 // ------------------------------
-
 // 定義服裝的燈箱資料
 const clothingData = [
     {
-        // Index 0: 魔女服 (4張圖)
         title: "魔女服 詳細視圖",
         images: [
             "assets/portfolio/3D/clothing_1_1.jpg", 
@@ -375,10 +361,9 @@ const clothingData = [
             "assets/portfolio/3D/clothing_1_2.jpg",
             "assets/portfolio/3D/clothing_1_3.jpg"
         ],
-        descriptions: ["", "", "", ""] // 你可以自訂每張圖上面的小標題
+        descriptions: ["", "", "", ""]
     },
     {
-        // Index 1: 學生服 (3張圖)
         title: "學生服 詳細視圖",
         images: [
             "assets/portfolio/3D/clothing_2.jpg",
@@ -390,22 +375,17 @@ const clothingData = [
 ];
 
 function openClothingLightbox(index) {
-    // 抓取你原本 HTML 中就有的燈箱元素
     const lightbox = document.getElementById('scene-lightbox');
     const mainContent = document.getElementById('scene-lightbox-main');
     const thumbContainer = document.getElementById('scene-thumbnails-container');
     
     const data = clothingData[index];
-
-    // 因為服裝是上下捲動看大圖，不需要底部的小縮圖導覽，所以先清空它
     if (thumbContainer) {
         thumbContainer.innerHTML = '';
     }
 
-    // 產生標題
     let htmlContent = `<h2 style="color:#fff; text-align:center; margin: 20px 0 40px;">${data.title}</h2>`;
     
-    // 迴圈跑出對應數量的圖片 (4張 或 3張)
     data.images.forEach((imgSrc, i) => {
         htmlContent += `
             <div class="scene-media-wrapper" style="margin-bottom: 60px;">
@@ -415,27 +395,23 @@ function openClothingLightbox(index) {
         `;
     });
 
-    // 將產生的 HTML 塞入燈箱主內容區
     mainContent.innerHTML = htmlContent;
     
-    // 顯示燈箱並鎖定背景滾動
     lightbox.style.display = 'block';
     document.body.style.overflow = 'hidden'; 
 }
 
 // ------------------------
-
-// 1. 定義你的三個場景資料 (請替換成你實際的檔案路徑)
 const scenesData = [
     {
         id: "scene-1",
         title: "環境動畫",
         date: "2026年3月",
         desc: "我一直很喜歡日系動畫中那種通透、乾淨的視覺感，所以這個作品主要是透過自定義的材質，去模擬清澈且具備透明感的水面動態，整體採用淺藍色調，想呈現出一種比較安靜、平穩的環境氛圍。",
-        coverMedia: "assets/portfolio/3D/pond_BG.jpg", // 輪播牆上顯示的影片或圖片
-        lightboxMain: "assets/portfolio/3D/pond.mp4", // 燈箱內的主要場景圖
-        lightboxProcess: "", // 燈箱內的製作過程影片
-        thumb: "assets/portfolio/3D/pond_BG.jpg" // 燈箱底部的導覽縮圖
+        coverMedia: "assets/portfolio/3D/pond_BG.jpg",
+        lightboxMain: "assets/portfolio/3D/pond.mp4",
+        lightboxProcess: "",
+        thumb: "assets/portfolio/3D/pond_BG.jpg"
     },
     {
         id: "scene-2",
@@ -459,15 +435,13 @@ const scenesData = [
     }
 ];
 
-let currentSceneIndex = 1; // 預設中間顯示第2個 (index 1)
+let currentSceneIndex = 1;
 
-// 2. 初始化輪播區塊
 function initSceneCarousel() {
     const track = document.getElementById('scene-track');
-    track.innerHTML = ''; // 清空
+    track.innerHTML = '';
 
     scenesData.forEach((scene, index) => {
-        // 判斷 cover 是影片還是圖片
         const isVideo = scene.coverMedia.endsWith('.mp4');
         const mediaHtml = isVideo 
             ? `<video src="${scene.coverMedia}" autoplay muted loop playsinline></video>`
@@ -484,19 +458,16 @@ function initSceneCarousel() {
     updateCarouselDisplay();
 }
 
-// 3. 處理點擊輪播項目的邏輯
 function handleSceneClick(clickedIndex) {
     if (clickedIndex === currentSceneIndex) {
-        // 如果點擊的是目前正中間的，就打開燈箱
         openSceneLightbox(clickedIndex);
     } else {
-        // 如果點擊的是兩側的，就切換輪播
         currentSceneIndex = clickedIndex;
         updateCarouselDisplay();
     }
 }
 
-// 4. 更新輪播畫面與文字
+// 更新輪播畫面與文字
 function updateCarouselDisplay() {
     const items = document.querySelectorAll('.scene-item');
     const total = scenesData.length;
@@ -522,7 +493,7 @@ function updateCarouselDisplay() {
     document.getElementById('scene-desc').innerText = activeData.desc;
 }
 
-// 5. 打開並渲染燈箱內容
+// 打開並渲染燈箱內容
 function openSceneLightbox(index) {
     const lightbox = document.getElementById('scene-lightbox');
     const mainContent = document.getElementById('scene-lightbox-main');
@@ -553,7 +524,6 @@ function openSceneLightbox(index) {
             }
         }
 
-    // 渲染主內容與製作過程
     mainContent.innerHTML = `
         ${renderMedia(data.lightboxMain, "場景渲染")}
         ${renderMedia(data.lightboxProcess, "製作過程")}
@@ -573,22 +543,18 @@ function openSceneLightbox(index) {
     document.body.style.overflow = 'hidden'; 
 }
 
-// 6. 在燈箱內點擊縮圖，直接切換燈箱內容
+// 在燈箱內點擊縮圖，直接切換燈箱內容
 function switchSceneLightbox(index) {
-    // 改變底層 Carousel 的狀態，讓關閉燈箱時背景是對的
     currentSceneIndex = index;
     updateCarouselDisplay();
-    // 重新渲染燈箱
     openSceneLightbox(index);
 }
 
-// 7. 關閉場景燈箱
+// 關閉場景燈箱
 function closeSceneLightbox(event) {
-    // 檢查點擊的目標，如果是內容區塊(img/video)，就不執行關閉
     if (event) {
         const isBackground = event.target.id === 'scene-lightbox';
         const isCloseBtn = event.target.classList.contains('close-btn');
-        // 如果不是點擊背景，也不是點擊 X 按鈕，就中斷函數
         if (!isBackground && !isCloseBtn) return; 
     }
 
@@ -596,12 +562,10 @@ function closeSceneLightbox(event) {
     lightbox.style.display = 'none';
     document.body.style.overflow = 'auto'; 
     
-    // 停止影片播放
     const videos = lightbox.querySelectorAll('video');
     videos.forEach(v => v.pause());
 }
 
-// 3. 新增專屬的影片播放函數 (加在 JS 檔案最後面)
 function toggleSceneVideo(wrapper) {
     if (event && event.target.tagName === 'VIDEO') return;
     const video = wrapper.querySelector('video');
@@ -610,7 +574,7 @@ function toggleSceneVideo(wrapper) {
     if (video.paused) {
         video.muted = true; 
         video.play().then(() => {
-            video.controls = true; // 播放後顯示控制條
+            video.controls = true;
             wrapper.classList.add('is-playing');
         }).catch(err => console.log("播放被阻擋:", err));
     } else {
@@ -620,14 +584,13 @@ function toggleSceneVideo(wrapper) {
 }
 
 // -----------------------
-
-// --- 1. 物件建模：上方區塊的多圖燈箱 ---
+// --- 物件建模：上方區塊的多圖燈箱 ---
 const objectGalleryData = {
     title: "物件建模 詳細視圖",
     images: [
-        "assets/portfolio/3D/Obj_broom_1.jpg", // 記得換成你真實的大圖路徑
-        "assets/portfolio/3D/Obj_broom_2.jpg", // 記得換成你真實的右上小圖路徑
-        "assets/portfolio/3D/Obj_broom_3.jpg", // 記得換成你真實的右下小圖路徑
+        "assets/portfolio/3D/Obj_broom_1.jpg",
+        "assets/portfolio/3D/Obj_broom_2.jpg",
+        "assets/portfolio/3D/Obj_broom_3.jpg",
         "assets/portfolio/3D/Geometric nodes.jpg"
     ],
     descriptions: ["主視圖", "細節視圖 1", "細節視圖 2","幾何節點圖"]
@@ -638,12 +601,10 @@ function openObjectGalleryLightbox() {
     const mainContent = document.getElementById('scene-lightbox-main');
     const thumbContainer = document.getElementById('scene-thumbnails-container');
     
-    // 清空底部的縮圖區塊
     if (thumbContainer) thumbContainer.innerHTML = ''; 
 
     let htmlContent = `<h2 style="color:#fff; text-align:center; margin: 20px 0 40px;">${objectGalleryData.title}</h2>`;
     
-    // 跑迴圈把三張圖片塞進去
     objectGalleryData.images.forEach((imgSrc, i) => {
         htmlContent += `
             <div class="scene-media-wrapper" style="margin-bottom: 60px;">
@@ -658,27 +619,23 @@ function openObjectGalleryLightbox() {
     document.body.style.overflow = 'hidden'; 
 }
 
-// --- 2. 物件建模：下方跑馬燈的單圖燈箱 ---
+// --- 物件建模：下方跑馬燈的單圖燈箱 ---
 function openSingleMediaLightbox(mediaSrc) {
     const lightbox = document.getElementById('scene-lightbox');
     const mainContent = document.getElementById('scene-lightbox-main');
     const thumbContainer = document.getElementById('scene-thumbnails-container');
     
-    // 如果底部縮圖導覽列還在，先清空它，避免擋到
     if (thumbContainer) {
         thumbContainer.innerHTML = '';
-        thumbContainer.style.display = 'none'; // 強制隱藏
+        thumbContainer.style.display = 'none';
     }
 
-    // 判斷傳進來的網址是不是影片檔
     const isVideo = mediaSrc.endsWith('.mp4') || mediaSrc.endsWith('.webm');
     
-    // 生成 HTML 時，去除 style 屬性，改用一個專用的 containment 類選取器
     const mediaHtml = isVideo 
         ? `<video src="${mediaSrc}" autoplay muted loop playsinline controls class="single-media-item"></video>`
         : `<img src="${mediaSrc}" class="single-media-item">`;
 
-    // 將媒體塞入一個具有 containment 類的包裹層中
     mainContent.innerHTML = `
         <div class="single-media-container">
             ${mediaHtml}
@@ -693,28 +650,24 @@ function handleCopy(type, btnElement) {
     let content = "";
     let originalText = "";
 
-    // 拼接資訊，防止爬蟲直接偵測
     if (type === 'email') {
-        const user = "0614nancy"; // 替換成你的 Email 前綴
+        const user = "0614nancy";
         const domain = "gmail.com";
         content = user + "@" + domain;
         originalText = "複製 Email";
     } else if (type === 'phone') {
-        const part1 = "0934"; // 替換成你的手機前四碼
+        const part1 = "0934";
         const part2 = "042";
         const part3 = "566";
         content = part1 + part2 + part3;
         originalText = "複製手機號碼";
     }
 
-    // 執行複製到剪貼簿
     navigator.clipboard.writeText(content).then(() => {
-        // 切換成功狀態
         const textElement = btnElement.querySelector('.btn-text');
         btnElement.classList.add('success');
         textElement.innerText = "已複製！";
 
-        // 2 秒後恢復原狀
         setTimeout(() => {
             btnElement.classList.remove('success');
             textElement.innerText = originalText;
@@ -729,7 +682,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const gateTrigger = document.getElementById('houdini-gate');
     
     if (gateTrigger) {
-        // 設定觸發方式：雙擊 (dblclick)
         gateTrigger.addEventListener('dblclick', () => {
             openGate();
         });
@@ -739,8 +691,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // 開啟彈窗
 function openGate() {
     document.getElementById('cyber-modal').style.display = 'flex';
-    document.getElementById('cyber-pass').value = ''; // 清空欄位
-    document.getElementById('cyber-pass').focus();   // 自動聚焦
+    document.getElementById('cyber-pass').value = '';
+    document.getElementById('cyber-pass').focus();
 }
 
 // 關閉彈窗
@@ -748,33 +700,27 @@ function closeGate() {
     document.getElementById('cyber-modal').style.display = 'none';
 }
 
-// 驗證密碼
 function verifyAccess() {
     const inputPass = document.getElementById('cyber-pass').value;
     
     // --- 密碼設定區 ---
     const secretCode = "0614";
-    const hiddenPage = "access.html"; // 這裡改成你隱藏頁面的檔名
+    const hiddenPage = "access.html";
     // ----------------
 
     if (inputPass === secretCode) {
-        // 密碼正確，跳轉頁面
         window.location.href = hiddenPage;
     } else {
-        // 密碼錯誤，顯示警示
         alert("密碼錯誤，請洽詢創作者。");
-        document.getElementById('cyber-pass').value = ''; // 清空輸入框
+        document.getElementById('cyber-pass').value = '';
     }
 }
 
-// --- 2. 優化點擊旁邊黑色區域關閉邏輯 ---
+// --- 優化點擊旁邊黑色區域關閉邏輯 ---
 window.addEventListener('load', function() {
     const modal = document.getElementById("matteLightbox");
     if (modal) {
         modal.addEventListener('click', function(event) {
-            // event.target 是滑鼠點擊到的最上層元素。
-            // 只有點擊到黑色背景層 (.modal) 本身時才關閉，
-            // 點擊到內部的圖片或影片 (.modal-content 及其子元素) 則不動作。
             if (event.target === modal) {
                 closeLightbox();
                 console.log("點擊背景，關閉燈箱");
@@ -791,14 +737,11 @@ window.addEventListener('load', function() {
             let bookHeight = 733;
             let useSinglePage = false;
 
-            // 3. 根據螢幕大小動態縮小書本尺寸 (維持原本約 3:4 的比例)
             if (screenWidth < 768) {
-                // 手機版
                 bookWidth = 320;
                 bookHeight = 426;
-                useSinglePage = true; // 手機強制顯示單頁
+                useSinglePage = true;
             } else if (screenWidth < 1200) {
-                // 平板版 (解決平板放不下 1100px 雙頁寬度，導致圖片消失或擠壓的問題)
                 bookWidth = 380;
                 bookHeight = 506;
             }
@@ -807,8 +750,8 @@ window.addEventListener('load', function() {
             width: bookWidth,
             height: bookHeight,
             size: "fixed",
-            showCover: useSinglePage, // 手機版建議開啟封面
-            usePortrait: useSinglePage, // 手機版允許直向單頁
+            showCover: useSinglePage,
+            usePortrait: useSinglePage,
             startPage: 0,
             drawShadow: true,
             flippingTime: 1000,
@@ -817,7 +760,6 @@ window.addEventListener('load', function() {
 
         pageFlip.loadFromHTML(pages);
 
-        // 循環翻頁邏輯
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
 
