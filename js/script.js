@@ -703,10 +703,8 @@ function closeGate() {
 function verifyAccess() {
     const inputPass = document.getElementById('cyber-pass').value;
     
-    // --- 密碼設定區 ---
     const secretCode = "0614";
     const hiddenPage = "access.html";
-    // ----------------
 
     if (inputPass === secretCode) {
         window.location.href = hiddenPage;
