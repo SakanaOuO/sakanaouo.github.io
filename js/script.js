@@ -219,6 +219,16 @@ const mpData = {
             },
         ]
     },
+    Motion_Trail_1: {
+        title: "拖尾_1",
+        fullImg: "",
+        videoUrl: "assets/portfolio/game/Motion_Trail_1.mp4"
+    },
+    VFX_1: {
+        title: "VFX_1",
+        fullImg: "",
+        videoUrl: "assets/portfolio/game/VFX_1.mp4"
+    },
 };
 
 // 2. 開啟燈箱

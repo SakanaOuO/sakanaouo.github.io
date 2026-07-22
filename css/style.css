@@ -66,6 +66,10 @@ body {
     pointer-events: none;
 }
 
+.VFX {
+    font-size: 24px;
+}
+
 /* -------------------------------- */
 .dropdown {
     position: relative;
