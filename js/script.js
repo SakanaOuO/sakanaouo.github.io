@@ -229,6 +229,47 @@ const mpData = {
         fullImg: "",
         videoUrl: "assets/portfolio/game/VFX_1.mp4"
     },
+    shrine: {
+            title: "日式神社",
+            isMulti: true,
+            items: [
+            {
+                title: "模型分色",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_Obj.jpg"
+            },
+            {
+                title: "材質",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_Mat.jpg"
+            },
+            {
+                title: "細節_1",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_1.jpg"
+            },
+            {
+                title: "細節_2",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_2.jpg"
+            },
+            {
+                title: "細節_3",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_3.jpg"
+            },
+            {
+                title: "神社 - 日",
+                type: "video",
+                url: "assets/portfolio/3D/shrine_day.mp4"
+            },
+            {
+                title: "神社 - 夜",
+                type: "video",
+                url: "assets/portfolio/3D/shrine_night.mp4"
+            },
+        ]
+    },
 };
 
 // 2. 開啟燈箱
