@@ -100,10 +100,15 @@ const mpData = {
                 url: "assets/portfolio/3D/Sea of Clouds.jpg"
             },
             {
-                title: "製作過程",
+                title: "Houdini節點",
+                type: "video",
+                url: "assets/portfolio/3D/houdini.mp4"
+            },
+            {
+                title: "雲朵渲染",
                 type: "video",
                 url: "assets/portfolio/3D/Sea of Clouds_ProductionProcess.mp4"
-            }
+            },
         ]
     },
     blender_Starry: {
