@@ -1925,6 +1925,14 @@ video {
     color: #ffffff;
     padding: 80px 5%;
     position: relative;
+    margin-top: -5%;
+}
+
+.UE_shrine {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding: 80px 5%;
+    position: relative;
 }
 
 .houdini-container {

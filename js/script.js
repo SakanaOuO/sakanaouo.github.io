@@ -275,6 +275,37 @@ const mpData = {
             },
         ]
     },
+    shrine_NPR: {
+            title: "日式神社_PBR × NPR",
+            isMulti: true,
+            items: [
+            {
+                title: "神社",
+                type: "video",
+                url: "assets/portfolio/3D/shrine_NPR.mp4"
+            },
+            {
+                title: "材質_1",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_NPR_1.jpg"
+            },
+            {
+                title: "材質_2",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_NPR_2.jpg"
+            },
+            {
+                title: "材質_3",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_NPR_3.jpg"
+            },
+            {
+                title: "材質_4",
+                type: "image",
+                url: "assets/portfolio/3D/shrine_NPR_4.jpg"
+            },
+        ]
+    },
 };
 
 // 2. 開啟燈箱
