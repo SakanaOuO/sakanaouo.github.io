@@ -155,7 +155,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/BG_Editor.png');
+    background-image: url('../assets/BG_Editor.jpg');
     background-size: cover;
     background-position: center center;
     display: flex;
@@ -179,7 +179,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/BG_game.png');
+    background-image: url('../assets/BG_game.jpg');
     background-size: cover;
     background-position: center center;
     display: flex;
@@ -1925,7 +1925,6 @@ video {
     color: #ffffff;
     padding: 80px 5%;
     position: relative;
-    margin-top: -5%;
 }
 
 .UE_shrine {
