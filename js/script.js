@@ -234,6 +234,11 @@ const mpData = {
         fullImg: "",
         videoUrl: "assets/portfolio/game/VFX_1.mp4"
     },
+    VFX_2: {
+        title: "VFX_2",
+        fullImg: "",
+        videoUrl: "assets/portfolio/game/VFX_2.mp4"
+    },
     shrine: {
             title: "日式神社",
             isMulti: true,
