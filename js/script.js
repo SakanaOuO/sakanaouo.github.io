@@ -311,6 +311,24 @@ const mpData = {
             },
         ]
     },
+    Modeling: {
+            title: "程序化建築",
+            isMulti: true,
+            items: [
+            {
+                title: "模組資產",
+                description: "建立程序化建築所需的模組化資產，包含牆面、窗戶、門等建築元件。",
+                type: "image",
+                url: "assets/portfolio/3D/Module_assets.jpg",
+            },
+            {
+                title: "部分節點圖",
+                description: "建築生成系統的核心規則流程，從建築尺寸與整體佈局開始，依序處理前後左右牆體生成、樓層配置、模組排列，以及門窗等條件規則，最終自動生成符合設定的建築結構。",
+                type: "image",
+                url: "assets/portfolio/3D/Node_graph_1.jpg"
+            },
+        ]
+    },
 };
 
 // 2. 開啟燈箱
@@ -359,6 +377,7 @@ function openLightbox(workId) {
             multiContent.innerHTML += `
                 <div class="multi-section">
                     <h3 class="multi-title">${item.title}</h3>
+                    <p class="multi-description">${item.description || ""}</p>
                     <div class="multi-media-wrapper">${mediaHtml}</div>
                 </div>`;
         });

@@ -301,6 +301,19 @@ body {
     z-index: 3;
 }
 
+.multi-description {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.8;
+    max-width: 900px;
+}
+
+/* ------------------ */
+
+#houdini , #ParticleForest , #GameVFX , #shrine , #scene-section , #portfolio-section , #Star_sky {
+    scroll-margin-top: 100px;
+}
+
 /* -------------------關於我 / 技能-------------------- */
 
 #about-and-skills {
@@ -2025,6 +2038,13 @@ video {
     line-height: 1.8;
     color: #fff;
     margin-top: 10%;
+}
+
+.Procedural {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #fff;
+    margin-top: 5%;
 }
 
 /* --- Lightbox 燈箱設定 --- */
