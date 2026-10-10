@@ -478,8 +478,8 @@ const clothingData = [
         title: "學生服 詳細視圖",
         images: [
             "assets/portfolio/3D/clothing_2.jpg",
-            "assets/portfolio/3D/clothing_2_1.png",
-            "assets/portfolio/3D/T-pose_2.png"
+            "assets/portfolio/3D/clothing_2_1.jpg",
+            "assets/portfolio/3D/T-pose_2.jpg"
         ],
         descriptions: ["", "", ""]
     }

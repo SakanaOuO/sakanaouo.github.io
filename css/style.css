@@ -119,7 +119,7 @@ body {
     position: relative;
     width: 100%;
     height: 100vh;
-    background-image: url('../assets/BG_1.png');
+    background-image: url('../assets/BG_1.jpg');
     background-size: cover;
     background-position: center center;
     display: flex;
