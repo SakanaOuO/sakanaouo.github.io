@@ -11,17 +11,51 @@ window.onscroll = function() {
 };
 
 // 監聽整個網頁載入完成的事件
+// window.addEventListener('load', function() {
+//     const loadingScreen = document.getElementById('loading-screen');
+    
+//     if (loadingScreen) {
+//         loadingScreen.classList.add('fade-out');
+        
+//         setTimeout(() => {
+//             loadingScreen.style.display = 'none';
+//         }, 600);
+//     }
+// });
+
 window.addEventListener('load', function() {
     const loadingScreen = document.getElementById('loading-screen');
-    
+
+    // 開始載入頁尾 GIF
+    function loadFooterGif() {
+        const gif = document.getElementById('footer-gif');
+
+        if (!gif || !gif.dataset.src || gif.dataset.loaded === 'true') {
+            return;
+        }
+
+        // 強制立即載入，不等待滑到頁尾
+        gif.loading = 'eager';
+        gif.src = gif.dataset.src;
+        gif.dataset.loaded = 'true';
+    }
+
     if (loadingScreen) {
         loadingScreen.classList.add('fade-out');
-        
+
         setTimeout(() => {
+            // 等待 600ms 淡出動畫結束
             loadingScreen.style.display = 'none';
+
+            // Loading 消失後才下載 GIF
+            loadFooterGif();
         }, 600);
+    } else {
+        // 若沒有 Loading 畫面，直接開始載入
+        loadFooterGif();
     }
 });
+
 
 // 3. 作品資料庫
 const mpData = {
