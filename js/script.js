@@ -366,6 +366,7 @@ const mpData = {
 };
 
 // 2. 開啟燈箱
+
 function openLightbox(workId) {
     const data = mpData[workId];
     if (!data) return;
@@ -376,82 +377,122 @@ function openLightbox(workId) {
     const imgElement = document.getElementById("fullImage");
     const videoElement = document.getElementById("fullVideo");
     const videoBox = document.getElementById("videoBox");
-    const titles = standardContent.querySelectorAll('h4');
+    const titles = standardContent.querySelectorAll("h4");
+
+    // 停止先前正在播放的影片，避免背景繼續播放
+    videoElement.pause();
+
+    multiContent.querySelectorAll("video").forEach(video => {
+        video.pause();
+    });
+
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
 
     if (data.isMulti) {
-        // --- 模式 B：多媒體模式 ---
+        // 多媒體模式
         standardContent.style.display = "none";
         multiContent.style.display = "flex";
-        
-        multiContent.innerHTML = "";
-        
-        data.items.forEach((item, index) => {
+
+        // 只有切換到不同作品時才建立新的多媒體內容
+        // 再次開啟同一作品時，直接沿用原本的影片元素
+        if (multiContent.dataset.workId !== workId) {
             let mediaHtml = "";
-            
-            if (item.type === 'video') {
-                if (index === 0) {
-                    mediaHtml = `
-                        <video src="${item.url}" 
-                            class="multi-media-item" 
-                            autoplay muted loop controls 
-                            preload="metadata">
-                        </video>`;
+
+            data.items.forEach((item, index) => {
+                if (item.type === "video") {
+                    const autoplay = index === 0;
+
+                    mediaHtml += `
+                        <div class="multi-section">
+                            <h3 class="multi-title">${item.title}</h3>
+                            <p class="multi-description">${item.description || ""}</p>
+                            <div class="multi-media-wrapper">
+                                <video
+                                    src="${item.url}"
+                                    class="multi-media-item"
+                                    ${autoplay ? "autoplay muted loop" : ""}
+                                    controls
+                                    playsinline
+                                    preload="${autoplay ? "auto" : "none"}">
+                                </video>
+                            </div>
+                        </div>`;
                 } else {
-                    mediaHtml = `
-                        <video src="${item.url}" 
-                            class="multi-media-item" 
-                            controls 
-                            preload="metadata">
-                        </video>`;
+                    mediaHtml += `
+                        <div class="multi-section">
+                            <h3 class="multi-title">${item.title}</h3>
+                            <p class="multi-description">${item.description || ""}</p>
+                            <div class="multi-media-wrapper">
+                                <img
+                                    src="${item.url}"
+                                    alt="${item.title}"
+                                    class="multi-media-item">
+                            </div>
+                        </div>`;
                 }
-            } else {
-                mediaHtml = `<img src="${item.url}" alt="${item.title}" class="multi-media-item">`;
-            }
+            });
 
-            multiContent.innerHTML += `
-                <div class="multi-section">
-                    <h3 class="multi-title">${item.title}</h3>
-                    <p class="multi-description">${item.description || ""}</p>
-                    <div class="multi-media-wrapper">${mediaHtml}</div>
-                </div>`;
-        });
-    } else {
-        // --- 啟用原本的單一圖文模式 ---
-        standardContent.style.display = "flex"; 
-        multiContent.style.display = "none";
-        multiContent.innerHTML = "";
-
-        if (workId.startsWith('portrait')) {
-            titles.forEach(h4 => h4.style.display = 'none');
-        } else {
-            titles.forEach(h4 => h4.style.display = 'block');
+            // 一次建立全部內容，不在迴圈內反覆重建 DOM
+            multiContent.innerHTML = mediaHtml;
+            multiContent.dataset.workId = workId;
         }
 
-        if (data.fullImg && data.fullImg !== "") {
+        // 恢復原本第一支影片的自動播放行為
+        const autoplayVideo = multiContent.querySelector("video[autoplay]");
+
+        if (autoplayVideo) {
+            autoplayVideo.play().catch(() => {});
+        }
+
+    } else {
+        // 單一圖文／影片模式
+        standardContent.style.display = "flex";
+        multiContent.style.display = "none";
+
+        if (workId.startsWith("portrait")) {
+            titles.forEach(h4 => h4.style.display = "none");
+        } else {
+            titles.forEach(h4 => h4.style.display = "block");
+        }
+
+        if (data.fullImg) {
             imgElement.src = data.fullImg;
             imgElement.style.display = "block";
         } else {
             imgElement.style.display = "none";
         }
 
-        if (data.videoUrl && data.videoUrl !== "") {
-            videoBox.style.display = "block"; 
-            videoElement.src = data.videoUrl;
+        if (data.videoUrl) {
+            videoBox.style.display = "block";
             videoElement.controls = true;
-            videoElement.load();
-            videoElement.play();
+
+            // 只有來源真的改變時，才設定新的 src
+            const requestedSrc = new URL(
+                data.videoUrl,
+                document.baseURI
+            ).href;
+
+            if (videoElement.dataset.currentSrc !== requestedSrc) {
+                videoElement.src = data.videoUrl;
+                videoElement.dataset.currentSrc = requestedSrc;
+            }
+
+            // 不重複呼叫 load()，沿用已建立的媒體來源
+            videoElement.play().catch(() => {});
+
         } else {
-            videoBox.style.display = "none"; 
+            videoBox.style.display = "none";
+
+            // 只暫停，不清空 src，也不呼叫 load()
             videoElement.pause();
-            videoElement.src = "";
         }
     }
-
-    modal.style.display = "flex";
-    document.body.style.overflow = "hidden";
 }
 
+
 // 1. 關閉燈箱函數
+
 function closeLightbox() {
     const modal = document.getElementById("matteLightbox");
     const videoElement = document.getElementById("fullVideo");
@@ -460,40 +501,21 @@ function closeLightbox() {
     if (modal) {
         modal.style.display = "none";
         document.body.style.overflow = "auto";
+    }
 
-        if (videoElement) {
-            videoElement.pause();
-            videoElement.src = "";
-            videoElement.load();
-        }
+    // 暫停單一影片，但保留來源和已載入的媒體資料
+    if (videoElement) {
+        videoElement.pause();
+    }
 
-        if (multiContent) {
-            multiContent.innerHTML = "";
-        }
+    // 暫停多媒體燈箱中的所有影片
+    // 保留 DOM，不再刪除影片或清空來源
+    if (multiContent) {
+        multiContent.querySelectorAll("video").forEach(video => {
+            video.pause();
+        });
     }
 }
-
-function toggleVideo(overlay) {
-    const wrapper = overlay.parentElement;
-    const video = wrapper.querySelector('video');
-
-    if (video.paused) {
-        video.play();
-        wrapper.classList.add('playing');
-    }
-}
-
-document.querySelectorAll('.video-wrapper_Editor video').forEach(video => {
-    const wrapper = video.parentElement;
-
-    video.addEventListener('pause', () => {
-        wrapper.classList.remove('playing');
-    });
-
-    video.addEventListener('play', () => {
-        wrapper.classList.add('playing');
-    });
-});
 
 // ------------------------------
 // 定義服裝的燈箱資料
